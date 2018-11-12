@@ -1,1 +1,5 @@
-slt quantin
+void menu()
+{
+    printf("");
+    return 0;
+}
