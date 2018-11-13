@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <jeu.h>
 
-int main()
+void main()
 {
     int gameMode, nbJoueurs;
 
@@ -10,15 +11,31 @@ int main()
     
     switch (gameMode) {
         case 1 :
-            printf("\n\n[v] Mode SEUL : SELECTIONNE !");
+            printf("\n\n[v] Mode SEUL : SELECTIONNE !\n\n");
+            modeSolo();
             break;
         case 2 :
-            printf("\n\n[v] Mode MULTIJOUEUR : SELECTIONNE !\n\n Nombre de joueurs [1;4]: ");
-            scanf("%d", &nbJoueurs);
+            printf("\n\n[v] Mode MULTIJOUEUR : SELECTIONNE !\n\n");
+            modeMulti();
             break;
         case 3 :
-            printf("\n\n[v] Mode IA : SELECTIONNE !");
+            printf("\n\n[v] Mode IA : SELECTIONNE !\n\n");
+            modeIA();
             break;
     }
+}
+
+int solo() {
+
+    return 0;
+}
+
+int multijoueur() {
+
+    return 0;
+}
+
+int IA () {
+
     return 0;
 }
