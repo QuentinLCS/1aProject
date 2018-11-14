@@ -9,6 +9,8 @@ void main()
     int i, j;
     int matrice[TAILLE_PLATEAU][TAILLE_PLATEAU];
 
+// CREATION DU PLATEAU (en fonction des dimensions)
+
     for (i = 0; i < TAILLE_PLATEAU; i++) {
         for(j = 0; j < TAILLE_PLATEAU; j++) {
             if (j < TAILLE_ECURIE && i < TAILLE_ECURIE) {
@@ -28,6 +30,8 @@ void main()
             } 
         }
     }
+
+// AFFICHAGE DU PLATEAU 
 
     for (i = 0; i < TAILLE_PLATEAU; i++) {
         for(j = 0; j < TAILLE_PLATEAU; j++) {
