@@ -6,7 +6,7 @@
 void main()
 {
     int i, j;
-    plateau matrice[][4] ={ {0,1,2,3} , {4,5,6,7} };
+    int matrice[][4] ={ {0,1,2,3} , {4,5,6,7} };
 
     for (i = 0; i < TAILLE_PLATEAU; i++) {
         for(j = 0; j < TAILLE_PLATEAU; j++) {

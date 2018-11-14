@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <jeu.h>
+#include "jeu.h"
 
 void main()
 {
