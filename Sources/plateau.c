@@ -7,7 +7,7 @@
 void main()
 {
     int i, j;
-    int matrice[][4] ={ {0,1,2,3} , {4,5,6,7} };
+    int matrice[TAILLE_PLATEAU][TAILLE_PLATEAU];
 
     for (i = 0; i < TAILLE_PLATEAU; i++) {
         for(j = 0; j < TAILLE_PLATEAU; j++) {
@@ -24,12 +24,12 @@ void main()
             } else {
                 matrice[i][j] = 0;
             } 
-        } printf("\n");
+        }
     }
 
     for (i = 0; i < TAILLE_PLATEAU; i++) {
         for(j = 0; j < TAILLE_PLATEAU; j++) {
-            printf("%d \n", matrice[i][j]);
+            printf("%d ", matrice[i][j]);
         } printf("\n");
     }
 }
