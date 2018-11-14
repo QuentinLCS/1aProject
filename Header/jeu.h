@@ -7,4 +7,6 @@ int solo();
 int multi();
 int IA();
 
+//typedef {} PARTIE;
+
 #endif // JEU_H
