@@ -11,7 +11,7 @@ void main()
     for (i = 0; i < TAILLE_PLATEAU; i++) {
         for(j = 0; j < TAILLE_PLATEAU; j++) {
             if (j < TAILLE_ECURIE && i < TAILLE_ECURIE) {
-                printf("1 ");
+                matrice[i][j] = 1;
             } else if (j >= TAILLE_PLATEAU - TAILLE_ECURIE && i < TAILLE_ECURIE) {
                 printf("2 ");
             } else if (j < TAILLE_ECURIE && i >= TAILLE_PLATEAU - TAILLE_ECURIE) {
