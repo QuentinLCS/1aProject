@@ -3,6 +3,7 @@
 #define TAILLE_PLATEAU 15
 #define TAILLE_ECURIE 6
 
+// void creation_plateau()
 void main()
 {
     int i, j;

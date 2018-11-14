@@ -1,8 +1,10 @@
 #ifndef JEU_H
 #define JEU_H
 
-int modeSolo();
-int modeMulti();
-int modeIA();
+void creation_plateau();
+void menu();
+int solo();
+int multi();
+int IA();
 
 #endif // JEU_H
