@@ -14,15 +14,15 @@ void main()
             if (j < TAILLE_ECURIE && i < TAILLE_ECURIE) {
                 matrice[i][j] = 1;
             } else if (j >= TAILLE_PLATEAU - TAILLE_ECURIE && i < TAILLE_ECURIE) {
-                printf("2 ");
+                matrice[i][j] = 2;
             } else if (j < TAILLE_ECURIE && i >= TAILLE_PLATEAU - TAILLE_ECURIE) {
-                printf("3 ");
+                matrice[i][j] = 3;
             } else if (j >= TAILLE_PLATEAU - TAILLE_ECURIE && i >= TAILLE_PLATEAU - TAILLE_ECURIE) {
-                printf("4 ");
+                matrice[i][j] = 4;
             } else if (j == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0 || TAILLE_PLATEAU % 2 == 0 && (j == TAILLE_PLATEAU / 2 || j == TAILLE_PLATEAU / 2 + 1) ) {
-                printf("9 ");
+                matrice[i][j] = 9;
             } else {
-                printf("0 ");
+                matrice[i][j] = 0;
             } 
         } printf("\n");
     }
@@ -30,6 +30,6 @@ void main()
     for (i = 0; i < TAILLE_PLATEAU; i++) {
         for(j = 0; j < TAILLE_PLATEAU; j++) {
             printf("%d \n", matrice[i][j]);
-        } 
+        } printf("\n");
     }
 }
