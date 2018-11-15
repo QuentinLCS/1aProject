@@ -1,7 +1,7 @@
 #ifndef JEU_H
 #define JEU_H
 
-int de();
+int de(int);
 void creation_plateau();
 void menu();
 int solo();
