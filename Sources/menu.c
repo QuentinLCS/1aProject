@@ -6,19 +6,55 @@ void main()
 {
     int gameMode, nbJoueurs;
 
-    printf("\n[Projet 1A] PETITS CHEVAUX \nPar : CHAVAS Nathan & LECHASLES Quentin\n\nQue souhaitez-vous faire ?\n  [1] JOUER\n  [2] SCENARIOS\n  [3] OPTIONS\n  [4] QUITTER\n\nMode [entrez une valeur]: ");
+    printf("\n[Projet 1A] PETITS CHEVAUX \nPar : CHAVAS Nathan & LECHASLES Quentin\n\nChoisissez votre mode de jeu :\n  [1] Nouvelle partie\n  [2] Continuer\n  [3] Options\n  [4] Quitter \n\nMode [entrez une valeur]: ");
     scanf("%d", &gameMode);
 
     
     switch (gameMode) {
         case 1 :
-            printf("\n\n[v] Mode SEUL : SELECTIONNE !\n\n");
+            printf("\n\n[v] NOUVELLE PARTIE : SELECTIONNE !\n\n");
+            NvPartie();
             break;
         case 2 :
-            printf("\n\n[v] Mode MULTIJOUEUR : SELECTIONNE !\n\n");
+            printf("\n\n[v] CONTINUER : SELECTIONNE !\n\n");
+            Continue();
             break;
         case 3 :
-            printf("\n\n[v] Mode IA : SELECTIONNE !\n\n");
+            printf("\n\n[v] OPTION : SELECTIONNE !\n\n");
+            Option();
+            break;
+        case 4 :
+            printf("\n\n[v] QUITTER : SELECTIONNE !\n\n");
             break;
     }
+}
+
+int NvPartie (){
+
+    return 0;
+}
+
+int Continue (){
+
+    return 0;
+}
+
+int Option (){
+
+    return 0;
+}
+
+int solo() {
+
+    return 0;
+}
+
+int multi() {
+
+    return 0;
+}
+
+int IA () {
+
+    return 0;
 }
