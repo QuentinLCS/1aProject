@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "../Header/plateau.h"
 #include "../Header/jeu.h"
 #define TAILLE_PLATEAU 15 // IMPAIR 
 #define TAILLE_ECURIE 6 // Calculable ?
@@ -7,7 +8,7 @@
 void main()
 {
     int i, j;
-    int matrice[TAILLE_PLATEAU][TAILLE_PLATEAU];
+    cellule matrice[TAILLE_PLATEAU][TAILLE_PLATEAU];
 
 // CREATION DU PLATEAU (en fonction des dimensions)
 
