@@ -2,9 +2,9 @@
 #include "../Header/jeu.h"
 
 // void menu()
-void main()
+void menu()
 {
-    int gameMode, nbJoueurs;
+    int gameMode;
 
     printf("\n[Projet 1A] PETITS CHEVAUX \nPar : CHAVAS Nathan & LECHASLES Quentin\n\nChoisissez votre mode de jeu :\n  [1] Nouvelle partie\n  [2] Continuer\n  [3] Options\n  [4] Quitter \n\nMode [entrez une valeur]: ");
     scanf("%d", &gameMode);
@@ -13,7 +13,7 @@ void main()
     switch (gameMode) {
         case 1 :
             printf("\n\n[v] NOUVELLE PARTIE : SELECTIONNE !\n\n");
-            NvPartie();
+            init();
             break;
         case 2 :
             printf("\n\n[v] CONTINUER : SELECTIONNE !\n\n");
@@ -30,12 +30,18 @@ void main()
 }
 
 int NvPartie (){
-
-    return 0;
+    int nbJoueur, d;
+    do{
+        printf ("À combien de joueur voulez-vous jouer ? \n --> 1 JOUEUR\n\n --> 2 JOUEURS\n\n --> 3 JOUEURS\n\n --> 4 JOUEURS\n\n");
+        d=scanf ("%d",&nbJoueur);
+    } while (nbJoueur <1 || nbJoueur>4 || d=0);
+    printf ("\n\n[Nombre %d Joueur(s) séléctionné]\n\n",nbJoueur);
+    Jeu();
+    return nbJoueur;
 }
 
 int Continue (){
-
+    Jeu();
     return 0;
 }
 
@@ -44,17 +50,3 @@ int Option (){
     return 0;
 }
 
-int solo() {
-
-    return 0;
-}
-
-int multi() {
-
-    return 0;
-}
-
-int IA () {
-
-    return 0;
-}

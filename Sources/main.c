@@ -9,9 +9,11 @@ Pour DECEMBRE 2018 !
 */
 
 #include <stdio.h>
+#include "../Header/pion.h"
 
 int main(int argc, char const *argv[])
 {
-    printf("coucou\n");
-    return 0;
+    menu();
+    
+
 }

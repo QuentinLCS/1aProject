@@ -9,7 +9,7 @@ typedef struct {
     typedef struct {
         int num_joueur;
         char nom_joueur[30];
-        char couleur;
+        char couleur[6];
         Pion Cheval[4];
     } Joueur ;
 
