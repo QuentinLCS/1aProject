@@ -15,7 +15,9 @@ void main()
     for (i = 0; i < TAILLE_PLATEAU; i++) {
         for(j = 0; j < TAILLE_PLATEAU; j++) {
             if (j < TAILLE_ECURIE && i < TAILLE_ECURIE) { 
-                matrice[i][j] = 1; // Ecurie haut gauche
+                matrice[i][j].nbChevaux = 0; // Ecurie haut gauche
+                matrice[i][j].couleur[] = "bleu";
+                matrice[i][j].ecurie = 1;
             } else if (j >= TAILLE_PLATEAU - TAILLE_ECURIE && i < TAILLE_ECURIE) { 
                 matrice[i][j] = 2; // Ecurie haut droite
             } else if (j < TAILLE_ECURIE && i >= TAILLE_PLATEAU - TAILLE_ECURIE) { 

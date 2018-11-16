@@ -9,8 +9,8 @@ typedef struct {
     typedef struct {
         int num_joueur;
         char nom_joueur[30];
-        int couleur;
+        char couleur;
         Pion Cheval[4];
     } Joueur ;
 
-#endif // PION_H
+#endif // JEU_H

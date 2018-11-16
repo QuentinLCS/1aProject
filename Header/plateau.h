@@ -4,7 +4,8 @@
 typedef struct 
 {
     int nbChevaux;
-    char couleur;
+    char couleur[6];
+    int ecurie; // booléen ( vrai ou faux )
 } cellule;
 
 
