@@ -4,7 +4,7 @@
 #define TAILLE_PLATEAU 15 // IMPAIR
 #define TAILLE_ECURIE 6 // Calculable ?
 
-// Variables globales
+// VARIABLES GLOBALES
 int i, j;
 cellule matrice[TAILLE_PLATEAU][TAILLE_PLATEAU];
 
@@ -68,32 +68,51 @@ void main()
 
 void affichage_plateau() 
 {
-    printf("\n\n\n");
+    printf("\n\n\n"); 
     for (i = 0; i < TAILLE_PLATEAU; i++) {
         for(j = 0; j < TAILLE_PLATEAU; j++) {
 
             // AFFICHAGE DES ECURIES 
 
             if (matrice[i][j].couleur[0] == "bleu" && matrice[i][j].ecurie) {
-                if (j == 0) {
-                    printf("\033[34;44m \033[0m");
-                } if (j == TAILLE_ECURIE - 1) {
-                    printf("\033[34;44m \033[0m\033[7m \033[0m");
+                if (matrice[i][j].nbChevaux) {
+                    printf("\033[1;44m X \033[0m"); 
                 } else {
-                    printf("\033[34;44m   \033[0m");
+                    if (j == 0) {
+                        printf("\033[34;44m \033[0m");
+                    } if (j == TAILLE_ECURIE - 1) {
+                        printf("\033[34;44m \033[0m\033[7m \033[0m");
+                    } else {
+                        printf("\033[34;44m   \033[0m");
+                    }
                 }
+
             } else if (matrice[i][j].couleur[0] == "rouge" && matrice[i][j].ecurie) {
-                printf("\033[31;41m   \033[0m");
-            } else if (matrice[i][j].couleur[0] == "jaune" && matrice[i][j].ecurie) {
-                printf("\033[33;43m   \033[0m");
-            } else if (matrice[i][j].couleur[0] == "vert" && matrice[i][j].ecurie) {
-                if (j == 0) {
-                    printf("\033[32;42m \033[0m");
-                } if (j == TAILLE_ECURIE - 1) {
-                    printf("\033[32;42m \033[0m\033[7m \033[0m");
+                if (matrice[i][j].nbChevaux) {
+                    printf("\033[1;41m X \033[0m"); 
                 } else {
-                    printf("\033[32;42m   \033[0m");
-                } 
+                    printf("\033[31;41m   \033[0m");
+                }
+
+            } else if (matrice[i][j].couleur[0] == "jaune" && matrice[i][j].ecurie) {
+                if (matrice[i][j].nbChevaux) {
+                    printf("\033[1;43m X \033[0m"); 
+                } else {
+                    printf("\033[33;43m   \033[0m");
+                }
+
+            } else if (matrice[i][j].couleur[0] == "vert" && matrice[i][j].ecurie) {
+                if (matrice[i][j].nbChevaux) {
+                    printf("\033[1;42m X \033[0m"); 
+                } else {
+                    if (j == 0) {
+                        printf("\033[32;42m \033[0m");
+                    } if (j == TAILLE_ECURIE - 1) {
+                        printf("\033[32;42m \033[0m\033[7m \033[0m");
+                    } else {
+                        printf("\033[32;42m   \033[0m");
+                    } 
+                }
             } 
 
             // AFFICHAGE DES ECHELLES
@@ -103,21 +122,22 @@ void affichage_plateau()
                     printf("\033[1;44m X \033[0m"); 
                 } else {
                     printf("\033[1;44m %d \033[0m", j);  
-                }        
+                }     
+
             } else if (matrice[i][j].couleur[0] == "rouge" && matrice[i][j].echelle) {
                 if (matrice[i][j].nbChevaux) {
                     printf("\033[1;41m X \033[0m"); 
                 } else {
                     printf("\033[1;41m %d \033[0m", i);   
-                }     
-                        
+                }    
+
             } else if (matrice[i][j].couleur[0] == "jaune" && matrice[i][j].echelle) {
                 if (matrice[i][j].nbChevaux) {
                     printf("\033[1;43m X \033[0m"); 
                 } else {
                     printf("\033[1;43m %d \033[0m", TAILLE_PLATEAU - j - 1);
                 }     
-                          
+
             } else if (matrice[i][j].couleur[0] == "vert" && matrice[i][j].echelle) {
                 if (matrice[i][j].nbChevaux) {
                     printf("\033[1;42m X \033[0m"); 
