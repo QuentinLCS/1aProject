@@ -4,9 +4,6 @@
 int de(int);
 void creation_plateau();
 void menu();
-int solo();
-int multi();
-int IA();
 
 //typedef {} PARTIE;
 
