@@ -2,15 +2,15 @@
 #define PION_H
 
 typedef struct {
-        int num_pion; 
+        int numPion; 
         int position[2];
-    } Pion ; 
+    } pion ; 
 
     typedef struct {
-        int num_joueur;
-        char nom_joueur[30];
+        int numJoueur;
+        char nomJoueur[30];
         char couleur[6];
-        Pion Cheval[4];
-    } Joueur ;
+        pion cheval[4];
+    } joueur ;
 
 #endif // JEU_H
