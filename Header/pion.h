@@ -1,5 +1,5 @@
-#ifndef pion
-#define pion
+#ifndef PION_H
+#define PION_H
 
 typedef struct {
         int num_pion; 
@@ -13,4 +13,4 @@ typedef struct {
         Pion Cheval[4];
     } Joueur ;
 
-#endif
+#endif // PION_H
