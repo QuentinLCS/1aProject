@@ -1,14 +1,16 @@
 #include <stdio.h>
-#include "../Header/plateau.h"
 #include "../Header/jeu.h"
+#include "../Header/plateau.h"
 #define TAILLE_PLATEAU 15 // IMPAIR
 #define TAILLE_ECURIE 6 // Calculable ?
+
+// Variables globales
+int i, j;
+cellule matrice[TAILLE_PLATEAU][TAILLE_PLATEAU];
 
 // void creation_plateau()
 void main()
 {
-    int i, j;
-    cellule matrice[TAILLE_PLATEAU][TAILLE_PLATEAU];
 
 // CREATION DU PLATEAU (en fonction des dimensions)
 
@@ -41,9 +43,17 @@ void main()
                 matrice[i][j].echelle = 0;
             } else if (((j == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0) || (i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0)) && (i != 0 && i != TAILLE_PLATEAU - 1 && j != 0 && j != TAILLE_PLATEAU - 1)) {
                 matrice[i][j].nbChevaux = 0; // Echelles jusqu'au centre
-                matrice[i][j].couleur[0] = " ";
                 matrice[i][j].ecurie = 0;
                 matrice[i][j].echelle = 1;
+                if (j == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0 && i < TAILLE_PLATEAU / 2) {
+                    matrice[i][j].couleur[0] = "rouge";
+                } else if (i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0 && j < TAILLE_PLATEAU / 2) {
+                    matrice[i][j].couleur[0] = "bleu";
+                } else if (i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0 && j > TAILLE_PLATEAU / 2) {
+                    matrice[i][j].couleur[0] = "jaune";
+                } else { 
+                    matrice[i][j].couleur[0] = "vert";
+                }   
             } else {
                 matrice[i][j].nbChevaux = 0; // Chemin utilisable par les chevaux
                 matrice[i][j].couleur[0] = " ";
@@ -51,10 +61,13 @@ void main()
                 matrice[i][j].echelle = 0;
             }
         }
-    }
+    } affichage_plateau(); // A DEPLACER DANS LE PROGRAMME PRINCIPAL QUAND TERMINE
+}
 
 // AFFICHAGE DU PLATEAU
 
+void affichage_plateau() 
+{
     for (i = 0; i < TAILLE_PLATEAU; i++) {
         for(j = 0; j < TAILLE_PLATEAU; j++) {
 
@@ -82,14 +95,28 @@ void main()
                 } 
             } 
 
-            else if (matrice[i][j].echelle) {
-                printf("\033[1;40m   \033[0m");
+            // AFFICHAGE DES ECHELLES
+
+            else if (matrice[i][j].couleur[0] == "bleu" && matrice[i][j].echelle) {
+                printf("\033[1;44m %d \033[0m", j);          
+            } else if (matrice[i][j].couleur[0] == "rouge" && matrice[i][j].echelle) {
+                printf("\033[1;41m %d \033[0m", i);          
+            } else if (matrice[i][j].couleur[0] == "jaune" && matrice[i][j].echelle) {
+                printf("\033[1;43m %d \033[0m", TAILLE_PLATEAU - j - 1);          
+            } else if (matrice[i][j].couleur[0] == "vert" && matrice[i][j].echelle) {
+                printf("\033[1;42m %d \033[0m", TAILLE_PLATEAU - i - 1);          
             }
             
+            // AFFICHAGE DU CENTRE ( VICTOIRE )
+
+            else if (i == TAILLE_PLATEAU / 2 && j == TAILLE_PLATEAU / 2) {
+                printf("\033[1;40mWIN\033[0m");
+            }
             
+            // AFFICHAGE DES CASES BLANCHES
             
-            else { // AFFICHAGE DES CASES BLANCHES ( chemin )
-                printf("\033[7m 0 \033[0m");
+            else { 
+                printf("\033[7m _ \033[0m");
             }
         } printf("\n");
     }

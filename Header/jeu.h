@@ -4,6 +4,7 @@
 int de(int);
 void creation_plateau();
 void menu();
+void affichage_plateau();
 
 //typedef {} PARTIE;
 
