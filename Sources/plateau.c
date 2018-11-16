@@ -51,10 +51,17 @@ void main()
 
     for (i = 0; i < TAILLE_PLATEAU; i++) {
         for(j = 0; j < TAILLE_PLATEAU; j++) {
-            if (matrice[i][j].couleur[0] = "bleu") {
-                couleurSyntaxe[0] = "\033[35m";
+            if (matrice[i][j].couleur[0] == "bleu" && matrice[i][j].ecurie == 1) {
+              printf("\033[34;44m* \033[0m");
+            } else if (matrice[i][j].couleur[0] == "rouge" && matrice[i][j].ecurie == 1) {
+              printf("\033[31;41m* \033[0m");
+            } else if (matrice[i][j].couleur[0] == "jaune" && matrice[i][j].ecurie == 1) {
+              printf("\033[33;43m* \033[0m");
+            } else if (matrice[i][j].couleur[0] == "vert" && matrice[i][j].ecurie == 1) {
+              printf("\033[32;42m* \033[0m");
+            } else {
+              printf("\033[7m0 ");
             }
-            printf("%s %d \033[0m", couleurSyntaxe, matrice[i][j]);
         } printf("\n");
     }
 }
