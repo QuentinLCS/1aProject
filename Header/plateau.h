@@ -1,9 +1,12 @@
-#ifndef PLATEAU
-#define PLATEAU
+#if !defined(PLATEAU_H)
+#define PLATEAU_H
 
-typedef struct {
-    int cell[2][2];
+typedef struct 
+{
+    int nbChevaux;
+    char *couleur[6];
+    int ecurie; // booléen ( vrai ou faux )
+    int echelle; // booléen ( vrai ou faux )
 } cellule;
 
-
-#endif
+#endif // PLATEAU_H
