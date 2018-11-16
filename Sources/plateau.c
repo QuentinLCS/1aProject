@@ -68,7 +68,7 @@ void main()
 
 void affichage_plateau() 
 {
-    printf("\n\n\n");
+    printf("\n\n\n"); 
     for (i = 0; i < TAILLE_PLATEAU; i++) {
         for(j = 0; j < TAILLE_PLATEAU; j++) {
 
@@ -100,7 +100,7 @@ void affichage_plateau()
                 }
             } else if (matrice[i][j].couleur[0] == "vert" && matrice[i][j].ecurie) {
                 if (matrice[i][j].nbChevaux) {
-                    printf("\033[1;43m X \033[0m"); 
+                    printf("\033[1;42m X \033[0m"); 
                 } else {
                     if (j == 0) {
                         printf("\033[32;42m \033[0m");
