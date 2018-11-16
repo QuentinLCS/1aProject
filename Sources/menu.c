@@ -46,16 +46,18 @@ int nouvellePartie (){
     return nbJoueur;
 }
 
-void continuer (){
+void continuer ()
+{
     //Jeu();
 }
 
-void option (){
+void option ()
+{
 
     int optionNb = 0, valide = 0;
     
     do {
-        printf("\n[OPTIONS] A quelle option souhaitez-vous accéder ?\n  [1] Scénarios\n  [2] xxx\n  [3] xxx\n\nOption [entrez une valeur]: ");
+        printf("\n[OPTIONS] A quelle option souhaitez-vous accéder ?\n  [1] Scénarios\n  [2] xxx\n  [3] RETOUR\n\nOption [entrez une valeur]: ");
         valide == scanf("%d", &optionNb);
         getchar();
     } while ( optionNb < 1 || optionNb > 3 || valide == 0 );
@@ -64,10 +66,11 @@ void option (){
             printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[v] SCENARIOS : SELECTIONNE !\n\n");
             break;
         case 2 :
-            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[v] CONTINUER : SELECTIONNE !\n\n");
+            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[v] xxx : SELECTIONNE !\n\n");
             break;
         case 3 :
-            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[v] OPTIONS : SELECTIONNE !\n\n");
+            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[v] RETOUR : SELECTIONNE !\n\n");
+            nouvellePartie(); //menu();
             break;
     }
 }
