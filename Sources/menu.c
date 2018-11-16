@@ -2,7 +2,7 @@
 #include "../Header/jeu.h"
 
 // void menu()
-void menu()
+void main()
 {
     int gameMode, nbJoueurs;
 
