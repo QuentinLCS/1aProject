@@ -68,6 +68,7 @@ void main()
 
 void affichage_plateau() 
 {
+    printf("\n\n\n");
     for (i = 0; i < TAILLE_PLATEAU; i++) {
         for(j = 0; j < TAILLE_PLATEAU; j++) {
 
@@ -116,8 +117,20 @@ void affichage_plateau()
             // AFFICHAGE DES CASES BLANCHES
             
             else { 
-                printf("\033[7m _ \033[0m");
+                if (matrice[i][j].nbChevaux >= 1) {
+                     if (matrice[i][j].couleur[0] == "bleu") {
+                        printf("\033[7;44m %d \033[0m", matrice[i][j].nbChevaux);
+                    }  else if (matrice[i][j].couleur[0] == "rouge") {
+                        printf("\033[7;41m %d \033[0m", matrice[i][j].nbChevaux);
+                    }  else if (matrice[i][j].couleur[0] == "jaune") {
+                        printf("\033[7;43m %d \033[0m", matrice[i][j].nbChevaux);
+                    } else {
+                        printf("\033[7;42m %d \033[0m", matrice[i][j].nbChevaux);
+                    }
+                } else {
+                    printf("\033[7m _ \033[0m");
+                }
             }
         } printf("\n");
-    }
+    } printf("\n\n\n");
 }
