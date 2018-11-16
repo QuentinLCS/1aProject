@@ -10,6 +10,7 @@ void main()
     do {
         printf("\n[Projet 1A] PETITS CHEVAUX \nPar : CHAVAS Nathan & LECHASLES Quentin\n\nChoisissez votre mode de jeu :\n  [1] Nouvelle partie\n  [2] Continuer\n  [3] Options\n  [4] Quitter \n\nMode [entrez une valeur]: ");
         valide = scanf("%d", &gameMode);
+        getchar();
     } while ( gameMode < 1 || gameMode > 4 || valide == 0 );
     
     switch (gameMode) {
@@ -38,6 +39,7 @@ int nouvellePartie (){
     do {
         printf ("À combien de joueur voulez-vous jouer ? \n --> 1 JOUEUR\n\n --> 2 JOUEURS\n\n --> 3 JOUEURS\n\n --> 4 JOUEURS\n\n");
         valide = scanf ("%d",&nbJoueur);
+        getchar();
     } while ( nbJoueur < 1 || nbJoueur > 4 || valide == 0 );
     printf ("\n\n[Nombre %d Joueur(s) séléctionné]\n\n", nbJoueur);
     //Jeu();
@@ -55,6 +57,7 @@ void option (){
     do {
         printf("\n[OPTIONS] A quelle option souhaitez-vous accéder ?\n  [1] Scénarios\n  [2] xxx\n  [3] xxx\n\nOption [entrez une valeur]: ");
         valide == scanf("%d", &optionNb);
+        getchar();
     } while ( optionNb < 1 || optionNb > 3 || valide == 0 );
     switch (optionNb) {
         case 1 :
