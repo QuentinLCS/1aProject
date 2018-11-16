@@ -8,7 +8,9 @@
 int i, j;
 cellule matrice[TAILLE_PLATEAU][TAILLE_PLATEAU];
 
-void deplacer(int distance, pion couleur[0], pion numPion)
+void deplacer(int distance, pion couleur[0], pion numPion) {
+    
+}
 
 
 // void creation_plateau()
