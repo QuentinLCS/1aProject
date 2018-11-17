@@ -31,8 +31,8 @@ void main()
     }
 }
 
-void nouvellePartie (){
-
+void nouvellePartie ()
+{
     int valide = 0;
     //Jeu();
 }
