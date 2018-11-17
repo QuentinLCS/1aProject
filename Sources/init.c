@@ -18,7 +18,7 @@ void main()
     do  {
         printf ("Combien de Joueurs souhaitez-vous ? \n   --> 1 JOUEUR\n   --> 2 JOUEURS\n   --> 3 JOUEURS\n   --> 4 JOUEURS\n\nJoueurs [entrez une valeur]: ");
         valide = scanf ("%d",&nbJoueur);
-        getchar();
+        viderBuffer() 
     } while ( nbJoueur < 1 || nbJoueur > 4 || valide == 0 );
 
     for (i = 0 ; i < nbJoueur ; i++) {
@@ -26,7 +26,7 @@ void main()
         do  {
             printf ("\n\nEntrez le nom du joueur %s : ", players[i].couleur[0]);
             scanf("%s", players[i].nomJoueur);
-            getchar();
+            viderBuffer() 
             do {
                 printf("\n\nC'est %s, c'est bien ca ?\n[1] Oui !\n[2] Non, recommencer.\n\n", players[i].nomJoueur);
                 valide = scanf("%d", &continuer);
