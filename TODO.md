@@ -6,35 +6,35 @@
     On va commencer à arriver à un stade où on ne vas plus pouvoir tester en compilant nos .c séparéments 
     vu qu'on va devoir utiliser des ressources venant des autres fichiers.
 
--------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 ## Il reste à faire :
 
 * Toute l'initialisation du début :
-    - Demander le nombre de joueurs.
-    - Demander le nom et la couleur de chaque joueur.
-    - Demander s'il veulent tirer au sort l'ordre de jeu ou choisir.
+    [ ] Demander le nombre de joueurs.
+    [ ] Demander le nom et la couleur de chaque joueur.
+    [ ] Demander s'il veulent tirer au sort l'ordre de jeu ou choisir.
 * Le coeur du jeu :
-    - Création de la boucle principale responsable de la gestion des tours (For dans un While).
-    - Gestion de victoire.
-    - Sauvegarde des informations de la partie pour pouvoir "Continuer la partie".
-    - Permettre de quitter en pleine partie. (sauvegarde à ce moment là)
+    [ ] Création de la boucle principale responsable de la gestion des tours (For dans un While).
+    [ ] Gestion de victoire.
+    [ ] Sauvegarde des informations de la partie pour pouvoir "Continuer la partie".
+    [ ] Permettre de quitter en pleine partie. (sauvegarde à ce moment là)
 * L'Affichage :
-    - Designer le menu pour le rendre plus attirant malgré le SHELL.
-    - Essayer de faire afficher des chevaux dans le SHELL (plateau.c).
-    - Afficher qui doit jouer ?
-    - Afficher le nombre de chevaux restant pour chaque joueur. (0 = Gagné)
-    - Gestion du podium ? ( 1er , 2e, ... )
+    [ ] Designer le menu pour le rendre plus attirant malgré le SHELL.
+    [ ] Essayer de faire afficher des chevaux dans le SHELL (plateau.c).
+    [ ] Afficher qui doit jouer ?
+    [ ] Afficher le nombre de chevaux restant pour chaque joueur. (0 = Gagné)
+    [ ] Gestion du podium ? ( 1er , 2e, ... )
 * Deplacement :
-    - Finir les vérifications de déplacement.
-    - Gérer le renvoie à l'écurie.
-    - Gérer la relance du dé si un 6 est effectué.
-    - Gérer le point d'apparition.
-    - Gérer l'arrivée devant les échelles.
-    - Gérer le comportement dans les échelles en fonction des règles imposées par M. Loudni.
+    [ ] Finir les vérifications de déplacement.
+    [ ] Gérer le renvoie à l'écurie.
+    [ ] Gérer la relance du dé si un 6 est effectué.
+    [ ] Gérer le point d'apparition.
+    [ ] Gérer l'arrivée devant les échelles.
+    [ ] Gérer le comportement dans les échelles en fonction des règles imposées par M. Loudni.
 * La fin du jeu :
-    - Afficher le résultat.
-    - Rediriger sur le menu.
-    - Supprimer les informations sauvegardées pour continuer la partie.
+    [ ] Afficher le résultat.
+    [ ] Rediriger sur le menu.
+    [ ] Supprimer les informations sauvegardées pour continuer la partie.
 * Autre : 
-    - Sauvegarder les temps de victoire pour afficher un classement ?
+    [ ] Sauvegarder les temps de victoire pour afficher un classement ?
