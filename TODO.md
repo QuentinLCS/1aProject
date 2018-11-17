@@ -25,6 +25,7 @@
     - [ ] Afficher qui doit jouer ?
     - [ ] Afficher le nombre de chevaux restant pour chaque joueur. (0 = Gagné)
     - [ ] Gestion du podium ? ( 1er , 2e, ... )
+    - [ ] Penser à l'utilisation des commandes SHELL (clear, ...)
 * Deplacement :
     - [ ] Finir les vérifications de déplacement.
     - [ ] Gérer le renvoie à l'écurie.
