@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "../Header/jeu.h"
 #include "../Header/menu.h"
 
 // void menu()
