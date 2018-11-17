@@ -3,7 +3,7 @@
 
 typedef struct {
         int numPion; 
-        int *position[2];
+        int position;
     } pion ; 
 
     typedef struct {

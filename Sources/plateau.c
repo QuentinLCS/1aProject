@@ -69,9 +69,11 @@ void main()
 
 void affichage_plateau() 
 {
+
     printf("\n\n\n"); 
+    
     for (i = 0; i < TAILLE_PLATEAU; i++) {
-        printf("\n          ");
+        printf("\n     ");
         for(j = 0; j < TAILLE_PLATEAU; j++) {
 
             // AFFICHAGE DES ECURIES 
