@@ -18,34 +18,34 @@ void main()
     for (i = 0; i < TAILLE_PLATEAU; i++) {
         for(j = 0; j < TAILLE_PLATEAU; j++) {
             if (j < TAILLE_ECURIE && i < TAILLE_ECURIE) {
-                matrice[i][j].nbChevaux = 0; // Ecurie haut gauche
+                matrice[i][j].nbChevaux  = 0;      // Ecurie haut gauche
                 matrice[i][j].couleur[0] = "bleu";
-                matrice[i][j].ecurie = 1;
-                matrice[i][j].echelle = 0;
+                matrice[i][j].ecurie     = 1;
+                matrice[i][j].echelle    = 0;
             } else if (j >= TAILLE_PLATEAU - TAILLE_ECURIE && i < TAILLE_ECURIE) {
-                matrice[i][j].nbChevaux = 0; // Ecurie haut droite
+                matrice[i][j].nbChevaux  = 0;      // Ecurie haut droite
                 matrice[i][j].couleur[0] = "rouge";
-                matrice[i][j].ecurie = 1;
-                matrice[i][j].echelle = 0;
+                matrice[i][j].ecurie     = 1;
+                matrice[i][j].echelle    = 0;
             } else if (j < TAILLE_ECURIE && i >= TAILLE_PLATEAU - TAILLE_ECURIE) {
-                matrice[i][j].nbChevaux = 0; // Ecurie bas gauche
+                matrice[i][j].nbChevaux  = 0;      // Ecurie bas gauche
                 matrice[i][j].couleur[0] = "vert";
-                matrice[i][j].ecurie = 1;
-                matrice[i][j].echelle = 0;
+                matrice[i][j].ecurie     = 1;
+                matrice[i][j].echelle    = 0;
             } else if (j >= TAILLE_PLATEAU - TAILLE_ECURIE && i >= TAILLE_PLATEAU - TAILLE_ECURIE) {
-                matrice[i][j].nbChevaux = 0; // Ecurie bas droite
+                matrice[i][j].nbChevaux  = 0;      // Ecurie bas droite
                 matrice[i][j].couleur[0] = "jaune";
-                matrice[i][j].ecurie = 1;
-                matrice[i][j].echelle = 0;
+                matrice[i][j].ecurie     = 1;
+                matrice[i][j].echelle    = 0;
             } else if (j == TAILLE_PLATEAU / 2 && i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0 || j == TAILLE_PLATEAU / 2 && i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 == 0) {
-                matrice[i][j].nbChevaux = 0; // Centre du plateau
+                matrice[i][j].nbChevaux  = 0;      // Centre du plateau
                 matrice[i][j].couleur[0] = " ";
-                matrice[i][j].ecurie = 0;
-                matrice[i][j].echelle = 0;
+                matrice[i][j].ecurie     = 0;
+                matrice[i][j].echelle    = 0;
             } else if (((j == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0) || (i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0)) && (i != 0 && i != TAILLE_PLATEAU - 1 && j != 0 && j != TAILLE_PLATEAU - 1)) {
-                matrice[i][j].nbChevaux = 0; // Echelles jusqu'au centre
-                matrice[i][j].ecurie = 0;
-                matrice[i][j].echelle = 1;
+                matrice[i][j].nbChevaux = 0;      // Echelles jusqu'au centre
+                matrice[i][j].ecurie    = 0;
+                matrice[i][j].echelle   = 1;
                 if (j == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0 && i < TAILLE_PLATEAU / 2) {
                     matrice[i][j].couleur[0] = "rouge";
                 } else if (i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0 && j < TAILLE_PLATEAU / 2) {
@@ -56,10 +56,10 @@ void main()
                     matrice[i][j].couleur[0] = "vert";
                 }   
             } else {
-                matrice[i][j].nbChevaux = 0; // Chemin utilisable par les chevaux
+                matrice[i][j].nbChevaux  = 0; // Chemin utilisable par les chevaux
                 matrice[i][j].couleur[0] = " ";
-                matrice[i][j].ecurie = 0;
-                matrice[i][j].echelle = 0;
+                matrice[i][j].ecurie     = 0;
+                matrice[i][j].echelle    = 0;
             }
         }
     } affichage_plateau(); // A DEPLACER DANS LE PROGRAMME PRINCIPAL QUAND TERMINE

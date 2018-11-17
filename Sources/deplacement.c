@@ -12,14 +12,18 @@ int main()
     return rand() % 6;
 }
 
-int deplacer(joueur player, int distance) {
+int deplacer(int numJoueur, int numPion, int distance) {
     // Nombre de cases parcourables : 56
 
-    int i;
+    int coordonnees[2], i;
 
     // CALCUL DE LA COORDONNEE
 
     for (i = 1; i <= distance; i++) {
-        
+        // position : players[numJoueur - 1].cheval[numPion - 1];
+        // couleur : players[numJoueur - 1].couleur[0]
+        if (players[numJoueur - 1].couleur[0] == "bleu") {
+            coordonnees = {6,0};
+        }
     } return 0;
 }
