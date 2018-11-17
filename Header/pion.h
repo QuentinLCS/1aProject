@@ -4,7 +4,7 @@
     typedef struct {
         char *nomJoueur[30];
         char *couleur[6];
-        pion cheval[4][2];
+        int cheval[4][2];
     } joueur ;
 
 #endif // JEU_H
