@@ -1,17 +1,16 @@
 # PETITS CHEVAUX
+Projet d'étude
 
-## Projet d'étude
-
-### Créateurs du projet
+## Créateurs du projet
 
 Deux étudiants de première année :
 - ***LECHASLES Quentin*** 
 - ***CHAVAS Nathan***
 
-### FAIT A  
+## FAIT A  
 IUT Caen, Ifs
 
-### DELAIS
+## DELAIS
 - [ ] DEBUT    :   Novembre 2018
 - [x] FIN      :   Janvier 2019
 
