@@ -1,5 +1,6 @@
-#ifndef PION_H
-#define PION_H
+
+#if !defined(INIT_H)
+#define INIT_H
 
     typedef struct {
         char *nomJoueur[30];
@@ -7,4 +8,6 @@
         int cheval[4][2];
     } joueur ;
 
-#endif // JEU_H
+    void viderBuffer();
+
+#endif // INIT_H
