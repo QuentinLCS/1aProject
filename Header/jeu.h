@@ -2,7 +2,7 @@
 #define JEU_H
 
 // DE.C
-int de(int);
+int de();
 
 // MENU.C
 void menu();

@@ -7,13 +7,12 @@ void init ()
 
     joueur players[4];
 
-    players[0].numJoueur = 1;
+    // NumJoueur pas utile puisque on peut se 
+    // servir de l'indice du tableau players[]
+
     players[0].couleur[0]   = "bleu";
-    players[1].numJoueur = 2;
     players[1].couleur[0]   = "rouge";
-    players[2].numJoueur = 3;
     players[2].couleur[0]   = "jaune";
-    players[3].numJoueur = 4;
     players[3].couleur[0]   = "vert";
 
     for (i = 0 ; i < nbJoueur() ; i++) {
