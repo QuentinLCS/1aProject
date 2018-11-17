@@ -3,13 +3,13 @@
 
 typedef struct {
         int numPion; 
-        int position[2];
+        int *position[2];
     } pion ; 
 
     typedef struct {
         int numJoueur;
-        char nomJoueur[30];
-        char couleur[6];
+        char *nomJoueur[30];
+        char *couleur[6];
         pion cheval[4];
     } joueur ;
 

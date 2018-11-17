@@ -1,17 +1,13 @@
 #include <stdio.h>
 #include "../Header/jeu.h"
 #include "../Header/plateau.h"
+#include "../Header/pion.h"
 #define TAILLE_PLATEAU 15 // IMPAIR
 #define TAILLE_ECURIE 6 // Calculable ?
 
 // VARIABLES GLOBALES
 int i, j;
 cellule matrice[TAILLE_PLATEAU][TAILLE_PLATEAU];
-
-void deplacer(int distance, pion couleur[0], pion numPion) {
-    
-}
-
 
 // void creation_plateau()
 void main()
@@ -75,6 +71,7 @@ void affichage_plateau()
 {
     printf("\n\n\n"); 
     for (i = 0; i < TAILLE_PLATEAU; i++) {
+        printf("\n          ");
         for(j = 0; j < TAILLE_PLATEAU; j++) {
 
             // AFFICHAGE DES ECURIES 
@@ -175,6 +172,6 @@ void affichage_plateau()
                     printf("\033[7m _ \033[0m");
                 }
             }
-        } printf("\n");
+        } 
     } printf("\n\n\n");
 }
