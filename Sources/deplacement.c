@@ -22,8 +22,8 @@ int deplacer(int numJoueur, int numPion, int distance) {
     for (i = 1; i <= distance; i++) {
         // position : players[numJoueur - 1].cheval[numPion - 1];
         // couleur : players[numJoueur - 1].couleur[0]
-        if (players[numJoueur - 1].couleur[0] == "bleu") {
+        if ( )
             coordonnees = {6,0};
-        }
+        
     } return 0;
 }

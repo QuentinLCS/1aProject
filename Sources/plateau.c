@@ -85,7 +85,7 @@ void affichage_plateau()
                     if (j == 0) {
                         printf("\033[34;44m \033[0m");
                     } if (j == TAILLE_ECURIE - 1) {
-                        printf("\033[34;44m \033[0m\033[7m \033[0m");
+                        printf("\033[34;44m  \033[0m");
                     } else {
                         printf("\033[34;44m   \033[0m");
                     }
@@ -112,7 +112,7 @@ void affichage_plateau()
                     if (j == 0) {
                         printf("\033[32;42m \033[0m");
                     } if (j == TAILLE_ECURIE - 1) {
-                        printf("\033[32;42m \033[0m\033[7m \033[0m");
+                        printf("\033[32;42m  \033[0m");
                     } else {
                         printf("\033[32;42m   \033[0m");
                     } 
