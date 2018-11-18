@@ -11,8 +11,8 @@
 ## Il reste à faire :
 
 * Toute l'initialisation du début :
-    - [ ] Demander le nombre de joueurs.
-    - [ ] Demander le nom et la couleur de chaque joueur.
+    - [X] Demander le nombre de joueurs.
+    - [X] Demander le nom et la couleur de chaque joueur.
     - [ ] Demander s'il veulent tirer au sort l'ordre de jeu ou choisir.
 * Le coeur du jeu :
     - [ ] Création de la boucle principale responsable de la gestion des tours (For dans un While).
