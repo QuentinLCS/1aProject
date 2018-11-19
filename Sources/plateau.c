@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "../Header/plateau.h"
-#include "../Header/pion.h"
 #define TAILLE_PLATEAU 15 // IMPAIR
 #define TAILLE_ECURIE 6 // Calculable ?
 

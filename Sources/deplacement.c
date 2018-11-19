@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include "../Header/plateau.h"
-#include "../Header/pion.h"
 #include "../Header/deplacement.h"
 
 int de()
