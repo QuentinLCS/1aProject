@@ -13,7 +13,8 @@
 * Toute l'initialisation du début :
     - [X] Demander le nombre de joueurs.
     - [X] Demander le nom et la couleur de chaque joueur.
-    - [ ] Demander s'il veulent tirer au sort l'ordre de jeu ou choisir.
+    - [x] Demander s'il veulent tirer au sort l'ordre de jeu ou choisir.
+    - [ ] Trier l'ordre de passage en fonction du dé tiré.
 * Le coeur du jeu :
     - [ ] Création de la boucle principale responsable de la gestion des tours (For dans un While).
     - [ ] Gestion de victoire.
