@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "../Header/jeu.h"
 #include "../Header/plateau.h"
 #include "../Header/pion.h"
 #define TAILLE_PLATEAU 15 // IMPAIR
@@ -9,7 +8,7 @@
 int i, j, k;
 cellule matrice[TAILLE_PLATEAU][TAILLE_PLATEAU];
 
-// void creation_plateau()
+// void creationPlateau()
 void main()
 {
 
@@ -62,12 +61,12 @@ void main()
                 matrice[i][j].echelle    = 0;
             }
         }
-    } affichage_plateau(); // A DEPLACER DANS LE PROGRAMME PRINCIPAL QUAND TERMINE
+    }
 }
 
 // AFFICHAGE DU PLATEAU
 
-void affichage_plateau() 
+void affichagePlateau() 
 {
 
     printf("\n\n\n"); 

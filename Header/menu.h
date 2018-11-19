@@ -3,6 +3,7 @@
 
 void menu();
 int nouvellePartie();
+void continuer();
 void option();
 
 #endif // MENU_H

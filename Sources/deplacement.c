@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "../Header/jeu.h"
 #include "../Header/plateau.h"
 #include "../Header/pion.h"
+#include "../Header/deplacement.h"
 
 int de()
 {

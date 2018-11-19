@@ -9,4 +9,7 @@ typedef struct
     int echelle; // booléen ( vrai ou faux )
 } cellule;
 
+void creationPlateau();
+void affichagePlateau();
+
 #endif // PLATEAU_H

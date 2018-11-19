@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "../Header/jeu.h"
 #include "../Header/menu.h"
 
 // void menu()
@@ -32,18 +31,10 @@ void main()
     }
 }
 
-int nouvellePartie (){
-
-    int nbJoueur = 0, valide = 0;
-
-    do {
-        printf ("À combien de joueur voulez-vous jouer ? \n --> 1 JOUEUR\n\n --> 2 JOUEURS\n\n --> 3 JOUEURS\n\n --> 4 JOUEURS\n\n");
-        valide = scanf ("%d",&nbJoueur);
-        getchar();
-    } while ( nbJoueur < 1 || nbJoueur > 4 || valide == 0 );
-    printf ("\n\n[Nombre %d Joueur(s) séléctionné]\n\n", nbJoueur);
+void nouvellePartie ()
+{
+    int valide = 0;
     //Jeu();
-    return nbJoueur;
 }
 
 void continuer ()
