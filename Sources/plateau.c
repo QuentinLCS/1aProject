@@ -6,7 +6,7 @@
 #define TAILLE_ECURIE 6 // Calculable ?
 
 // VARIABLES GLOBALES
-int i, j;
+int i, j, k;
 cellule matrice[TAILLE_PLATEAU][TAILLE_PLATEAU];
 
 // void creation_plateau()
@@ -73,107 +73,134 @@ void affichage_plateau()
     printf("\n\n\n"); 
     
     for (i = 0; i < TAILLE_PLATEAU; i++) {
-        printf("\n     ");
-        for(j = 0; j < TAILLE_PLATEAU; j++) {
 
-            // AFFICHAGE DES ECURIES 
+        for (k = 0; k < 3; k++) {
+            printf("\n     ");
+            for(j = 0; j < TAILLE_PLATEAU; j++) {
 
-            if (matrice[i][j].couleur[0] == "bleu" && matrice[i][j].ecurie) {
-                if (matrice[i][j].nbChevaux) {
-                    printf("\033[1;44m X \033[0m"); 
-                } else {
-                    if (j == 0) {
-                        printf("\033[34;44m \033[0m");
-                    } if (j == TAILLE_ECURIE - 1) {
-                        printf("\033[34;44m  \033[0m");
+                // AFFICHAGE DES ECURIES 
+
+                if (matrice[i][j].couleur[0] == "bleu" && matrice[i][j].ecurie) {
+                    if (matrice[i][j].nbChevaux) {
+                        printf("\033[1;44m   \u265e  \033[0m"); 
                     } else {
-                        printf("\033[34;44m   \033[0m");
+                        if (j == 0) {
+                            printf("\033[34;44m \033[0m");
+                        } if (j == TAILLE_ECURIE - 1) {
+                            printf("\033[34;44m     \033[0m");
+                        } else {
+                            printf("\033[34;44m      \033[0m");
+                        }
+                    }
+
+                } else if (matrice[i][j].couleur[0] == "rouge" && matrice[i][j].ecurie) {
+                    if (matrice[i][j].nbChevaux) {
+                        printf("\033[1;41m  \u265e  \033[0m"); 
+                    } else {
+                        printf("\033[31;41m      \033[0m");
+                    }
+
+                } else if (matrice[i][j].couleur[0] == "jaune" && matrice[i][j].ecurie) {
+                    if (matrice[i][j].nbChevaux) {
+                        printf("\033[1;43m  \u265e  \033[0m"); 
+                    } else {
+                        printf("\033[33;43m      \033[0m");
+                    }
+
+                } else if (matrice[i][j].couleur[0] == "vert" && matrice[i][j].ecurie) {
+                    if (matrice[i][j].nbChevaux) {
+                        printf("\033[1;42m   \u265e  \033[0m"); 
+                    } else {
+                        if (j == 0) {
+                            printf("\033[32;42m \033[0m");
+                        } if (j == TAILLE_ECURIE - 1) {
+                            printf("\033[32;42m     \033[0m");
+                        } else {
+                            printf("\033[32;42m      \033[0m");
+                        } 
+                    }
+                } 
+
+                // AFFICHAGE DES ECHELLES
+                
+                else if (matrice[i][j].couleur[0] == "bleu" && matrice[i][j].echelle) {
+                    if (k == 1) {
+                        if (matrice[i][j].nbChevaux) {
+                            printf("\033[1;44m  %d\u265e  \033[0m", j); 
+                        } else {
+                            printf("\033[1;44m   %d  \033[0m", j);  
+                        }
+                    } else {
+                        printf("\033[1;44m      \033[0m");  
+                    }    
+
+                } else if (matrice[i][j].couleur[0] == "rouge" && matrice[i][j].echelle) {
+                    if (k == 1) {
+                        if (matrice[i][j].nbChevaux) {
+                            printf("\033[1;41m  %d\u265e  \033[0m", i); 
+                        } else {
+                            printf("\033[1;41m  %d   \033[0m", i, i);   
+                        }    
+                    } else {
+                        printf("\033[1;41m      \033[0m");  
+                    }    
+
+                } else if (matrice[i][j].couleur[0] == "jaune" && matrice[i][j].echelle) {
+                    if (k == 1) {
+                        if (matrice[i][j].nbChevaux) {
+                            printf("\033[1;43m  %d\u265e  \033[0m", TAILLE_PLATEAU - j - 1); 
+                        } else {
+                            printf("\033[1;43m  %d   \033[0m", TAILLE_PLATEAU - j - 1);
+                        }
+                    } else {
+                        printf("\033[1;43m      \033[0m");  
+                    }    
+
+                } else if (matrice[i][j].couleur[0] == "vert" && matrice[i][j].echelle) {
+                    if (k == 1) {
+                        if (matrice[i][j].nbChevaux) {
+                            printf("\033[1;42m  %d\u265e  \033[0m", TAILLE_PLATEAU - i - 1); 
+                        } else {
+                            printf("\033[1;42m   %d  \033[0m", TAILLE_PLATEAU - i - 1, TAILLE_PLATEAU - i - 1);  
+                        }
+                    } else {
+                        printf("\033[1;42m      \033[0m"); 
+                    }
+                            
+                }
+                
+                // AFFICHAGE DU CENTRE ( VICTOIRE )
+
+                else if (i == TAILLE_PLATEAU / 2 && j == TAILLE_PLATEAU / 2) {
+                    if (k == 1) {
+                        printf("\033[1;40m WIN! \033[0m");
+                    } else {
+                        printf("\033[1;40m      \033[0m");
                     }
                 }
-
-            } else if (matrice[i][j].couleur[0] == "rouge" && matrice[i][j].ecurie) {
-                if (matrice[i][j].nbChevaux) {
-                    printf("\033[1;41m X \033[0m"); 
-                } else {
-                    printf("\033[31;41m   \033[0m");
-                }
-
-            } else if (matrice[i][j].couleur[0] == "jaune" && matrice[i][j].ecurie) {
-                if (matrice[i][j].nbChevaux) {
-                    printf("\033[1;43m X \033[0m"); 
-                } else {
-                    printf("\033[33;43m   \033[0m");
-                }
-
-            } else if (matrice[i][j].couleur[0] == "vert" && matrice[i][j].ecurie) {
-                if (matrice[i][j].nbChevaux) {
-                    printf("\033[1;42m X \033[0m"); 
-                } else {
-                    if (j == 0) {
-                        printf("\033[32;42m \033[0m");
-                    } if (j == TAILLE_ECURIE - 1) {
-                        printf("\033[32;42m  \033[0m");
+                
+                // AFFICHAGE DES CASES BLANCHES
+                
+                else { 
+                    if (k == 1) {
+                        if (matrice[i][j].nbChevaux >= 1) {
+                            if (matrice[i][j].couleur[0] == "bleu") {
+                                printf("\033[7;44m  %d\u265e  \033[0m", matrice[i][j].nbChevaux);
+                            }  else if (matrice[i][j].couleur[0] == "rouge") {
+                                printf("\033[7;41m  %d\u265e  \033[0m", matrice[i][j].nbChevaux);
+                            }  else if (matrice[i][j].couleur[0] == "jaune") {
+                                printf("\033[7;43m  %d\u265e  \033[0m", matrice[i][j].nbChevaux);
+                            } else {
+                                printf("\033[7;42m  %d\u265e  \033[0m", matrice[i][j].nbChevaux);
+                            }
+                        } else {
+                            printf("\033[7m  __  \033[0m");
+                        }
                     } else {
-                        printf("\033[32;42m   \033[0m");
-                    } 
+                        printf("\033[7m      \033[0m");
+                    }
                 }
             } 
-
-            // AFFICHAGE DES ECHELLES
-            
-            else if (matrice[i][j].couleur[0] == "bleu" && matrice[i][j].echelle) {
-                if (matrice[i][j].nbChevaux) {
-                    printf("\033[1;44m X \033[0m"); 
-                } else {
-                    printf("\033[1;44m %d \033[0m", j);  
-                }     
-
-            } else if (matrice[i][j].couleur[0] == "rouge" && matrice[i][j].echelle) {
-                if (matrice[i][j].nbChevaux) {
-                    printf("\033[1;41m X \033[0m"); 
-                } else {
-                    printf("\033[1;41m %d \033[0m", i);   
-                }    
-
-            } else if (matrice[i][j].couleur[0] == "jaune" && matrice[i][j].echelle) {
-                if (matrice[i][j].nbChevaux) {
-                    printf("\033[1;43m X \033[0m"); 
-                } else {
-                    printf("\033[1;43m %d \033[0m", TAILLE_PLATEAU - j - 1);
-                }     
-
-            } else if (matrice[i][j].couleur[0] == "vert" && matrice[i][j].echelle) {
-                if (matrice[i][j].nbChevaux) {
-                    printf("\033[1;42m X \033[0m"); 
-                } else {
-                    printf("\033[1;42m %d \033[0m", TAILLE_PLATEAU - i - 1);  
-                }     
-                         
-            }
-            
-            // AFFICHAGE DU CENTRE ( VICTOIRE )
-
-            else if (i == TAILLE_PLATEAU / 2 && j == TAILLE_PLATEAU / 2) {
-                printf("\033[1;40mWIN\033[0m");
-            }
-            
-            // AFFICHAGE DES CASES BLANCHES
-            
-            else { 
-                if (matrice[i][j].nbChevaux >= 1) {
-                     if (matrice[i][j].couleur[0] == "bleu") {
-                        printf("\033[7;44m %d \033[0m", matrice[i][j].nbChevaux);
-                    }  else if (matrice[i][j].couleur[0] == "rouge") {
-                        printf("\033[7;41m %d \033[0m", matrice[i][j].nbChevaux);
-                    }  else if (matrice[i][j].couleur[0] == "jaune") {
-                        printf("\033[7;43m %d \033[0m", matrice[i][j].nbChevaux);
-                    } else {
-                        printf("\033[7;42m %d \033[0m", matrice[i][j].nbChevaux);
-                    }
-                } else {
-                    printf("\033[7m _ \033[0m");
-                }
-            }
-        } 
+        }
     } printf("\n\n\n");
 }
