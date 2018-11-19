@@ -2,7 +2,7 @@
 #include "../Header/init.h"
 #include "../Header/deplacement.h"
 
-///// TEMPORAIRE /////
+///// TEMPORAIRE ( pour le dé qui est temporaire dans ce fichier )/////
 #include <stdlib.h>
 #include <time.h>
 
@@ -60,7 +60,7 @@ void viderBuffer()
     while ( (c=getchar()) != EOF && c != '\n');
 }
 
-////// TEPORAIRE ///////
+////// TEPORAIRE, A SUPPRIMER UNE FOIS INUTILE ( présent dans deplacement.c ) ///////
 int de()
 {
     srand(time(NULL));
