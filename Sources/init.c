@@ -2,10 +2,13 @@
 #include "../Header/init.h"
 #include "../Header/deplacement.h"
 
+#include <stdlib.h>
+#include <time.h>
+
 //void init ()
 void main()
 {
-    int nbJoueur = 0, valide = 0, continuer = 0, tirage, i; 
+    int nbJoueur = 0, valide = 0, continuer = 0, tirage = 0, tirage2 = 0, i; 
     joueur players[4];
 
     // NumJoueur pas utile puisque on peut se 
@@ -37,11 +40,12 @@ void main()
 
     // ORDRE DE JEU ( tirage )
 
-    printf("\n\nPour tirer l'ordre de jeu, jetez votre dé !\n");
-    for (i = 0; i < nbJoueur; i++) {
-        printf("%s, lance ton dé ! \n\n [appuyez sur entrer] ", players[i].nomJoueur);
+    printf("\n\nPour tirer l'ordre de jeu, jetez votre de !\n");
+    for (i = 1; i <= nbJoueur; i++) {
+        printf("\n     %s, lance ton de ! [appuyez sur entrer] ", players[i].nomJoueur);
         getchar();
-        printf("Résultat : %d !", tirage);
+        tirage = de();
+        printf("\n   \u2192 Resultat : %d !\n", tirage);
     }
 }
 
@@ -49,4 +53,11 @@ void viderBuffer()
 {
     char c;
     while ( (c=getchar()) != EOF && c != '\n');
+}
+
+////// TEPORAIRE ///////
+int de()
+{
+    srand(time(NULL));
+    return rand() % 6;
 }
