@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "../Header/pion.h"
 #include "../Header/init.h"
 
 //void init ()
@@ -16,7 +15,7 @@ void main()
     players[2].couleur[0]   = "jaune";
     players[3].couleur[0]   = "vert";
     do  {
-        printf ("Combien de Joueurs souhaitez-vous ? \n   --> 1 JOUEUR\n   --> 2 JOUEURS\n   --> 3 JOUEURS\n   --> 4 JOUEURS\n\nJoueurs [entrez une valeur]: ");
+        printf ("Combien de Joueurs souhaitez-vous ? \n   --> 1 JOUEUR\n   --> 2 JOUEURS\n   --> 3 JOUEURS\n   --> 4 JOUEURS\n\nReponse [entrez une valeur]: ");
         valide = scanf ("%d",&nbJoueur);
         viderBuffer();
     } while ( nbJoueur < 1 || nbJoueur > 4 || valide == 0 );
@@ -28,7 +27,7 @@ void main()
             scanf("%s", players[i].nomJoueur);
             viderBuffer(); 
             do {
-                printf("\n\nC'est %s, c'est bien ca ?\n[1] Oui !\n[2] Non, recommencer.\n\n", players[i].nomJoueur);
+                printf("\n\nC'est %s, c'est bien ca ?\n[1] Oui !\n[2] Non, recommencer.\n\nReponse [entrez une valeur]: ", players[i].nomJoueur);
                 valide = scanf("%d", &continuer);
                 viderBuffer();
             } while ( (continuer < 1 || continuer > 2) || valide == 0 );
