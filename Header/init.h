@@ -9,6 +9,7 @@
         int cheval[4][2];
     } joueur ;
 
+    void init();
     void viderBuffer();
 
 #endif // INIT_H
