@@ -60,7 +60,7 @@ void main()
                 matrice[i][j].echelle    = 0;
             }
         }
-    }
+    } affichagePlateau();
 }
 
 // AFFICHAGE DU PLATEAU
@@ -93,14 +93,14 @@ void affichagePlateau()
 
                 } else if (matrice[i][j].couleur[0] == "rouge" && matrice[i][j].ecurie) {
                     if (matrice[i][j].nbChevaux) {
-                        printf("\033[1;41m  \u265e  \033[0m"); 
+                        printf("\033[1;41m  \u265e   \033[0m"); 
                     } else {
                         printf("\033[31;41m      \033[0m");
                     }
 
                 } else if (matrice[i][j].couleur[0] == "jaune" && matrice[i][j].ecurie) {
                     if (matrice[i][j].nbChevaux) {
-                        printf("\033[1;43m  \u265e  \033[0m"); 
+                        printf("\033[1;43m  \u265e   \033[0m"); 
                     } else {
                         printf("\033[33;43m      \033[0m");
                     }
@@ -137,7 +137,7 @@ void affichagePlateau()
                         if (matrice[i][j].nbChevaux) {
                             printf("\033[1;41m  %d\u265e  \033[0m", i); 
                         } else {
-                            printf("\033[1;41m  %d   \033[0m", i, i);   
+                            printf("\033[1;41m  %d   \033[0m", i);   
                         }    
                     } else {
                         printf("\033[1;41m      \033[0m");  
@@ -159,7 +159,7 @@ void affichagePlateau()
                         if (matrice[i][j].nbChevaux) {
                             printf("\033[1;42m  %d\u265e  \033[0m", TAILLE_PLATEAU - i - 1); 
                         } else {
-                            printf("\033[1;42m   %d  \033[0m", TAILLE_PLATEAU - i - 1, TAILLE_PLATEAU - i - 1);  
+                            printf("\033[1;42m  %d   \033[0m", TAILLE_PLATEAU - i - 1);  
                         }
                     } else {
                         printf("\033[1;42m      \033[0m"); 
