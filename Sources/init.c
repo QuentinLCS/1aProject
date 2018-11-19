@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include "../Header/init.h"
+#include "../Header/deplacement.h"
 
 //void init ()
 void main()
 {
-    int nbJoueur = 0, valide = 0, continuer = 0, i; 
+    int nbJoueur = 0, valide = 0, continuer = 0, tirage, i; 
     joueur players[4];
 
     // NumJoueur pas utile puisque on peut se 
@@ -32,6 +33,15 @@ void main()
                 viderBuffer();
             } while ( (continuer < 1 || continuer > 2) || valide == 0 );
         } while ( continuer == 2 );
+    }
+
+    // ORDRE DE JEU ( tirage )
+
+    printf("\n\nPour tirer l'ordre de jeu, jetez votre dé !\n");
+    for (i = 0; i < nbJoueur; i++) {
+        printf("%s, lance ton dé ! \n\n [appuyez sur entrer] ", players[i].nomJoueur);
+        getchar();
+        printf("Résultat : %d !", tirage);
     }
 }
 
