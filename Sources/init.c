@@ -2,13 +2,14 @@
 #include "../Header/init.h"
 #include "../Header/deplacement.h"
 
+///// TEMPORAIRE /////
 #include <stdlib.h>
 #include <time.h>
 
 //void init ()
 void main()
 {
-    int nbJoueur = 0, valide = 0, continuer = 0, tirage = 0, tirage2 = 0, i; 
+    int nbJoueur = 0, valide = 0, continuer = 0, tirage[4], i; 
     joueur players[4];
 
     // NumJoueur pas utile puisque on peut se 
@@ -40,12 +41,16 @@ void main()
 
     // ORDRE DE JEU ( tirage )
 
-    printf("\n\nPour tirer l'ordre de jeu, jetez votre de !\n");
-    for (i = 1; i <= nbJoueur; i++) {
-        printf("\n     %s, lance ton de ! [appuyez sur entrer] ", players[i].nomJoueur);
-        getchar();
-        tirage = de();
-        printf("\n   \u2192 Resultat : %d !\n", tirage);
+    
+    if (nbJoueur > 1) {
+        printf("\n\nPour tirer l'ordre de jeu, jetez votre de !\n");
+        for (i = 0; i < nbJoueur; i++) {
+            printf("\n    %s, lance ton de ! [appuyez sur entrer] ", players[i].nomJoueur);
+            getchar();
+            tirage[i] = de();
+            printf("\n   \u2192 Resultat : %d !\n", tirage[i]);
+            // TRIER L'ORDRE DE PASSAGE EN FONCTION DU NOMBRE TIRE PAR JOUEUR
+        }
     }
 }
 
