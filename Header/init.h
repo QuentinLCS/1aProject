@@ -6,7 +6,7 @@
         int numJoueur;
         char *nomJoueur[30];
         char *couleur[6];
-        int cheval[4][2];
+        int cheval[4];
     } joueur ;
 
     void init();

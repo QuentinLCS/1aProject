@@ -9,7 +9,7 @@
 //void init ()
 void main()
 {
-    int nbJoueur = 0, valide = 0, continuer = 0, tirage[4], i; 
+    int nbJoueur = 0, valide = 0, continuer = 0, tirage[4], ordrePassage[4], i, j, tempI = 0; 
     joueur players[4];
 
     // NumJoueur pas utile puisque on peut se 
@@ -49,7 +49,20 @@ void main()
             getchar();
             tirage[i] = de();
             printf("\n   \u2192 Resultat : %d !\n", tirage[i]);
+            
             // TRIER L'ORDRE DE PASSAGE EN FONCTION DU NOMBRE TIRE PAR JOUEUR
+        } 
+        
+        for (i = 0; i < nbJoueur; i++) {
+            for (j = 0; j < nbJoueur; j++) {
+                if (tirage[j]) {
+                    if (tirage[tempI] < tirage[j]) {
+                        tempI = j;
+                    } 
+                }
+            } ordrePassage[i] = tempI;
+            tirage[tempI] = 0;
+            printf("\n%de : %s", i+1, players[ordrePassage[i]].couleur[0]);
         }
     }
 }
@@ -64,5 +77,5 @@ void viderBuffer()
 int de()
 {
     srand(time(NULL));
-    return rand() % 6;
+    return rand() % 6 + 1;
 }
