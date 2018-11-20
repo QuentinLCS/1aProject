@@ -58,3 +58,62 @@ int deplacer(int numJoueur, int numPion, int distance)
 
     } return 0;
 }
+
+__________________________________________________________________________________________________________________
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "../Header/plateau.h"
+#include "../Header/deplacement.h"
+
+int de()
+{
+    srand(time(NULL));
+    return rand() % 6;
+}
+
+int deplacement(int numJoueur, int numPion, int distance){
+    int destination[2];
+    while (distance != 0){
+        if (Players[numJoueur-1].cheval[numPion-1].position[0] == 0){   
+            for (int i=0; i<1; i++){
+                
+
+                
+            }        
+        }
+        else if (Players[numJoueur-1].cheval[numPion-1].position[0] == 14){
+            for (int i=-1; i<1; i++){
+                
+
+            
+            }
+        }
+        else if (Players[numJoueur-1].cheval[numPion-1].position[1] == 0){
+            for (int i=-1; i<1; i++){
+                
+
+            
+            }
+        }
+        else if (Players[numJoueur-1].cheval[numPion-1].position[1] == 14){
+            for (int i=-1; i<1; i++){
+                
+
+            
+            }
+        }
+        else {
+            for (int i=-1; i<2; i+=2){ //
+               if (matrice[Players[numJoueur-1].cheval[numPion-1].position[1]+i][Players[numJoueur-1].cheval[numPion-1].position[0]].ecurie != 1 
+               || matrice[Players[numJoueur-1].cheval[numPion-1].position[1]+i][Players[numJoueur-1].cheval[numPion-1].position[0]].echelle != 1
+               || (Players[numJoueur-1].cheval[numPion-1].position[1]+i == Players[numJoueur-1].cheval[numPion-1].parcouru[1] && ))
+
+
+            }
+        }
+    }
+
+
+}
