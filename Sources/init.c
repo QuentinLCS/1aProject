@@ -9,7 +9,7 @@
 //void init ()
 void main()
 {
-    int nbJoueur = 0, valide = 0, continuer = 0, tirage[4], i, j, tempI = 0, tempMax; 
+    int nbJoueur = 0, valide = 0, continuer = 0, tirage[4], ordrePassage[4], i, j, tempI = 0; 
     joueur players[4];
 
     // NumJoueur pas utile puisque on peut se 
@@ -58,12 +58,11 @@ void main()
                 if (tirage[j]) {
                     if (tirage[tempI] < tirage[j]) {
                         tempI = j;
-                        tempMax = tirage[j];
                     } 
                 }
-            } players[tempI].numJoueur = i + 1;
-            tirage[i] = 0;
-            printf("%d\n", players[tempI].numJoueur);
+            } ordrePassage[i] = tempI;
+            tirage[tempI] = 0;
+            printf("%de : %s\n", i+1, players[ordrePassage[i]].couleur[0]);
         }
     }
 }
