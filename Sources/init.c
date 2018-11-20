@@ -62,7 +62,7 @@ void main()
                 }
             } ordrePassage[i] = tempI;
             tirage[tempI] = 0;
-            printf("%de : %s\n", i+1, players[ordrePassage[i]].couleur[0]);
+            printf("\n%de : %s", i+1, players[ordrePassage[i]].couleur[0]);
         }
     }
 }
