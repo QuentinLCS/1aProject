@@ -180,7 +180,9 @@ void affichagePlateau()
                 // AFFICHAGE DES CASES BLANCHES
                 
                 else { 
-                    if (k == 1) {
+                    if (!k) {
+                        printf("\033[7m\u02F9    \u02FA\033[0m");
+                    } else if (k == 1) {
                         if (matrice[i][j].nbChevaux >= 1) {
                             if (matrice[i][j].couleur[0] == "bleu") {
                                 printf("\033[7;44m  %d\u265e  \033[0m", matrice[i][j].nbChevaux);
@@ -192,10 +194,10 @@ void affichagePlateau()
                                 printf("\033[7;42m  %d\u265e  \033[0m", matrice[i][j].nbChevaux);
                             }
                         } else {
-                            printf("\033[7m  __  \033[0m");
+                            printf("\033[7m      \033[0m");
                         }
                     } else {
-                        printf("\033[7m      \033[0m");
+                        printf("\033[7m\u02FB    \u02FC\033[0m");
                     }
                 }
             } 
