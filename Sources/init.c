@@ -6,6 +6,12 @@
 #include <stdlib.h>
 #include <time.h>
 
+int de()
+{
+    srand(time(NULL));
+    return rand() % 6 + 1;
+}
+
 //void init ()
 void main()
 {
@@ -71,11 +77,4 @@ void viderBuffer()
 {
     char c;
     while ( (c=getchar()) != EOF && c != '\n');
-}
-
-////// TEPORAIRE, A SUPPRIMER UNE FOIS INUTILE ( présent dans deplacement.c ) ///////
-int de()
-{
-    srand(time(NULL));
-    return rand() % 6 + 1;
 }
