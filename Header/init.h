@@ -3,9 +3,16 @@
 #define INIT_H
 
     typedef struct {
+        int numcheval;
+        int position[2];
+        int parcouru[2];
+    } pion ;
+   
+    typedef struct {
+        int numJoueur;
         char *nomJoueur[30];
         char *couleur[6];
-        int cheval[4];
+        pion cheval[4];
     } joueur ;
 
     void init();
