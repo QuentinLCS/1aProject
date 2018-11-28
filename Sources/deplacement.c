@@ -73,9 +73,37 @@ int de()
     return rand() % 6;
 }
 
+int verificationX(int numJoueur, int numPion, int distance, int i){
+    int test=0
+    if (matrice[Players[numJoueur-1].cheval[numPion-1].position[1]+i][Players[numJoueur-1].cheval[numPion-1].position[0]].nbChevaux == 0){
+        test=1;
+    }
+    else if (matrice[Players[numJoueur-1].cheval[numPion-1].position[1]+i][Players[numJoueur-1].cheval[numPion-1].position[0]].*couleur == Players[numJoueur-1].*couleur){
+        test=1;
+    }
+    else {
+    }
+    return test;
+}
+
+int verificationY(int numJoueur, int numPion, int distance, int i){
+int test=0
+    if (matrice[Players[numJoueur-1].cheval[numPion-1].position[1]][Players[numJoueur-1].cheval[numPion-1].position[0]+i].nbChevaux == 0){
+        test=1;
+    }
+    else if (matrice[Players[numJoueur-1].cheval[numPion-1].position[1]][Players[numJoueur-1].cheval[numPion-1].position[0]+i].*couleur == Players[numJoueur-1].*couleur){
+        test=1;
+    }
+    else {
+    }
+    return test;
+}
+
 int deplacement(int numJoueur, int numPion, int distance){
-    int destination[2];
+    int destination[2], i=-1, ver=1;
     while (distance != 0){
+        i=-1;
+        ver=1;
         if (Players[numJoueur-1].cheval[numPion-1].position[0] == 0){   
             for (int i=0; i<1; i++){
                 
@@ -105,14 +133,34 @@ int deplacement(int numJoueur, int numPion, int distance){
             }
         }
         else {
-            for (int i=-1; i<2; i+=2){ //
-               if (matrice[Players[numJoueur-1].cheval[numPion-1].position[1]+i][Players[numJoueur-1].cheval[numPion-1].position[0]].ecurie != 1 
-               || matrice[Players[numJoueur-1].cheval[numPion-1].position[1]+i][Players[numJoueur-1].cheval[numPion-1].position[0]].echelle != 1
-               || (Players[numJoueur-1].cheval[numPion-1].position[1]+i == Players[numJoueur-1].cheval[numPion-1].parcouru[1] && ))
+            while (i<2 && ver != 0){
+                if (matrice[Players[numJoueur-1].cheval[numPion-1].position[1]+i][Players[numJoueur-1].cheval[numPion-1].position[0]].ecurie != 1 
+                && matrice[Players[numJoueur-1].cheval[numPion-1].position[1]+i][Players[numJoueur-1].cheval[numPion-1].position[0]].echelle != 1
+                && (Players[numJoueur-1].cheval[numPion-1].position[1]+i == Players[numJoueur-1].cheval[numPion-1].parcouru[1] && Players[numJoueur-1].cheval[numPion-1].position[0] == Players[numJoueur-1].cheval[numPion-1].parcouru[0] ){
+              
+                    Players[numJoueur-1].cheval[numPion-1].parcouru[1]=Players[numJoueur-1].cheval[numPion-1].position[1];
+                    Players[numJoueur-1].cheval[numPion-1].parcouru[0]=Players[numJoueur-1].cheval[numPion-1].position[0];
+                    Players[numJoueur-1].cheval[numPion-1].position[1]=Players[numJoueur-1].cheval[numPion-1].position[1]+i;
+                    Players[numJoueur-1].cheval[numPion-1].position[0]=Players[numJoueur-1].cheval[numPion-1].position[0];
+                    ver = 0;
+                }
+                else if {(matrice[Players[numJoueur-1].cheval[numPion-1].position[1]][Players[numJoueur-1].cheval[numPion-1].position[0]+i].ecurie != 1 
+                && matrice[Players[numJoueur-1].cheval[numPion-1].position[1]][Players[numJoueur-1].cheval[numPion-1].position[0]+i].echelle != 1
+                && (Players[numJoueur-1].cheval[numPion-1].position[1] == Players[numJoueur-1].cheval[numPion-1].parcouru[1] && Players[numJoueur-1].cheval[numPion-1].position[0]+i == Players[numJoueur-1].cheval[numPion-1].parcouru[0] ){
 
+                    Players[numJoueur-1].cheval[numPion-1].parcouru[1]=Players[numJoueur-1].cheval[numPion-1].position[1];
+                    Players[numJoueur-1].cheval[numPion-1].parcouru[0]=Players[numJoueur-1].cheval[numPion-1].position[0];
+                    Players[numJoueur-1].cheval[numPion-1].position[1]=Players[numJoueur-1].cheval[numPion-1].position[1];
+                    Players[numJoueur-1].cheval[numPion-1].position[0]=Players[numJoueur-1].cheval[numPion-1].position[0]+i;
+                    ver = 0;
+                }
+                else {
+                    i+=2;
 
+                }
             }
         }
+        distance-=1;
     }
 
 
