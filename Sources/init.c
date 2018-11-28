@@ -6,32 +6,40 @@
 #include <stdlib.h>
 #include <time.h>
 
+void main() {
+    nbJoueurs();
+    nomJoueurs();
+    ordreJeu();
+}
+
+    players[0].couleur[0]   = "bleu";
+    players[1].couleur[0]   = "rouge";
+    players[2].couleur[0]   = "jaune";
+    players[3].couleur[0]   = "vert";
+
+// A DEPLACER DANS DEPLACEMENT
 int de()
 {
     srand(time(NULL));
     return rand() % 6 + 1;
 }
 
-//void init ()
-void main()
+int nbJoueurs()
 {
-    int nbJoueur = 0, valide = 0, continuer = 0, tirage[4], ordrePassage[4], i, j, tempI = 0; 
+    int nbJoueur = 0, valide = 0, continuer = 0; 
     joueur players[4];
-
-    // NumJoueur pas utile puisque on peut se 
-    // servir de l'indice du tableau players[]
-
-    players[0].couleur[0]   = "bleu";
-    players[1].couleur[0]   = "rouge";
-    players[2].couleur[0]   = "jaune";
-    players[3].couleur[0]   = "vert";
+    
     do  {
         printf ("Combien de Joueurs souhaitez-vous ? \n   --> 1 JOUEUR\n   --> 2 JOUEURS\n   --> 3 JOUEURS\n   --> 4 JOUEURS\n\nReponse [entrez une valeur]: ");
         valide = scanf ("%d",&nbJoueur);
         viderBuffer();
     } while ( nbJoueur < 1 || nbJoueur > 4 || valide == 0 );
+    return nbJoueur;
+}
 
-    for (i = 0 ; i < nbJoueur ; i++) {
+void nomJoueurs() {
+    int valide = 0, continuer = 0, i, j; 
+    for (i = 0 ; i < nbJoueurs() ; i++) {
         valide = 0;
         do  {
             printf ("\n\nEntrez le nom du joueur %s : ", players[i].couleur[0]);
@@ -44,10 +52,10 @@ void main()
             } while ( (continuer < 1 || continuer > 2) || valide == 0 );
         } while ( continuer == 2 );
     }
+}
 
-    // ORDRE DE JEU ( tirage )
-
-    
+int ordreJeu() {
+    int tirage[4], ordrePassage[4], i, j, tempI = 0; 
     if (nbJoueur > 1) {
         printf("\n\nPour tirer l'ordre de jeu, jetez votre de !\n");
         for (i = 0; i < nbJoueur; i++) {
