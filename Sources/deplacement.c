@@ -75,10 +75,10 @@ int de()
 
 int verificationX(int numJoueur, int numPion, int distance, int i){
     int test=0
-    if (matrice[Players[numJoueur-1].cheval[numPion-1].position[1]+i][Players[numJoueur-1].cheval[numPion-1].position[0]].nbChevaux == 0){
+    if (matrice[Players[numJoueur-1].cheval[numPion-1].destination[1]+i][Players[numJoueur-1].cheval[numPion-1].destination[0]].nbChevaux == 0){
         test=1;
     }
-    else if (matrice[Players[numJoueur-1].cheval[numPion-1].position[1]+i][Players[numJoueur-1].cheval[numPion-1].position[0]].*couleur == Players[numJoueur-1].*couleur){
+    else if (matrice[Players[numJoueur-1].cheval[numPion-1].destination[1]+i][Players[numJoueur-1].cheval[numPion-1].destination[0]].couleur[0] == Players[numJoueur-1].couleur[0]){
         test=1;
     }
     else {
@@ -88,10 +88,10 @@ int verificationX(int numJoueur, int numPion, int distance, int i){
 
 int verificationY(int numJoueur, int numPion, int distance, int i){
 int test=0
-    if (matrice[Players[numJoueur-1].cheval[numPion-1].position[1]][Players[numJoueur-1].cheval[numPion-1].position[0]+i].nbChevaux == 0){
+    if (matrice[Players[numJoueur-1].cheval[numPion-1].destination[1]][Players[numJoueur-1].cheval[numPion-1].destination[0]+i].nbChevaux == 0){
         test=1;
     }
-    else if (matrice[Players[numJoueur-1].cheval[numPion-1].position[1]][Players[numJoueur-1].cheval[numPion-1].position[0]+i].*couleur == Players[numJoueur-1].*couleur){
+    else if (matrice[Players[numJoueur-1].cheval[numPion-1].destination[1]][Players[numJoueur-1].cheval[numPion-1].destination[0]+i].couleur[0] == Players[numJoueur-1].couleur[0]){
         test=1;
     }
     else {
@@ -99,33 +99,35 @@ int test=0
     return test;
 }
 
-int deplacement(int numJoueur, int numPion, int distance){
-    int destination[2], i=-1, ver=1;
-    while (distance != 0){
+int deplacement(cellule matrice[], int numJoueur, int numPion, int distance){
+    int destination[2], i=-1, ver=1, final=1;
+    destination[0]=Players[numJoueur-1].cheval[numPion-1].position[0];
+    destination[1]=Players[numJoueur-1].cheval[numPion-1].position[1];
+    while (distance != 0 && final != 0 ){
         i=-1;
         ver=1;
-        if (Players[numJoueur-1].cheval[numPion-1].position[0] == 0){   
+        if (Players[numJoueur-1].cheval[numPion-1].destination[0] == 0){   
             for (int i=0; i<1; i++){
                 
 
                 
             }        
         }
-        else if (Players[numJoueur-1].cheval[numPion-1].position[0] == 14){
+        else if (Players[numJoueur-1].cheval[numPion-1].destination[0] == 14){
             for (int i=-1; i<1; i++){
                 
 
             
             }
         }
-        else if (Players[numJoueur-1].cheval[numPion-1].position[1] == 0){
+        else if (Players[numJoueur-1].cheval[numPion-1].destination[1] == 0){
             for (int i=-1; i<1; i++){
                 
 
             
             }
         }
-        else if (Players[numJoueur-1].cheval[numPion-1].position[1] == 14){
+        else if (Players[numJoueur-1].cheval[numPion-1].destination[1] == 14){
             for (int i=-1; i<1; i++){
                 
 
@@ -134,24 +136,28 @@ int deplacement(int numJoueur, int numPion, int distance){
         }
         else {
             while (i<2 && ver != 0){
-                if (matrice[Players[numJoueur-1].cheval[numPion-1].position[1]+i][Players[numJoueur-1].cheval[numPion-1].position[0]].ecurie != 1 
-                && matrice[Players[numJoueur-1].cheval[numPion-1].position[1]+i][Players[numJoueur-1].cheval[numPion-1].position[0]].echelle != 1
-                && (Players[numJoueur-1].cheval[numPion-1].position[1]+i == Players[numJoueur-1].cheval[numPion-1].parcouru[1] && Players[numJoueur-1].cheval[numPion-1].position[0] == Players[numJoueur-1].cheval[numPion-1].parcouru[0] ){
-              
-                    Players[numJoueur-1].cheval[numPion-1].parcouru[1]=Players[numJoueur-1].cheval[numPion-1].position[1];
-                    Players[numJoueur-1].cheval[numPion-1].parcouru[0]=Players[numJoueur-1].cheval[numPion-1].position[0];
-                    Players[numJoueur-1].cheval[numPion-1].position[1]=Players[numJoueur-1].cheval[numPion-1].position[1]+i;
-                    Players[numJoueur-1].cheval[numPion-1].position[0]=Players[numJoueur-1].cheval[numPion-1].position[0];
-                    ver = 0;
+                if (matrice[Players[numJoueur-1].cheval[numPion-1].destination[1]+i][Players[numJoueur-1].cheval[numPion-1].destination[0]].ecurie != 1 
+                && matrice[Players[numJoueur-1].cheval[numPion-1].destination[1]+i][Players[numJoueur-1].cheval[numPion-1].destination[0]].echelle != 1
+                && (Players[numJoueur-1].cheval[numPion-1].destination[1]+i == Players[numJoueur-1].cheval[numPion-1].parcouru[1] && Players[numJoueur-1].cheval[numPion-1].destination[0] == Players[numJoueur-1].cheval[numPion-1].parcouru[0] ){
+                    if (verificationX(numJoueur, numPion, distance, i)){
+                        Players[numJoueur-1].cheval[numPion-1].parcouru[1]=Players[numJoueur-1].cheval[numPion-1].destination[1];
+                        Players[numJoueur-1].cheval[numPion-1].parcouru[0]=Players[numJoueur-1].cheval[numPion-1].destination[0];
+                        Players[numJoueur-1].cheval[numPion-1].destination[1]=Players[numJoueur-1].cheval[numPion-1].destination[1]+i;
+                        Players[numJoueur-1].cheval[numPion-1].destination[0]=Players[numJoueur-1].cheval[numPion-1].destination[0];
+                        ver = 0;
+                    }
+                    else {
+                        final=0;
+                    }
                 }
-                else if {(matrice[Players[numJoueur-1].cheval[numPion-1].position[1]][Players[numJoueur-1].cheval[numPion-1].position[0]+i].ecurie != 1 
-                && matrice[Players[numJoueur-1].cheval[numPion-1].position[1]][Players[numJoueur-1].cheval[numPion-1].position[0]+i].echelle != 1
-                && (Players[numJoueur-1].cheval[numPion-1].position[1] == Players[numJoueur-1].cheval[numPion-1].parcouru[1] && Players[numJoueur-1].cheval[numPion-1].position[0]+i == Players[numJoueur-1].cheval[numPion-1].parcouru[0] ){
+                else if (matrice[Players[numJoueur-1].cheval[numPion-1].destination[1]][Players[numJoueur-1].cheval[numPion-1].destination[0]+i].ecurie != 1 
+                && matrice[Players[numJoueur-1].cheval[numPion-1].destination[1]][Players[numJoueur-1].cheval[numPion-1].destination[0]+i].echelle != 1
+                && (Players[numJoueur-1].cheval[numPion-1].destination[1] == Players[numJoueur-1].cheval[numPion-1].parcouru[1] && Players[numJoueur-1].cheval[numPion-1].destination[0]+i == Players[numJoueur-1].cheval[numPion-1].parcouru[0] ){
 
-                    Players[numJoueur-1].cheval[numPion-1].parcouru[1]=Players[numJoueur-1].cheval[numPion-1].position[1];
-                    Players[numJoueur-1].cheval[numPion-1].parcouru[0]=Players[numJoueur-1].cheval[numPion-1].position[0];
-                    Players[numJoueur-1].cheval[numPion-1].position[1]=Players[numJoueur-1].cheval[numPion-1].position[1];
-                    Players[numJoueur-1].cheval[numPion-1].position[0]=Players[numJoueur-1].cheval[numPion-1].position[0]+i;
+                    Players[numJoueur-1].cheval[numPion-1].parcouru[1]=Players[numJoueur-1].cheval[numPion-1].destination[1];
+                    Players[numJoueur-1].cheval[numPion-1].parcouru[0]=Players[numJoueur-1].cheval[numPion-1].destination[0];
+                    Players[numJoueur-1].cheval[numPion-1].destination[1]=Players[numJoueur-1].cheval[numPion-1].destination[1];
+                    Players[numJoueur-1].cheval[numPion-1].destination[0]=Players[numJoueur-1].cheval[numPion-1].destination[0]+i;
                     ver = 0;
                 }
                 else {
@@ -161,6 +167,14 @@ int deplacement(int numJoueur, int numPion, int distance){
             }
         }
         distance-=1;
+    }
+    if (final=0){
+        //Le déplacement est impossible dû à la présence d'un cheval sur la route
+        return 0;
+    }
+    else {
+        // Le déplacement c'est bien passé jusqu'à la case d'arrivée déterminée grâce au lancer de dé
+        return 1;
     }
 
 
