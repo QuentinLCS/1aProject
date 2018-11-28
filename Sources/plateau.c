@@ -3,6 +3,8 @@
 #define TAILLE_PLATEAU 15 // IMPAIR
 #define TAILLE_ECURIE 6 // Calculable ?
 
+#define ROUGE "\033[1;41m"
+
 // VARIABLES GLOBALES
 int i, j, k;
 cellule matrice[TAILLE_PLATEAU][TAILLE_PLATEAU];

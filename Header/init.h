@@ -15,7 +15,9 @@
         pion cheval[4];
     } joueur ;
 
-    void init();
+    int nbJoueurs();
+    void nomJoueurs(int);
+    int ordreJeu(int);
     void viderBuffer();
 
 #endif // INIT_H
