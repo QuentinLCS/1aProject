@@ -16,8 +16,8 @@
     } joueur ;
 
     int nbJoueurs();
-    void nomJoueurs();
-    int ordreJeu();
+    void nomJoueurs(int);
+    int ordreJeu(int);
     void viderBuffer();
 
 #endif // INIT_H

@@ -1,42 +1,27 @@
 #include <stdio.h>
-<<<<<<< HEAD
-#include "../Header/pion.h"
-
-void init (){
-    Joueur Players[4];
-    Players[0].num_joueur=1;
-    Players[0].couleur="bleu";
-    Players[1].num_joueur=2;
-    Players[1].couleur="rouge";
-    Players[2].num_joueur=3;
-    Players[2].couleur="jaune";
-    Players[3].num_joueur=4;
-    Players[3].couleur="vert";
-
-
-    int nbJoueur=nbJoueur();
-    for (int i=0; i<nbJoueur; i++){
-        printf ("\n\nEntrez le nom du joueur n°%d (couleur %s, 30 caractères max.) : ",i+1, Players[i].couleur);
-    }
-}
-=======
 #include "../Header/init.h"
 #include "../Header/deplacement.h"
+#include "../Header/plateau.h"
 
 ///// TEMPORAIRE ( pour le dé qui est temporaire dans ce fichier )/////
 #include <stdlib.h>
 #include <time.h>
 
-void main() {
-    nbJoueurs();
-    nomJoueurs();
-    ordreJeu();
-}
+joueur players[4];
 
-    players[0].couleur[0]   = "bleu";
-    players[1].couleur[0]   = "rouge";
-    players[2].couleur[0]   = "jaune";
-    players[3].couleur[0]   = "vert";
+void main() {
+
+    int nbJoueur;
+
+    players[0].couleur[0] = "bleu";
+    players[1].couleur[0] = "rouge";
+    players[2].couleur[0] = "jaune";
+    players[3].couleur[0] = "vert";
+
+    nbJoueur = nbJoueurs();
+    nomJoueurs(nbJoueur);
+    ordreJeu(nbJoueur);
+}
 
 // A DEPLACER DANS DEPLACEMENT
 int de()
@@ -47,8 +32,7 @@ int de()
 
 int nbJoueurs()
 {
-    int nbJoueur = 0, valide = 0, continuer = 0; 
-    joueur players[4];
+    int nbJoueur = 0, valide = 0, continuer = 0, NbJoueur; 
     
     do  {
         printf ("Combien de Joueurs souhaitez-vous ? \n   --> 1 JOUEUR\n   --> 2 JOUEURS\n   --> 3 JOUEURS\n   --> 4 JOUEURS\n\nReponse [entrez une valeur]: ");
@@ -58,9 +42,9 @@ int nbJoueurs()
     return nbJoueur;
 }
 
-void nomJoueurs() {
+void nomJoueurs( int nbJoueur) {
     int valide = 0, continuer = 0, i, j; 
-    for (i = 0 ; i < nbJoueurs() ; i++) {
+    for (i = 0 ; i < nbJoueur; i++) {
         valide = 0;
         do  {
             printf ("\n\nEntrez le nom du joueur %s : ", players[i].couleur[0]);
@@ -75,7 +59,7 @@ void nomJoueurs() {
     }
 }
 
-int ordreJeu() {
+int ordreJeu( int nbJoueur ) {
     int tirage[4], ordrePassage[4], i, j, tempI = 0; 
     if (nbJoueur > 1) {
         printf("\n\nPour tirer l'ordre de jeu, jetez votre de !\n");
@@ -107,4 +91,3 @@ void viderBuffer()
     char c;
     while ( (c=getchar()) != EOF && c != '\n');
 }
->>>>>>> a91af98b06edf1a7ea9b839f21c63e83a826f7a3
