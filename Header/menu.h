@@ -2,7 +2,7 @@
 #define MENU_H
 
 void menu();
-int nouvellePartie();
+void nouvellePartie();
 void continuer();
 void option();
 

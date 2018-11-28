@@ -15,7 +15,7 @@ void main()
     switch (gameMode) {
         case 1 :
             printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[v] NOUVELLE PARTIE : SELECTIONNE !\n\n");
-            init();
+            //init();
             break;
         case 2 :
             printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[v] CONTINUER : SELECTIONNE !\n\n");
