@@ -22,13 +22,13 @@
     - [ ] Permettre de quitter en pleine partie. (sauvegarde à ce moment là)
 * L'Affichage :
     - [ ] Designer le menu pour le rendre plus attirant malgré le SHELL.
-    - [ ] Essayer de faire afficher des chevaux dans le SHELL (plateau.c).
+    - [x] Essayer de faire afficher des chevaux dans le SHELL (plateau.c).
     - [ ] Afficher qui doit jouer ?
     - [ ] Afficher le nombre de chevaux restant pour chaque joueur. (0 = Gagné)
     - [ ] Gestion du podium ? ( 1er , 2e, ... )
     - [ ] Penser à l'utilisation des commandes SHELL (clear, ...)
 * Deplacement :
-    - [ ] Finir les vérifications de déplacement.
+    - [ ] Finir les vérifications de déplacement. [en cours]
     - [ ] Gérer le renvoie à l'écurie.
     - [ ] Gérer la relance du dé si un 6 est effectué.
     - [ ] Gérer le point d'apparition.
