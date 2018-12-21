@@ -4,8 +4,8 @@
 
     typedef struct {
         int numcheval;
+        int num_case ;
         int position[2];
-        int parcouru[2];
     } pion ;
    
     typedef struct {
