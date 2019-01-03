@@ -6,16 +6,20 @@
 
 int verification(cellule matrice[], int numJoueur, int numPion, int distance, joueur players[]){
     int res=1, i=1;
-    while (i<= distance && res=1){
-        if (matrice[chemin[ *players[numJoueur]->cheval[numPion]->num_case + i][0]][chemin[ *players[numJoueur]->cheval[numPion]->num_case + i][1]].nbChevaux == 0 ^ matrice[chemin[ *players[numJoueur]->cheval[numPion]->num_case + i][0]][chemin[ *players[numJoueur]->cheval[numPion]->num_case + i][1]].couleur == *players[numJoueur].couleur ){
-            i++;
-        }
-        else if (i==distance) {
-            res=2;
-        }
-        else {
-            res=0;
-        }
+    while (i<= distance && res==1){
+        if (matrice[chemin[ *players[numJoueur]->cheval[numPion]->num_case + i][0]][chemin[ *players[numJoueur]->cheval[numPion]->num_case + i][1]].nbChevaux != 0{
+            if (matrice[chemin[ *players[numJoueur]->cheval[numPion]->num_case + i][0]][chemin[ *players[numJoueur]->cheval[numPion]->num_case + i][1]].couleur == *players[numJoueur].couleur ){
+                i++;
+            }
+            else {
+                if (i==distance){
+                    res=2;
+                }
+                else {
+                    res=0;
+                }
+            }
+        }    
     }
     return res;
 }
