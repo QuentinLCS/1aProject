@@ -1,34 +1,36 @@
 #include <stdio.h>
+#include "../Header/init.h"
 #include "../Header/menu.h"
 
-// void menu()
-void menu()
+int menu()
 {
-    int gameMode = 0, valide = 0;
+    int gameMode = 0, valide = 0, stop = 0;
 
     do {
         printf("\n[Projet 1A] PETITS CHEVAUX \nPar : CHAVAS Nathan & LECHASLES Quentin\n\nChoisissez votre mode de jeu :\n  [1] Nouvelle partie\n  [2] Continuer\n  [3] Options\n  [4] Quitter \n\nMode [entrez une valeur]: ");
         valide = scanf("%d", &gameMode);
-        getchar();
+        viderBuffer();
     } while ( gameMode < 1 || gameMode > 4 || valide == 0 );
     
     switch (gameMode) {
         case 1 :
-            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[v] NOUVELLE PARTIE : SELECTIONNE !\n\n");
-            //init();
+            printf("\n[v] NOUVELLE PARTIE : SELECTIONNE !\n\n");
+            init();
             break;
         case 2 :
-            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[v] CONTINUER : SELECTIONNE !\n\n");
+            printf("\n[v] CONTINUER : SELECTIONNE !\n\n");
             continuer();
             break;
         case 3 :
-            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[v] OPTIONS : SELECTIONNE !\n\n");
+            printf("\n[v] OPTIONS : SELECTIONNE !\n\n");
             option();
             break;
         case 4 :
-            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[v] QUITTER : SELECTIONNE !\n\n");
+            printf("\n[v] QUITTER : SELECTIONNE !\n\n");
+            stop = 1;
             break;
     }
+    return stop;
 }
 
 void nouvellePartie ()

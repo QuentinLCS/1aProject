@@ -1,7 +1,7 @@
 #if !defined(MENU_H)
 #define MENU_H
 
-void menu();
+int menu();
 void nouvellePartie();
 void continuer();
 void option();

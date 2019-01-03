@@ -4,9 +4,6 @@
 #include "../Header/deplacement.h"
 #include "../Header/plateau.h"
 
-///// TEMPORAIRE ( pour le dé qui est temporaire dans ce fichier )/////
-#include <stdlib.h>
-#include <time.h>
 
 joueur players[4];
 

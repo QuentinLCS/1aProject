@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "../Header/menu.h"
 #include "../Header/plateau.h"
 #include "../Header/deplacement.h"
@@ -6,9 +7,10 @@
 
 int main()
 {
-    int continuer = 1;
-    while (continuer) {
-        menu();
+    int stop = 0;
+    while (!stop) {
+        stop = menu();
+        system("clear");
         
     }
 }
