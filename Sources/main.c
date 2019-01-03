@@ -10,7 +10,5 @@ int main()
     int stop = 0;
     while (!stop) {
         stop = menu();
-        system("clear");
-        
     }
 }

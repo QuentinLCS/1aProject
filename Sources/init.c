@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <time.h>
 #include "../Header/init.h"
 #include "../Header/deplacement.h"
 #include "../Header/plateau.h"
-
 
 joueur players[4];
 
@@ -15,11 +16,6 @@ void init() {
     strcpy(players[1].couleur, "rouge");
     strcpy(players[2].couleur, "jaune");
     strcpy(players[3].couleur, "vert");
-
-    for (int g = 0; g < 4; g++) {
-        printf("%d ======= %s\n", g, players[g].couleur);
-    }
-    
 
     nbJoueur = nbJoueurs();
     nomJoueurs(nbJoueur);

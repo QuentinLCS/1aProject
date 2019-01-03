@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "../Header/init.h"
 #include "../Header/menu.h"
 
@@ -14,19 +15,15 @@ int menu()
     
     switch (gameMode) {
         case 1 :
-            printf("\n[v] NOUVELLE PARTIE : SELECTIONNE !\n\n");
             init();
             break;
         case 2 :
-            printf("\n[v] CONTINUER : SELECTIONNE !\n\n");
             continuer();
             break;
         case 3 :
-            printf("\n[v] OPTIONS : SELECTIONNE !\n\n");
             option();
             break;
         case 4 :
-            printf("\n[v] QUITTER : SELECTIONNE !\n\n");
             stop = 1;
             break;
     }
@@ -48,7 +45,7 @@ void option ()
 {
 
     int optionNb = 0, valide = 0;
-    
+    system("clear");
     do {
         printf("\n[OPTIONS] A quelle option souhaitez-vous accéder ?\n  [1] Scénarios\n  [2] xxx\n  [3] RETOUR\n\nOption [entrez une valeur]: ");
         valide == scanf("%d", &optionNb);
@@ -67,4 +64,3 @@ void option ()
             break;
     }
 }
-
