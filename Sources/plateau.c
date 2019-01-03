@@ -10,7 +10,7 @@ int i, j, k;
 cellule matrice[TAILLE_PLATEAU][TAILLE_PLATEAU];
 
 // void creationPlateau()
-void main()
+void creationPlateau()
 {
 
 // CREATION DU PLATEAU (en fonction des dimensions)

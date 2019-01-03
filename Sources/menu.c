@@ -2,7 +2,7 @@
 #include "../Header/menu.h"
 
 // void menu()
-void main()
+void menu()
 {
     int gameMode = 0, valide = 0;
 

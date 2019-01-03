@@ -9,7 +9,7 @@
 
 joueur players[4];
 
-void main() {
+void init() {
 
     int nbJoueur;
 

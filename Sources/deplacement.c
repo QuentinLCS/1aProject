@@ -3,14 +3,6 @@
 #include <time.h>
 #include "../Header/plateau.h"
 #include "../Header/deplacement.h"
-int de();
-
-
-int de()
-{
-    srand(time(NULL));
-    return rand() % 6;
-}
 
 int verification(cellule matrice[], int numJoueur, int numPion, int distance, joueur players[]){
     int res=1, i=1;

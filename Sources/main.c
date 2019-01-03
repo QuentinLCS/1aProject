@@ -4,7 +4,7 @@
 #include "../Header/deplacement.h"
 #include "../Header/init.h"
 
-int main(int argc, char const *argv[])
+int main()
 {
     continuer = 1;
     while (continuer) {
