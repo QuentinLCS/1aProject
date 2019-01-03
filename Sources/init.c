@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "../Header/init.h"
 #include "../Header/deplacement.h"
 #include "../Header/plateau.h"
@@ -13,10 +14,15 @@ void init() {
 
     int nbJoueur;
 
-    players[0].couleur[0] = "bleu";
-    players[1].couleur[0] = "rouge";
-    players[2].couleur[0] = "jaune";
-    players[3].couleur[0] = "vert";
+    strcpy(players[0].couleur, "bleu");
+    strcpy(players[1].couleur, "rouge");
+    strcpy(players[2].couleur, "jaune");
+    strcpy(players[3].couleur, "vert");
+
+    for (int g = 0; g < 4; g++) {
+        printf("%d ======= %s\n", g, players[g].couleur);
+    }
+    
 
     nbJoueur = nbJoueurs();
     nomJoueurs(nbJoueur);
@@ -47,7 +53,7 @@ void nomJoueurs( int nbJoueur) {
     for (i = 0 ; i < nbJoueur; i++) {
         valide = 0;
         do  {
-            printf ("\n\nEntrez le nom du joueur %s : ", players[i].couleur[0]);
+            printf ("\n\nEntrez le nom du joueur %s : ", players[i].couleur);
             scanf("%s", players[i].nomJoueur);
             viderBuffer(); 
             do {
@@ -81,7 +87,7 @@ int ordreJeu( int nbJoueur ) {
                 }
             } ordrePassage[i] = tempI;
             tirage[tempI] = 0;
-            printf("\n%de : %s", i+1, players[ordrePassage[i]].couleur[0]);
+            printf("\n%de : %s", i+1, players[ordrePassage[i]].couleur);
         }
     }
 }

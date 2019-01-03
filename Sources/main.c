@@ -6,7 +6,7 @@
 
 int main()
 {
-    continuer = 1;
+    int continuer = 1;
     while (continuer) {
         menu();
         
