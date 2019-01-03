@@ -3,7 +3,9 @@
 
 int menu();
 void nouvellePartie();
-void continuer();
+void continuerPartie();
 void option();
+void scenarios();
+void plusInfos();
 
 #endif // MENU_H

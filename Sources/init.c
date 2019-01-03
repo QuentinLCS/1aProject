@@ -12,6 +12,8 @@ void init() {
 
     int nbJoueur;
 
+    system("clear");
+
     strcpy(players[0].couleur, "bleu");
     strcpy(players[1].couleur, "rouge");
     strcpy(players[2].couleur, "jaune");
@@ -33,6 +35,8 @@ int nbJoueurs()
 {
     int nbJoueur = 0, valide = 0, continuer = 0, NbJoueur; 
     
+    system("clear");
+
     do  {
         printf ("Combien de Joueurs souhaitez-vous ? \n   --> 1 JOUEUR\n   --> 2 JOUEURS\n   --> 3 JOUEURS\n   --> 4 JOUEURS\n\nReponse [entrez une valeur]: ");
         valide = scanf ("%d",&nbJoueur);
@@ -43,6 +47,9 @@ int nbJoueurs()
 
 void nomJoueurs( int nbJoueur) {
     int valide = 0, continuer = 0, i, j; 
+
+    system("clear");
+
     for (i = 0 ; i < nbJoueur; i++) {
         valide = 0;
         do  {
@@ -60,6 +67,9 @@ void nomJoueurs( int nbJoueur) {
 
 int ordreJeu( int nbJoueur ) {
     int tirage[4], ordrePassage[4], i, j, tempI = 0; 
+
+    system("clear");
+
     if (nbJoueur > 1) {
         printf("\n\nPour tirer l'ordre de jeu, jetez votre de !\n");
         for (i = 0; i < nbJoueur; i++) {
@@ -89,4 +99,20 @@ void viderBuffer()
 {
     char c;
     while ( (c=getchar()) != EOF && c != '\n');
+}
+
+void afficherErreur(int erreurType) 
+{
+    system("clear");
+    switch (erreurType) 
+    {
+        case 1 :
+            printf("\033[31mERREUR : entrée non conforme à la demande.\033[0m\n");
+            break;
+        
+        case 2 :
+            printf("\033[31mERREUR : cheval injouable.\033[0m\n");
+            break;
+    }
+    system("sleep 2");
 }

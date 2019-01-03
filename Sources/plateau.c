@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "../Header/plateau.h"
 #define TAILLE_PLATEAU 15 // IMPAIR
 #define TAILLE_ECURIE 6 // Calculable ?
@@ -70,7 +71,7 @@ void creationPlateau()
 void affichagePlateau() 
 {
 
-    printf("\n\n\n"); 
+    system("clear");
     
     for (i = 0; i < TAILLE_PLATEAU; i++) {
 

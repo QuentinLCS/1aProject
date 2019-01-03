@@ -5,10 +5,15 @@
 #include "../Header/deplacement.h"
 #include "../Header/init.h"
 
-int main()
+void main()
 {
-    int stop = 0;
-    while (!stop) {
-        stop = menu();
+    int jouer = 0;
+    while (menu()) 
+    {
+        if (jouer)
+        {
+
+        }
     }
+    system("clear");
 }
