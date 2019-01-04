@@ -3,9 +3,11 @@
 #include "../Header/init.h"
 #include "../Header/menu.h"
 
+
+
 int menu()
 {
-    int gameMode = 0, valide = 0, continuer = 1;
+    int gameMode = 0, valide = 0, nbJoueur;
 
     do {
         system("clear");
@@ -13,12 +15,12 @@ int menu()
         valide = scanf("%d", &gameMode);
         viderBuffer();
         if (gameMode < 1 || gameMode > 4 || !valide ) afficherErreur(1);
-    } while ( gameMode < 1 || gameMode > 4 || valide == 0 );
+    } while ( gameMode < 1 || gameMode > 4 || !valide );
     
     switch (gameMode) 
     {
         case 1 :
-            init();
+            nbJoueur = init();
             break;
         case 2 :
             continuerPartie();
@@ -27,11 +29,15 @@ int menu()
             option();
             break;
         case 4 :
-            continuer = 0;
+            nbJoueur = 0;
             break;
     }
-    return continuer;
+    return nbJoueur;
 }
+
+
+
+
 
 void nouvellePartie ()
 {
@@ -39,10 +45,18 @@ void nouvellePartie ()
     //Jeu();
 }
 
+
+
+
+
 void continuerPartie ()
 {
     //Jeu();
 }
+
+
+
+
 
 void option ()
 {
@@ -56,7 +70,7 @@ void option ()
         printf("\n\n%d - %d\n\n", valide, optionNb);
         viderBuffer();
         if (optionNb < 1 || optionNb > 3 || !valide ) afficherErreur(1);
-    } while ( optionNb < 1 || optionNb > 3 || valide == 0 );
+    } while ( optionNb < 1 || optionNb > 3 || !valide );
 
     switch (optionNb) 
     {
@@ -68,6 +82,10 @@ void option ()
             break;
     }
 }
+
+
+
+
 
 void scenarios()
 {
@@ -81,7 +99,7 @@ void scenarios()
         printf("\n\n%d - %d\n\n", valide, scenarioNb);
         viderBuffer();
         if (scenarioNb < 1 || scenarioNb > 5 || !valide ) afficherErreur(1);
-    } while ( scenarioNb < 1 || scenarioNb > 5 || valide == 0 );
+    } while ( scenarioNb < 1 || scenarioNb > 5 || !valide );
 
     switch (scenarioNb) 
     {
@@ -99,6 +117,10 @@ void scenarios()
             break;
     }
 }
+
+
+
+
 
 void plusInfos()
 {

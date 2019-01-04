@@ -16,7 +16,7 @@
     } joueur ;
 
     int de();
-    void init();
+    int init();
     int nbJoueurs();
     void nomJoueurs(int);
     int ordreJeu(int);

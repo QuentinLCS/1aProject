@@ -7,13 +7,19 @@
 
 void main()
 {
-    int jouer = 0;
-    while (menu()) 
+    int jouer = 0, nbJoueur, i;
+    while (nbJoueur = menu()) 
     {
         if (jouer)
         {
-
+            for (i = 0; i < nbJoueur; i++)
+            {
+                do
+                {
+                    // En cours de réflexion...
+                } while (0);
+            }
         }
     }
-    system("clear");
+    
 }

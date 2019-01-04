@@ -8,7 +8,7 @@
 
 joueur players[4];
 
-void init() {
+int init() {
 
     int nbJoueur;
 
@@ -22,7 +22,11 @@ void init() {
     nbJoueur = nbJoueurs();
     nomJoueurs(nbJoueur);
     ordreJeu(nbJoueur);
+
+    return nbJoueur;
 }
+
+
 
 // A DEPLACER DANS DEPLACEMENT
 int de()
@@ -31,43 +35,54 @@ int de()
     return rand() % 6 + 1;
 }
 
+
+
+
 int nbJoueurs()
 {
     int nbJoueur = 0, valide = 0, continuer = 0, NbJoueur; 
-    
-    system("clear");
 
     do  {
+        system("clear");
         printf ("Combien de Joueurs souhaitez-vous ? \n   --> 1 JOUEUR\n   --> 2 JOUEURS\n   --> 3 JOUEURS\n   --> 4 JOUEURS\n\nReponse [entrez une valeur]: ");
         valide = scanf ("%d",&nbJoueur);
         viderBuffer();
-    } while ( nbJoueur < 1 || nbJoueur > 4 || valide == 0 );
+        if (nbJoueur < 1 || nbJoueur > 4 || !valide ) afficherErreur(1);
+    } while ( nbJoueur < 1 || nbJoueur > 4 || !valide);
     return nbJoueur;
 }
+
+
+
+
 
 void nomJoueurs( int nbJoueur) {
     int valide = 0, continuer = 0, i, j; 
 
-    system("clear");
-
     for (i = 0 ; i < nbJoueur; i++) {
         valide = 0;
         do  {
+            system("clear");
             printf ("\n\nEntrez le nom du joueur %s : ", players[i].couleur);
             scanf("%s", players[i].nomJoueur);
             viderBuffer(); 
             do {
+                system("clear");
                 printf("\n\nC'est %s, c'est bien ca ?\n[1] Oui !\n[2] Non, recommencer.\n\nReponse [entrez une valeur]: ", players[i].nomJoueur);
                 valide = scanf("%d", &continuer);
                 viderBuffer();
-            } while ( (continuer < 1 || continuer > 2) || valide == 0 );
+                if ((continuer < 1 || continuer > 2) || !valide ) afficherErreur(1);
+            } while ( (continuer < 1 || continuer > 2) || !valide );
         } while ( continuer == 2 );
     }
 }
 
+
+
+
 int ordreJeu( int nbJoueur ) {
     int tirage[4], ordrePassage[4], i, j, tempI = 0; 
-
+    
     system("clear");
 
     if (nbJoueur > 1) {
@@ -77,10 +92,10 @@ int ordreJeu( int nbJoueur ) {
             getchar();
             tirage[i] = de();
             printf("\n   \u2192 Resultat : %d !\n", tirage[i]);
-            
-            // TRIER L'ORDRE DE PASSAGE EN FONCTION DU NOMBRE TIRE PAR JOUEUR
         } 
         
+        // TRI DU NOMBRE DE JOUEURS (ordrePassage[]) EN FONCTION DU TIRAGE (tirage[])
+
         for (i = 0; i < nbJoueur; i++) {
             for (j = 0; j < nbJoueur; j++) {
                 if (tirage[j]) {
@@ -90,16 +105,24 @@ int ordreJeu( int nbJoueur ) {
                 }
             } ordrePassage[i] = tempI;
             tirage[tempI] = 0;
-            printf("\n%de : %s", i+1, players[ordrePassage[i]].couleur);
+            printf("\n%de : %s (%s)\n", i+1, players[ordrePassage[i]].nomJoueur, players[ordrePassage[i]].couleur);
         }
+        system("sleep 7");
     }
 }
+
+
+
+
 
 void viderBuffer() 
 {
     char c;
     while ( (c=getchar()) != EOF && c != '\n');
 }
+
+
+
 
 void afficherErreur(int erreurType) 
 {
