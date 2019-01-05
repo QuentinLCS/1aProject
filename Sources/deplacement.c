@@ -20,8 +20,8 @@ int de()
 int verification(int numJoueur, int numPion, int distance){
     int res=1, i=1;
     while (i<= distance && res==1){
-        if (matrice[chemin[ players[numJoueur].cheval[numPion].num_case + i][0]][chemin[ players[numJoueur].cheval[numPion].num_case + i][1]].nbChevaux != 0){
-            if (matrice[chemin[ players[numJoueur].cheval[numPion].num_case + i][0]][chemin[ players[numJoueur].cheval[numPion].num_case + i][1]].couleur == players[numJoueur].couleur ){
+        if (plateau[chemin[ players[numJoueur].cheval[numPion].num_case + i][0]][chemin[ players[numJoueur].cheval[numPion].num_case + i][1]].nbChevaux != 0){
+            if (plateau[chemin[ players[numJoueur].cheval[numPion].num_case + i][0]][chemin[ players[numJoueur].cheval[numPion].num_case + i][1]].couleur == players[numJoueur].couleur ){
                 i++;
             }
             else {
@@ -43,16 +43,16 @@ int verification(int numJoueur, int numPion, int distance){
 
 void deplacement(int numJoueur, int numPion, int distance)
 {
-    matrice[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux -= 1;
-    if(matrice[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux == 0)
+    plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux -= 1;
+    if(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux == 0)
     {
-        strcpy(matrice[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, " ");
+        strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, " ");
     }
     players[numJoueur].cheval[numPion].num_case = ((players[numJoueur].cheval[numPion].num_case + distance) % 56) + 1;
     players[numJoueur].cheval[numPion].position[0] = chemin[players[numJoueur].cheval[numPion].num_case - 1][0];
     players[numJoueur].cheval[numPion].position[1] = chemin[players[numJoueur].cheval[numPion].num_case - 1][1];
-    matrice[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux += 1;
-    strcpy(matrice[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, players[numJoueur].couleur); 
+    plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux += 1;
+    strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, players[numJoueur].couleur); 
 }
 
 void capture(int numJoueur, int numPion, int distance)
@@ -60,7 +60,7 @@ void capture(int numJoueur, int numPion, int distance)
     int i = 0, ver = 0;
     while (i < 4 && !ver)
     {
-        if (strcmp(matrice[chemin[(((players[numJoueur].cheval[numPion].num_case - 1)+ distance) %56) +1][0]] [chemin[(((players[numJoueur].cheval[numPion].num_case - 1)+ distance) %56) +1][1]].couleur , players[i].couleur))
+        if (strcmp(plateau[chemin[(((players[numJoueur].cheval[numPion].num_case - 1)+ distance) %56) +1][0]] [chemin[(((players[numJoueur].cheval[numPion].num_case - 1)+ distance) %56) +1][1]].couleur , players[i].couleur))
         {
             for (int j = 0; j < 4; j++)
             {

@@ -11,6 +11,6 @@
     void creationPlateau();
     void affichagePlateau();
 
-    extern cellule matrice[15][15];
+    extern cellule plateau[15][15];
 
 #endif // PLATEAU_H
