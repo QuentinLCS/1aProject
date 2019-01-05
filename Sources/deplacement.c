@@ -74,3 +74,4 @@ void capture(int numJoueur, int numPion, int distance)
         i++;
     }  
 }
+

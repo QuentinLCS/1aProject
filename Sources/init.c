@@ -101,7 +101,7 @@ void ordreJeu( int nbJoueur ) {
             printf("\n%de : %s (%s)\n", i+1, players[ordrePassage[i]].nomJoueur, players[ordrePassage[i]].couleur);
         }
         system("sleep 7");
-        gestionTours(nbJoueur, ordrePassage, players);
+        gestionTours(nbJoueur, ordrePassage);
     }
 }
 

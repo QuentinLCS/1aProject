@@ -79,7 +79,7 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
                                 choix++;
                                 break;
                             case 3 :
-                                printf ("[%d]Souhaitez-vous sortir un cheval de l'écurie ?\n");
+                                printf ("[%d]Souhaitez-vous sortir un cheval de l'écurie ?\n", choix);
                                 possib[choix-1][0]=j;
                                 possib[choix-1][1]=z+1;
                                 ver = 1;
