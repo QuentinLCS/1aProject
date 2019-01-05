@@ -92,7 +92,7 @@ void ordreJeu( int nbJoueur ) {
             getchar();
         }
         tirage[i] = de();
-        printf("\n   \u2192 Resultat : %d !\n", tirage[i]);
+        printf("\n   \u2192 Resultat (%s) : %d !\n", players[i].couleur, tirage[i]);
     } 
         
         // TRI DU NOMBRE DE JOUEURS (ordrePassage[]) EN FONCTION DU TIRAGE (tirage[])
