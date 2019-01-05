@@ -21,6 +21,6 @@
     void nomJoueurs(int);
     void ordreJeu(int);
     void viderBuffer();
-    void afficherErreur(int);
+
 
 #endif // INIT_H

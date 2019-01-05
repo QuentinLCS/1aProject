@@ -119,22 +119,3 @@ void viderBuffer()
     char c;
     while ( (c=getchar()) != EOF && c != '\n');
 }
-
-
-
-
-void afficherErreur(int erreurType) 
-{
-    system("clear");
-    switch (erreurType) 
-    {
-        case 1 :
-            printf("\033[31mERREUR : entrée non conforme à la demande.\033[0m\n");
-            break;
-        
-        case 2 :
-            printf("\033[31mERREUR : cheval injouable.\033[0m\n");
-            break;
-    }
-    system("sleep 2");
-}
