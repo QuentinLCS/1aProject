@@ -97,19 +97,18 @@ void ordreJeu( int nbJoueur ) {
         
         // TRI DU NOMBRE DE JOUEURS (ordrePassage[]) EN FONCTION DU TIRAGE (tirage[])
 
-        for (i = 0; i < nbJoueur; i++) {
-            for (j = 0; j < nbJoueur; j++) {
-                if (tirage[j]) {
-                    if (tirage[tempI] < tirage[j]) {
-                        tempI = j;
-                    } 
-                }
-            } ordrePassage[i] = tempI;
-            tirage[tempI] = 0;
-            printf("\n%de : %s (%s)\n", i+1, players[ordrePassage[i]].nomJoueur, players[ordrePassage[i]].couleur);
-        }
-        system("sleep 7");
+    for (i = 0; i < nbJoueur; i++) {
+        for (j = 0; j < nbJoueur; j++) {
+            if (tirage[j]) {
+                if (tirage[tempI] < tirage[j]) {
+                    tempI = j;
+                } 
+            }
+        } ordrePassage[i] = tempI;
+        tirage[tempI] = 0;
+        printf("\n%de : %s (%s)\n", i+1, players[ordrePassage[i]].nomJoueur, players[ordrePassage[i]].couleur);
     }
+    system("sleep 7");
 }
 
 
