@@ -7,7 +7,7 @@
 #include "../Header/menu.h"
 #include "../Header/tours.h"
 
-    joueur players[4];
+    joueur players[4]; int ordrePassage[4];
     
 int init() 
 {
@@ -25,7 +25,7 @@ int init()
     nbJoueur = nbJoueurs();
     nomJoueurs(nbJoueur);
     ordreJeu(nbJoueur);
-    Jeu();
+    Jeu(nbJoueur, ordrePassage);
 
     return nbJoueur;
 }
@@ -76,7 +76,7 @@ void nomJoueurs( int nbJoueur) {
 
 
 void ordreJeu( int nbJoueur ) {
-    int tirage[4], ordrePassage[4], i, j, tempI = 0; 
+    int tirage[4], i, j, tempI = 0; 
     
     system("clear");
 
