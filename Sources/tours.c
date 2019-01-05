@@ -125,8 +125,7 @@ void gestionTours(int *nbJoueur, int *ordrePassage[])
             }
         }
     }
-    printf ("Voulez-vous sauvegarder la partie ?\n");
-    /*boucle sauvegarde*/
+    sauvegarde();
 }
 
 int victoire() 
@@ -136,5 +135,12 @@ int victoire()
 
 int quitter()
 {
-    return 0;
+    int state = 0, d;
+    do
+    {
+        printf ("Voulez-vous quitter la partie ?\n [1] Non\n[2] Oui\n");
+        d=scanf ("%d",&state);
+    } while (state != 1 || state != 2 || d!=1);
+    state -=1;
+    return state;
 }
