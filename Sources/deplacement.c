@@ -92,9 +92,11 @@ void checkEcurie(int etat[], int numEtat, int needVerif, int numJoueur)
 
 void sortieEcurie(int numJoueur) 
 {
-
     int listeSorties[4][2] = { {6,0}, {0,8}, {8,14}, {14,6} };
-    numC
+
+    players[numJoueur].cheval[numCheval].numCase = 1;
+    players[numJoueur].cheval[numPion].position[0] = listeSorties[numJoueur][0];
+    players[numJoueur].cheval[numPion].position[1] = listeSorties[numJoueur][1];
     plateau[listeSorties[numJoueur][1]][listeSorties[numJoueur][2]].nbChevaux = 1;
 }
 
