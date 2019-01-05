@@ -25,7 +25,7 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
                         etat[j]=3;
                     }
                     else {
-                        etat[j]=verification(matrice, players[*ordrePassage[i]].nomJoueur, j, valde, players);
+                        etat[j]=verification(players[*ordrePassage[i]].nomJoueur, j, valde);
                     }
                 }  
             }
@@ -35,7 +35,7 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
                         etat[j]=0;
                     }
                     else {
-                        etat[j]=verification(matrice, players[*ordrePassage[i]].nomJoueur, j, valde, players);
+                        etat[j]=verification(players[*ordrePassage[i]].nomJoueur, j, valde);
                     }
                 }
             }
@@ -57,7 +57,7 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
                     break;
             } 
         }
-        int z, d, choix=1, action, possib[4];
+        int z, d, choix=1, action, possib[4][2];
         printf ("\n_____________________________________________\nJoueur n°%d : %s (%s), que souhaitez-vous faire ? (Entrez la touche correspondante)\n",i+1, players[*ordrePassage[i]].nomJoueur, players[*ordrePassage[i]].couleur);
         if (i < nbJoueur){ 
             j = 1, z=0;                           /* C'est le tour d'un joueur */
@@ -67,17 +67,20 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
                         switch (j){
                             case 1 :
                                 printf ("[%d]Souhaitez-vous déplacer le pion n°%d ?\n", choix, z+1);
-                                possib[choix-1]=j;
+                                possib[choix-1][0]=j;
+                                possib[choix-1][1]=z+1;
                                 choix++;
                                 break;
                             case 2 :
                                 printf ("[%d]Souhaitez-vous capturer avec le pion n°%d ?\n", choix, z+1);
-                                possib[choix-1]=j;
+                                possib[choix-1][0]=j;
+                                possib[choix-1][1]=z+1;
                                 choix++;
                                 break;
                             case 3 :
                                 printf ("[%d]Souhaitez-vous sortir un cheval de l'écurie ?\n");
-                                possib[choix-1]=j;
+                                possib[choix-1][0]=j;
+                                possib[choix-1][1]=z+1;
                                 ver = 1;
                                 break;
                         }
@@ -90,9 +93,9 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
                 d=scanf("%d",&action);
             } while (action > choix || action < 0 || !d);
 
-            switch (possib[action-1]) {
+            switch (possib[action-1][0]) {
                 case 1 : 
-                    deplacement();
+                    deplacement(players[*ordrePassage[i]].nomJoueur, possib[action-1][1], valde);
                     break;
                 case 2 :
                     capture();
