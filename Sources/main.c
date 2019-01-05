@@ -5,11 +5,12 @@
 #include "../Header/plateau.h"
 #include "../Header/deplacement.h"
 #include "../Header/init.h"
+#include "../Header/tours.h"
 
 void main()
 {
 
-    int jouer = 0, nbJoueur, i, *ordrePassageP = ordrePassage;
+    int jouer = 0, nbJoueur, i;
 
     srand(time(NULL));
 
@@ -21,15 +22,7 @@ void main()
         }
         else
         {
-            for (i = 0; i < nbJoueur; i++)
-            {
-                
-                printf("Joueur num %d :  (%s)\n",i+1, players[ordrePassage[i]].nom, players[ordrePassage[i]].couleur);
-                /*do
-                {
-                    // En cours de réflexion...
-                } while (0);*/
-            }
+            
         }
     }
 }
