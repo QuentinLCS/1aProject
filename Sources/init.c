@@ -25,6 +25,7 @@ int init()
     nbJoueur = nbJoueurs();
     nomJoueurs(nbJoueur);
     ordreJeu(nbJoueur);
+    Jeu();
 
     return nbJoueur;
 }
@@ -102,10 +103,17 @@ void ordreJeu( int nbJoueur ) {
             printf("\n%de : %s (%s)\n", i+1, players[ordrePassage[i]].nomJoueur, players[ordrePassage[i]].couleur);
         }
         system("sleep 7");
-        gestionTours(nbJoueur, ordrePassage);
     }
 }
 
+void Jeu(nbJoueur, ordrePassage)
+{
+    do
+    {
+        gestionTours(nbJoueur, ordrePassage);
+    }
+    while (!victoire() && !quitter() );
+}
 
 
 

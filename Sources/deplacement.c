@@ -100,6 +100,6 @@ void sortieEcurie(int numJoueur)
     players[numJoueur].cheval[numCheval].numCase = 1;
     players[numJoueur].cheval[numCheval].position[0] = listeSorties[numJoueur][0];
     players[numJoueur].cheval[numCheval].position[1] = listeSorties[numJoueur][1];
-    plateau[listeSorties[numJoueur][1]][listeSorties[numJoueur][2]].nbChevaux = 1;
+    plateau[listeSorties[numJoueur][1]][listeSorties[numJoueur][2]].nbChevaux += 1;
 }
 
