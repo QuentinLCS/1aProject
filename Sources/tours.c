@@ -2,6 +2,7 @@
 #include "../Header/init.h"
 #include "../Header/deplacement.h"
 #include "../Header/menu.h"
+#include "../Header/plateau.h"
 
 
 void gestionTours(int nbJoueur, int *ordrePassage[])
