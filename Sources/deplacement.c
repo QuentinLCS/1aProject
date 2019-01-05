@@ -100,7 +100,7 @@ void sortieEcurie(int numJoueur)
     players[numJoueur].cheval[numPion].numCase = listeSorties[numJoueur][3];
     players[numJoueur].cheval[numPion].position[0] = listeSorties[numJoueur][0];
     players[numJoueur].cheval[numPion].position[1] = listeSorties[numJoueur][1];
-    if (!strcmp(matrice[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, players[numJoueur].couleur) || !strcmp(matrice[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, " "))
+    if (!strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, players[numJoueur].couleur) || !strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, " "))
     {
         plateau[listeSorties[numJoueur][1]][listeSorties[numJoueur][2]].nbChevaux += 1;
     } 
