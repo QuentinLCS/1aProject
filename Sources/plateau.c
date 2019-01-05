@@ -206,5 +206,5 @@ void affichagePlateau()
                 }
             } 
         }
-    } printf("\n\n\n");
+    } 
 }
