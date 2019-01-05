@@ -75,26 +75,26 @@ void capture(int numJoueur, int numPion, int distance)
     }  
 }
 
-void sortieEcurie(int numJoueur) {
-    if (!strcmp(players[numJoueur].couleur, "rouge"))
+void checkEcurie(int etat[], int needVerif, int numJoueur) 
+{
+    for (int i = 0; i < 4; i++)
     {
-        printf("rouge\n");
-        system("sleep 5");
+        if (players[i].cheval[i].num_case == 0)
+        {
+            etat[i]=3;
+        }
+        else if (needVerif)
+        {
+            etat[i]=verification(numJoueur, i, 6);
+        }
     }
-    else if (!strcmp(players[numJoueur].couleur, "bleu"))
-    {
-        printf("bleu\n");
-        system("sleep 5");
-    }
-    else if (!strcmp(players[numJoueur].couleur, "vert"))
-    {
-        printf("vert\n");
-        system("sleep 5");
-    }
-    else 
-    {
-        printf("jaune\n");
-        system("sleep 5");
-    }
+}
+
+void sortieEcurie(int numJoueur) 
+{
+
+    int listeSorties[4][2] = { {6,0}, {0,8}, {8,14}, {14,6} };
+
+    plateau[listeSorties[numJoueur][1]][listeSorties[numJoueur][2]].nbChevaux = 1;
 }
 

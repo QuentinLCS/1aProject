@@ -9,5 +9,6 @@
     void deplacement(int, int, int);
     void capture(int, int, int);
     void sortieEcurie(int);
+    void checkEcurie(int etat[4], int, int);
 
 #endif // DEPLACEMENT_H

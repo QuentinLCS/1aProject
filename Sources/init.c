@@ -8,18 +8,19 @@
 #include "../Header/tours.h"
 
     joueur players[4];
-
+    
 int init() 
 {
     
     int nbJoueur;
 
-    system("clear");
+    char listeCouleurs[4][6] = {"bleu", "rouge", "vert", "jaune"};
 
-    strcpy(players[0].couleur, "bleu");
-    strcpy(players[1].couleur, "rouge");
-    strcpy(players[2].couleur, "jaune");
-    strcpy(players[3].couleur, "vert");
+    for (int i = 0; i < 4; i++)
+    {
+        players[i].numJoueur = i;
+        strcpy(players[i].couleur, listeCouleurs[i]);
+    }
 
     nbJoueur = nbJoueurs();
     nomJoueurs(nbJoueur);

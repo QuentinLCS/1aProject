@@ -19,16 +19,10 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
             getchar();
             valde=de();
             printf ("Vous avez fait un %d !\n", valde);
-            if (valde==6){
+            if (valde==6)
+            {
                 rejouer = 1;
-                for (j = 0; j< 4; j++){
-                    if (players[i].cheval[j].num_case == 0){
-                        etat[j]=3;
-                    }
-                    else {
-                        etat[j]=verification(players[*ordrePassage[i]].numJoueur, j, valde);
-                    }
-                }  
+                checkEcurie(etat, 1, players[*ordrePassage[i]].numJoueur);
             }
             else {
                 for (j = 0; j< 4; j++){
