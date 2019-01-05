@@ -102,7 +102,7 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
                     capture(players[*ordrePassage[i]].numJoueur, possib[action-1][1], valde);
                     break;
                 case 3 :
-                    sortieEcurie();
+                    sortieEcurie(players[*ordrePassage[i]].numJoueur);
                     break;
             }
         }
@@ -122,7 +122,7 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
                                 capture(players[*ordrePassage[i]].numJoueur, possib[action-1][1], valde);
                                 break;
                             case 3 :
-                                sortieEcurie();
+                                sortieEcurie(players[*ordrePassage[i]].numJoueur);
                                 break; 
                         }
                     }

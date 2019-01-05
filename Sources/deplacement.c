@@ -60,7 +60,7 @@ void capture(int numJoueur, int numPion, int distance)
     int i = 0, ver = 0;
     while (i < 4 && !ver)
     {
-        if (strcmp(plateau[chemin[(((players[numJoueur].cheval[numPion].num_case - 1)+ distance) %56) +1][0]] [chemin[(((players[numJoueur].cheval[numPion].num_case - 1)+ distance) %56) +1][1]].couleur , players[i].couleur))
+        if (!strcmp(plateau[chemin[(((players[numJoueur].cheval[numPion].num_case - 1)+ distance) %56) +1][0]] [chemin[(((players[numJoueur].cheval[numPion].num_case - 1)+ distance) %56) +1][1]].couleur , players[i].couleur))
         {
             for (int j = 0; j < 4; j++)
             {
@@ -73,5 +73,28 @@ void capture(int numJoueur, int numPion, int distance)
         }
         i++;
     }  
+}
+
+void sortieEcurie(int numJoueur) {
+    if (!strcmp(players[numJoueur].couleur, "rouge"))
+    {
+        printf("rouge\n");
+        system("sleep 5");
+    }
+    else if (!strcmp(players[numJoueur].couleur, "bleu"))
+    {
+        printf("bleu\n");
+        system("sleep 5");
+    }
+    else if (!strcmp(players[numJoueur].couleur, "vert"))
+    {
+        printf("vert\n");
+        system("sleep 5");
+    }
+    else 
+    {
+        printf("jaune\n");
+        system("sleep 5");
+    }
 }
 
