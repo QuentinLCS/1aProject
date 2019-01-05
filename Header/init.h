@@ -2,8 +2,8 @@
 #define INIT_H
 
     typedef struct {
-        int numcheval;
-        int num_case;
+        int numCheval;
+        int numCase;
         int position[2];
     } pion ;
    

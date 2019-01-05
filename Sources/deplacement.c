@@ -20,8 +20,8 @@ int de()
 int verification(int numJoueur, int numPion, int distance){
     int res=1, i=1;
     while (i<= distance && res==1){
-        if (plateau[chemin[ players[numJoueur].cheval[numPion].num_case + i][0]][chemin[ players[numJoueur].cheval[numPion].num_case + i][1]].nbChevaux != 0){
-            if (plateau[chemin[ players[numJoueur].cheval[numPion].num_case + i][0]][chemin[ players[numJoueur].cheval[numPion].num_case + i][1]].couleur == players[numJoueur].couleur ){
+        if (plateau[chemin[ players[numJoueur].cheval[numPion].numCase + i][0]][chemin[ players[numJoueur].cheval[numPion].numCase + i][1]].nbChevaux != 0){
+            if (plateau[chemin[ players[numJoueur].cheval[numPion].numCase + i][0]][chemin[ players[numJoueur].cheval[numPion].numCase + i][1]].couleur == players[numJoueur].couleur ){
                 i++;
             }
             else {
@@ -48,9 +48,9 @@ void deplacement(int numJoueur, int numPion, int distance)
     {
         strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, " ");
     }
-    players[numJoueur].cheval[numPion].num_case = ((players[numJoueur].cheval[numPion].num_case + distance) % 56) + 1;
-    players[numJoueur].cheval[numPion].position[0] = chemin[players[numJoueur].cheval[numPion].num_case - 1][0];
-    players[numJoueur].cheval[numPion].position[1] = chemin[players[numJoueur].cheval[numPion].num_case - 1][1];
+    players[numJoueur].cheval[numPion].numCase = ((players[numJoueur].cheval[numPion].numCase + distance) % 56) + 1;
+    players[numJoueur].cheval[numPion].position[0] = chemin[players[numJoueur].cheval[numPion].numCase - 1][0];
+    players[numJoueur].cheval[numPion].position[1] = chemin[players[numJoueur].cheval[numPion].numCase - 1][1];
     plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux += 1;
     strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, players[numJoueur].couleur); 
 }
@@ -60,13 +60,13 @@ void capture(int numJoueur, int numPion, int distance)
     int i = 0, ver = 0;
     while (i < 4 && !ver)
     {
-        if (!strcmp(plateau[chemin[(((players[numJoueur].cheval[numPion].num_case - 1)+ distance) %56) +1][0]] [chemin[(((players[numJoueur].cheval[numPion].num_case - 1)+ distance) %56) +1][1]].couleur , players[i].couleur))
+        if (!strcmp(plateau[chemin[(((players[numJoueur].cheval[numPion].numCase - 1)+ distance) %56) +1][0]] [chemin[(((players[numJoueur].cheval[numPion].numCase - 1)+ distance) %56) +1][1]].couleur , players[i].couleur))
         {
             for (int j = 0; j < 4; j++)
             {
-                if (players[i].cheval[j].num_case ==(((players[numJoueur].cheval[numPion].num_case - 1)+ distance) %56) +1)
+                if (players[i].cheval[j].numCase ==(((players[numJoueur].cheval[numPion].numCase - 1)+ distance) %56) +1)
                 {
-                    players[i].cheval[j].num_case = 0;
+                    players[i].cheval[j].numCase = 0;
                 }
             }
             ver=1;
@@ -75,13 +75,13 @@ void capture(int numJoueur, int numPion, int distance)
     }  
 }
 
-void checkEcurie(int etat[], int needVerif, int numJoueur) 
+void checkEcurie(int etat[], int numEtat, int needVerif, int numJoueur) 
 {
     for (int i = 0; i < 4; i++)
     {
-        if (players[i].cheval[i].num_case == 0)
+        if (players[i].cheval[i].numCase == 0)
         {
-            etat[i]=3;
+            etat[i]=numEtat;
         }
         else if (needVerif)
         {
@@ -92,9 +92,11 @@ void checkEcurie(int etat[], int needVerif, int numJoueur)
 
 void sortieEcurie(int numJoueur) 
 {
-
     int listeSorties[4][2] = { {6,0}, {0,8}, {8,14}, {14,6} };
 
+    players[numJoueur].cheval[numCheval].numCase = 1;
+    players[numJoueur].cheval[numPion].position[0] = listeSorties[numJoueur][0];
+    players[numJoueur].cheval[numPion].position[1] = listeSorties[numJoueur][1];
     plateau[listeSorties[numJoueur][1]][listeSorties[numJoueur][2]].nbChevaux = 1;
 }
 
