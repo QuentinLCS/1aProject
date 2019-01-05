@@ -9,9 +9,10 @@
 void main()
 {
 
+    int jouer = 0, nbJoueur, i, *ordrePassageP = ordrePassage;
+
     srand(time(NULL));
 
-    int jouer = 0, nbJoueur, i;
     while (nbJoueur) 
     {
         if (!jouer)
@@ -22,12 +23,12 @@ void main()
         {
             for (i = 0; i < nbJoueur; i++)
             {
-                system("sleep 5");
-                printf("%d\n",i+1);
-                do
+                
+                printf("Joueur num %d :  (%s)\n",i+1, players[ordrePassage[i]].nom, players[ordrePassage[i]].couleur);
+                /*do
                 {
                     // En cours de réflexion...
-                } while (0);
+                } while (0);*/
             }
         }
     }

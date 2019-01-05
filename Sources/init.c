@@ -4,6 +4,7 @@
 #include "../Header/init.h"
 #include "../Header/deplacement.h"
 #include "../Header/plateau.h"
+#include "../Header/menu.h"
 
 joueur players[4];
 
