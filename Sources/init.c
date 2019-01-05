@@ -19,6 +19,7 @@ int init()
     for (int i = 0; i < 4; i++)
     {
         players[i].numJoueur = i;
+        strcpy(players[i].nomJoueur, "Bot");
         strcpy(players[i].couleur, listeCouleurs[i]);
         for (int j = 0; j < 4; j++)
         {
@@ -97,8 +98,8 @@ void ordreJeu( int nbJoueur ) {
         
         // TRI DU NOMBRE DE JOUEURS (ordrePassage[]) EN FONCTION DU TIRAGE (tirage[])
 
-    for (i = 0; i < nbJoueur; i++) {
-        for (j = 0; j < nbJoueur; j++) {
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 4; j++) {
             if (tirage[j]) {
                 if (tirage[tempI] < tirage[j]) {
                     tempI = j;
