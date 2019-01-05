@@ -20,6 +20,8 @@ int echelle[4][6][2]=
     {   {7,13}, {7,12}, {7,11}, {7,10}, {7,9}, {7,8}    }
 };
 
+int listeSorties[4][3] = { {6,0,15}, {0,8,29}, {8,14,43}, {14,6,1} };
+
 int de()
 {
     return rand() % 6 + 1;
@@ -27,27 +29,69 @@ int de()
 
 int verification(int numJoueur, int numPion, int distance){
     int res=1, i=1;
-    while (i<= distance && res==1){
-        if (plateau[chemin[ players[numJoueur].cheval[numPion].numCase + i][0]][chemin[ players[numJoueur].cheval[numPion].numCase + i][1]].nbChevaux != 0){
-            if (plateau[chemin[ players[numJoueur].cheval[numPion].numCase + i][0]][chemin[ players[numJoueur].cheval[numPion].numCase + i][1]].couleur == players[numJoueur].couleur ){
-                i++;
-            }
-            else {
-                if (i==distance){
-                    res=2;
-                }
+    if (players[numJoueur].cheval[numPion].numCase < 100)
+    {
+        while (i<= distance && res==1){
+        
+            if (plateau[chemin[ players[numJoueur].cheval[numPion].numCase + i][0]][chemin[ players[numJoueur].cheval[numPion].numCase + i][1]].nbChevaux != 0){
+                if (plateau[chemin[ players[numJoueur].cheval[numPion].numCase + i][0]][chemin[ players[numJoueur].cheval[numPion].numCase + i][1]].couleur == players[numJoueur].couleur ){
+                    i++;
+                }   
                 else {
-                    res=0;
+                    if (i==distance){
+                        res=2;
+                    }
+                    else {
+                        res=0;
+                    }
                 }
-            }
-        }    
+            }  
+
+            if (players[numJoueur].cheval[numPion].numCase + i == ((listeSorties[numJoueur][2]+54) % 56) + 1) {
+                if (i < distance){
+                    res = 0;
+                }
+            }  
+        }
     }
+    else if (players[numJoueur].cheval[numPion].numCase - 100 == distance)
+    {
+        res=0;
+    }
+    else if (plateau[echelle[numJoueur][distance-1][0]][echelle[numJoueur][distance-1][0]].nbChevaux != 0)
+    {
+        res=0;
+    }
+    
     return res;
 }
 
 /* si return 0 : déplacement impossible
    si return 1 : déplacement simple possible
    si return 2 : capture possible */
+
+void mouvement (int numJoueur, int numPion, int distance)
+{
+    if ((players[numJoueur].cheval[numPion].numCase == ((listeSorties[numJoueur][2]+54) % 56) + 1) || (players[numJoueur].cheval[numPion].numCase > 100))
+    {
+        deplacementEchelle(numJoueur, numPion, distance);
+    }
+    else
+    {
+        deplacement(numJoueur, numPion, distance);
+    }
+}
+
+void deplacementEchelle(int numJoueur, int numPion, int distance)
+{
+    plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux = 0;
+    strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, " ");
+    players[numJoueur].cheval[numPion].numCase = 100+distance;
+    players[numJoueur].cheval[numPion].position[0] = echelle[numJoueur-1][distance-1][0];
+    players[numJoueur].cheval[numPion].position[1] = echelle[numJoueur-1][distance-1][1];
+    plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux = 1;
+    strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, players[numJoueur].couleur); 
+}
 
 void deplacement(int numJoueur, int numPion, int distance)
 {
@@ -103,7 +147,7 @@ int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur)
 
 void sortieEcurie(int numJoueur) 
 {
-    int listeSorties[4][3] = { {6,0,14}, {0,8,28}, {8,14,42}, {14,6,0} }, numPion = checkEcurie(NULL, 0, 0, numJoueur);
+    int numPion = checkEcurie(NULL, 0, 0, numJoueur);
     
     numJoueur--; numPion--;
 

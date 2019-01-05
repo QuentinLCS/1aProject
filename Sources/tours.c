@@ -8,6 +8,7 @@
 void gestionTours(int *nbJoueur, int *ordrePassage[])
 {
     int i, j, ver=0, valde, rejouer, etat[4];
+    affichagePlateau();
 
     for (i = 0; i < *nbJoueur; i++)
     {
@@ -98,6 +99,7 @@ void gestionTours(int *nbJoueur, int *ordrePassage[])
                     sortieEcurie(players[*ordrePassage[i]].numJoueur);
                     break;
             }
+            affichagePlateau();
         }
 
         else {                              /* C'est le tour d'une IA */
@@ -124,13 +126,28 @@ void gestionTours(int *nbJoueur, int *ordrePassage[])
                 j--;  
             }
         }
+        affichagePlateau();
     }
     sauvegarder();
 }
 
 int victoire() 
 {
-    return 0;
+    int i=0,somme, vic=0;
+    while ((i < 4) && (vic == 0))
+    {
+        somme=0;
+        vic=0;
+        for (int j=0; j<4; j++)
+        {
+            somme+=players[i].cheval[j].numCase;
+        }
+        if (somme==408)
+        {
+            vic=1;
+        }
+    }
+    return vic;
 }
 
 int quitter()

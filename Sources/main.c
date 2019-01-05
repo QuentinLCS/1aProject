@@ -27,6 +27,7 @@ int main()
             {
                 gestionTours(&nbJoueur, ordrePassage);
             } 
+            
         }
     }
     return 0;

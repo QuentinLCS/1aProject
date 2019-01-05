@@ -6,6 +6,8 @@
 
     int de();
     int verification(int, int, int);
+    void mouvement(int, int, int);
+    void deplacementEchelle(int, int, int);
     void deplacement(int, int, int);
     void capture(int, int, int);
     void sortieEcurie(int);
