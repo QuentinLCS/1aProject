@@ -75,13 +75,13 @@ void capture(int numJoueur, int numPion, int distance)
     }  
 }
 
-void checkEcurie(int etat[], int needVerif, int numJoueur) 
+void checkEcurie(int etat[], int numEtat, int needVerif, int numJoueur) 
 {
     for (int i = 0; i < 4; i++)
     {
         if (players[i].cheval[i].num_case == 0)
         {
-            etat[i]=3;
+            etat[i]=numEtat;
         }
         else if (needVerif)
         {

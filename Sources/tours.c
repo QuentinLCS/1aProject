@@ -22,17 +22,10 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
             if (valde==6)
             {
                 rejouer = 1;
-                checkEcurie(etat, 1, players[*ordrePassage[i]].numJoueur);
+                checkEcurie(etat, 3, 1, players[*ordrePassage[i]].numJoueur);
             }
             else {
-                for (j = 0; j< 4; j++){
-                    if (players[i].cheval[j].num_case == 0){
-                        etat[j]=0;
-                    }
-                    else {
-                        etat[j]=verification(players[*ordrePassage[i]].numJoueur, j, valde);
-                    }
-                }
+                checkEcurie(etat, 0, 1, players[*ordrePassage[i]].numJoueur);
             }
         } while (rejouer!=0);
         
