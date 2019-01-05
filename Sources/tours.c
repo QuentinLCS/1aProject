@@ -4,7 +4,7 @@
 #include "../Header/menu.h"
 
 
-void gestionTours(cellule matrice [][15], int nbJoueur, int *ordrePassage[], joueur players[])
+void gestionTours(int nbJoueur, int *ordrePassage[])
 {
     int i, j, ver=0, valde, rejouer, etat[4];
 
@@ -57,34 +57,49 @@ void gestionTours(cellule matrice [][15], int nbJoueur, int *ordrePassage[], jou
                     break;
             } 
         }
-        int z;
-        printf ("\n_____________________________________________\n");
+        int z, d, choix=1, action, possib[4];
+        printf ("\n_____________________________________________\nJoueur n°%d : %s (%s), que souhaitez-vous faire ? (Entrez la touche correspondante)\n",i+1, players[*ordrePassage[i]].nomJoueur, players[*ordrePassage[i]].couleur);
         if (i < nbJoueur){ 
             j = 1, z=0;                           /* C'est le tour d'un joueur */
             while (j<4 && !ver){
-                while (z<4){
+                while (z<4 && !ver){
                     if (j==etat[z]){
                         switch (j){
                             case 1 :
-                                printf ("Souhaitez-vous déplacer le pion n°%d ?\n", z+1);
-                                z++;
+                                printf ("[%d]Souhaitez-vous déplacer le pion n°%d ?\n", choix, z+1);
+                                possib[choix-1]=j;
+                                choix++;
                                 break;
                             case 2 :
-                                printf ("Souhaitez-vous capturer avec le pion n°%d ?\n", z+1);
-                                z++;
+                                printf ("[%d]Souhaitez-vous capturer avec le pion n°%d ?\n", choix, z+1);
+                                possib[choix-1]=j;
+                                choix++;
                                 break;
                             case 3 :
-                                printf ("Souhaitez-vous sortir un cheval de l'écurie ?\n");
+                                printf ("[%d]Souhaitez-vous sortir un cheval de l'écurie ?\n");
+                                possib[choix-1]=j;
                                 ver = 1;
                                 break;
                         }
                     }
-                    
-                    else {
                     z++;
-                    }
                 }
                 j++ ;
+            }
+            do{
+                d=scanf("%d",&action);
+            } while (action > choix || action < 0 || !d);
+
+            switch (possib[action-1]) {
+                case 1 : 
+                    deplacement();
+                    break;
+                case 2 :
+                    capture();
+                    break;
+                case 3 :
+                    sortieecurie();
+                    break;
             }
         }
 
