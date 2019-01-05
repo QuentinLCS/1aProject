@@ -5,6 +5,7 @@
 #include "../Header/deplacement.h"
 #include "../Header/plateau.h"
 #include "../Header/menu.h"
+#include "../Header/tours.h"
 
 joueur players[4];
 
@@ -108,6 +109,7 @@ void ordreJeu( int nbJoueur ) {
             printf("\n%de : %s (%s)\n", i+1, players[ordrePassage[i]].nomJoueur, players[ordrePassage[i]].couleur);
         }
         system("sleep 7");
+        gestionTours(nbJoueur, ordrePassage, players);
     }
 }
 

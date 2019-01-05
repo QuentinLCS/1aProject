@@ -3,6 +3,6 @@
 #if !defined(TOURS_H)
 #define TOURS_H
 
-    void gestionTours(int, int, joueur);
+    void gestionTours(int, int *, joueur *);
 
 #endif // TOURS_H

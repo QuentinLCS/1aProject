@@ -22,7 +22,7 @@ void main()
         }
         else
         {
-            
+            // Fonction pour recharger la partie (continuer partie) car la première entrée dans gestionTours() est dans init.c -> ordreJeu
         }
     }
 }
