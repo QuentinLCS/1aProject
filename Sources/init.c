@@ -93,22 +93,13 @@ void ordreJeu( int nbJoueur ) {
             getchar();
         }
         tirage[i] = de();
-<<<<<<< HEAD
-        printf("\n   \u2192 Resultat : %d !\n", tirage[i]);
-=======
         printf("\n   \u2192 Resultat (%s) : %d !\n", players[i].couleur, tirage[i]);
->>>>>>> 6b6984263cd040d6bbc5dd5154d09e1280833769
     } 
         
         // TRI DU NOMBRE DE JOUEURS (ordrePassage[]) EN FONCTION DU TIRAGE (tirage[])
 
-<<<<<<< HEAD
-    for (i = 0; i < nbJoueur; i++) {
-        for (j = 0; j < nbJoueur; j++) {
-=======
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 4; j++) {
->>>>>>> 6b6984263cd040d6bbc5dd5154d09e1280833769
             if (tirage[j]) {
                 if (tirage[tempI] < tirage[j]) {
                     tempI = j;
