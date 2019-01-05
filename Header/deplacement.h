@@ -1,11 +1,11 @@
-#include "init.h"
-#include "plateau.h"
-
 #if !defined(DEPLACEMENT_H)
 #define DEPLACEMENT_H
 
-int de();
-void deplacement(cellule, int, int, int, joueur);
+#include "init.h"
+#include "plateau.h"
 
+    int de();
+    int verification(int, int, int);
+    void deplacement(int, int, int);
 
 #endif // DEPLACEMENT_H
