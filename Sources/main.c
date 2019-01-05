@@ -13,7 +13,7 @@ int main()
     int jouer = 0, nbJoueur;
 
     srand(time(NULL));
-
+    
     while (nbJoueur) 
     {
         if (!jouer)

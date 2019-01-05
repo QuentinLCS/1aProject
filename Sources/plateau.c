@@ -39,20 +39,20 @@ void creationPlateau()
                 strcpy(matrice[i][j].couleur, "jaune");
                 matrice[i][j].ecurie     = 1;
                 matrice[i][j].echelle    = 0;
-            } else if ((j == TAILLE_PLATEAU / 2 && i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0) || (j == TAILLE_PLATEAU / 2 && i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 == 0)) {
+            } else if ((j == TAILLE_PLATEAU / 2 && i == TAILLE_PLATEAU / 2)) {
                 matrice[i][j].nbChevaux  = 0;      // Centre du plateau
                strcpy(matrice[i][j].couleur, " ");
                 matrice[i][j].ecurie     = 0;
                 matrice[i][j].echelle    = 0;
-            } else if (((j == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0) || (i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0)) && (i != 0 && i != TAILLE_PLATEAU - 1 && j != 0 && j != TAILLE_PLATEAU - 1)) {
+            } else if ((j == TAILLE_PLATEAU / 2 || i == TAILLE_PLATEAU / 2) && (i != 0 && i != TAILLE_PLATEAU - 1 && j != 0 && j != TAILLE_PLATEAU - 1)) {
                 matrice[i][j].nbChevaux = 0;      // Echelles jusqu'au centre
                 matrice[i][j].ecurie    = 0;
                 matrice[i][j].echelle   = 1;
-                if (j == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0 && i < TAILLE_PLATEAU / 2) {
+                if (j == TAILLE_PLATEAU / 2 && i < TAILLE_PLATEAU / 2) {
                     strcpy(matrice[i][j].couleur, "rouge");
-                } else if (i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0 && j < TAILLE_PLATEAU / 2) {
+                } else if (i == TAILLE_PLATEAU / 2 && j < TAILLE_PLATEAU / 2) {
                     strcpy(matrice[i][j].couleur, "bleu");
-                } else if (i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0 && j > TAILLE_PLATEAU / 2) {
+                } else if (i == TAILLE_PLATEAU / 2 && j > TAILLE_PLATEAU / 2) {
                     strcpy(matrice[i][j].couleur, "jaune");
                 } else { 
                     strcpy(matrice[i][j].couleur, "vert");
