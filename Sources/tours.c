@@ -18,6 +18,7 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
             printf ("Appuyez sur Entrée pour lancer votre dé !\n");
             getchar();
             valde=de();
+            printf ("Vous avez fait un %d !\n", valde);
             if (valde==6){
                 rejouer = 1;
                 for (j = 0; j< 4; j++){
@@ -25,7 +26,7 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
                         etat[j]=3;
                     }
                     else {
-                        etat[j]=verification(players[*ordrePassage[i]].nomJoueur, j, valde);
+                        etat[j]=verification(players[*ordrePassage[i]].numJoueur, j, valde);
                     }
                 }  
             }
@@ -35,7 +36,7 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
                         etat[j]=0;
                     }
                     else {
-                        etat[j]=verification(players[*ordrePassage[i]].nomJoueur, j, valde);
+                        etat[j]=verification(players[*ordrePassage[i]].numJoueur, j, valde);
                     }
                 }
             }
@@ -95,10 +96,10 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
 
             switch (possib[action-1][0]) {
                 case 1 : 
-                    deplacement(players[*ordrePassage[i]].nomJoueur, possib[action-1][1], valde);
+                    deplacement(players[*ordrePassage[i]].numJoueur, possib[action-1][1], valde);
                     break;
                 case 2 :
-                    capture();
+                    capture(players[*ordrePassage[i]].numJoueur, possib[action-1][1], valde);
                     break;
                 case 3 :
                     sortieecurie();
@@ -107,7 +108,30 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
         }
 
         else {                              /* C'est le tour d'une IA */
-
+            j=3;
+            z=0;
+            action = 0;
+            while (j>0 && action == 0){
+                while (z < 4 && action == 0){
+                    if (etat[z]==j){
+                        switch (etat[z]) {
+                            case 1 : 
+                                deplacement(players[*ordrePassage[i]].numJoueur, possib[action-1][1], valde);
+                                break;
+                            case 2 :
+                                capture(players[*ordrePassage[i]].numJoueur, possib[action-1][1], valde);
+                                break;
+                            case 3 :
+                                sortieecurie();
+                                break; 
+                        }
+                    }
+                    z++;
+                } 
+                j--;  
+            }
         }
     }
+    printf ("Voulez-vous sauvegarder la partie ?\n");
+    /*boucle sauvegarde*/
 }

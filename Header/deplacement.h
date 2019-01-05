@@ -7,5 +7,6 @@
     int de();
     int verification(int, int, int);
     void deplacement(int, int, int);
+    void capture(int, int, int);
 
 #endif // DEPLACEMENT_H

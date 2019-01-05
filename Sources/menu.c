@@ -94,7 +94,7 @@ void scenarios()
 
     do {
         system("clear");
-        printf("\n[CENARIOS] Voici la liste des scénarios :\n  [1] ...\n  [2] ...\n  [3] ...\n  [4] ...\n  [5] RETOUR\n\nChoix du scénario [entrez une valeur]: ");
+        printf("\n[SCENARIOS] Voici la liste des scénarios :\n  [1] ...\n  [2] ...\n  [3] ...\n  [4] ...\n  [5] RETOUR\n\nChoix du scénario [entrez une valeur]: ");
         valide = scanf("%d", &scenarioNb);
         printf("\n\n%d - %d\n\n", valide, scenarioNb);
         viderBuffer();
