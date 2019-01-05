@@ -16,27 +16,27 @@
     - [x] Demander s'il veulent tirer au sort l'ordre de jeu ou choisir.
     - [x] Trier l'ordre de passage en fonction du dé tiré.
 * Le coeur du jeu :
-    - [ ] Création de la boucle principale responsable de la gestion des tours (For dans un While).
-    - [ ] Gestion de victoire.
-    - [ ] Sauvegarde des informations de la partie pour pouvoir "Continuer la partie".
-    - [ ] Permettre de quitter en pleine partie. (sauvegarde à ce moment là)
+    - [X] Création de la boucle principale responsable de la gestion des tours (For dans un While).
+    - [X] Gestion de victoire.
+    - [X] Sauvegarde des informations de la partie pour pouvoir "Continuer la partie".
+    - [X] Permettre de quitter en pleine partie. (sauvegarde à ce moment là)
 * L'Affichage :
     - [ ] Designer le menu pour le rendre plus attirant malgré le SHELL.
     - [x] Essayer de faire afficher des chevaux dans le SHELL (plateau.c).
-    - [ ] Afficher qui doit jouer ?
+    - [X] Afficher qui doit jouer ?
     - [ ] Afficher le nombre de chevaux restant pour chaque joueur. (0 = Gagné)
     - [ ] Gestion du podium ? ( 1er , 2e, ... )
     - [x] Penser à l'utilisation des commandes SHELL (clear, ...)
 * Deplacement :
-    - [ ] Finir les vérifications de déplacement. [en cours]
-    - [ ] Gérer le renvoie à l'écurie.
-    - [ ] Gérer la relance du dé si un 6 est effectué.
-    - [ ] Gérer le point d'apparition.
-    - [ ] Gérer l'arrivée devant les échelles.
-    - [ ] Gérer le comportement dans les échelles en fonction des règles imposées par M. Loudni.
+    - [X] Finir les vérifications de déplacement. [en cours]
+    - [X] Gérer le renvoie à l'écurie.
+    - [X] Gérer la relance du dé si un 6 est effectué.
+    - [X] Gérer le point d'apparition.
+    - [X] Gérer l'arrivée devant les échelles.
+    - [X] Gérer le comportement dans les échelles en fonction des règles imposées par M. Loudni.
 * La fin du jeu :
-    - [ ] Afficher le résultat.
-    - [ ] Rediriger sur le menu.
-    - [ ] Supprimer les informations sauvegardées pour continuer la partie.
+    - [X] Afficher le résultat.
+    - [X] Rediriger sur le menu.
+    - [X] Supprimer les informations sauvegardées pour continuer la partie.
 * Autre : 
     - [ ] Sauvegarder les temps de victoire pour afficher un classement ?
