@@ -122,7 +122,6 @@ void scenarios()
 
 
 
-
 void plusInfos()
 {
     printf("PLUS DINFOS ICI\n");
@@ -142,8 +141,27 @@ void afficherErreur(int erreurType)
             break;
         
         case 2 :
-            printf("\033[31mERREUR : cheval injouable.\033[0m\n");
+            printf("\033[31mERREUR : lecture du fichier impossible.\033[0m\n");
             break;
     }
     system("sleep 2");
+}
+
+
+
+
+void gestionFichier(char nomFichier[15])
+{
+    FILE* fichier = NULL;
+
+    fichier = fopen( nomFichier, "r+" );
+
+    if (fichier != NULL)
+    {
+        // On peut lire et écrire dans le fichier
+    }
+    else
+    {
+        afficherErreur(2);
+    }
 }
