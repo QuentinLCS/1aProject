@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "../Header/init.h"
 #include "../Header/menu.h"
+#include "../Header/plateau.h"
 
 
 
@@ -21,6 +22,7 @@ int menu(int *jouer)
     {
         case 1 :
             nbJoueur = init();
+            creationPlateau();
             *jouer = 1;
             break;
         case 2 :
