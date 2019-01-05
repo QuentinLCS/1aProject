@@ -10,7 +10,7 @@
 int main()
 {
 
-    int jouer = 0, nbJoueur;
+    int jouer = 0, nbJoueur, ordrePassage[4];
 
     srand(time(NULL));
     
@@ -23,7 +23,10 @@ int main()
         }
         else
         {
-            // Fonction pour recharger la partie (continuer partie) car la première entrée dans gestionTours() est dans init.c -> ordreJeu
+            while ( !victoire() && !quitter() )
+            {
+                gestionTours(&nbJoueur, ordrePassage);
+            } 
         }
     }
     return 0;

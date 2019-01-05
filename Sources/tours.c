@@ -5,11 +5,11 @@
 #include "../Header/plateau.h"
 
 
-void gestionTours(int nbJoueur, int *ordrePassage[])
+void gestionTours(int *nbJoueur, int *ordrePassage[])
 {
     int i, j, ver=0, valde, rejouer, etat[4];
 
-    for (i = 0; i < nbJoueur; i++)
+    for (i = 0; i < *nbJoueur; i++)
     {
                 
         printf("Joueur num %d : %s (%s)\n",i+1, players[*ordrePassage[i]].nomJoueur, players[*ordrePassage[i]].couleur);
@@ -48,7 +48,7 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
         }
         int z, valide, choix=1, action, possib[4][2];
         printf ("\n_____________________________________________\nJoueur n°%d : %s (%s), que souhaitez-vous faire ? (Entrez la touche correspondante)\n",i+1, players[*ordrePassage[i]].nomJoueur, players[*ordrePassage[i]].couleur);
-        if (i < nbJoueur){ 
+        if (i < *nbJoueur){ 
             j = 1, z=0;
             do{                           /* C'est le tour d'un joueur */
                 while (j<4 && !ver){
@@ -127,4 +127,14 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
     }
     printf ("Voulez-vous sauvegarder la partie ?\n");
     /*boucle sauvegarde*/
+}
+
+int victoire() 
+{
+    return 0;
+}
+
+int quitter()
+{
+    return 0;
 }

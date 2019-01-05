@@ -3,6 +3,8 @@
 
 #include "init.h"
 
-    void gestionTours(int, int *);
+    void gestionTours(int *, int *);
+    int victoire();
+    int quitter();
 
 #endif // TOURS_H

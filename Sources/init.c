@@ -25,7 +25,6 @@ int init()
     nbJoueur = nbJoueurs();
     nomJoueurs(nbJoueur);
     ordreJeu(nbJoueur);
-    Jeu(nbJoueur, ordrePassage);
 
     return nbJoueur;
 }
@@ -104,15 +103,6 @@ void ordreJeu( int nbJoueur ) {
         }
         system("sleep 7");
     }
-}
-
-void Jeu(nbJoueur, ordrePassage)
-{
-    do
-    {
-        gestionTours(nbJoueur, ordrePassage);
-    }
-    while (!victoire() && !quitter() );
 }
 
 
