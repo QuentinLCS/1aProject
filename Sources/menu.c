@@ -196,13 +196,12 @@ void sauvegarder(int nbJoueur, int ordrePassage[4])
     }
 }
 
-afficheVainqueur()
+void afficheVainqueur()
 {
-    int somme, vic=0;
+    int somme;
     for (int i=0; i<4; i++)
     {
         somme=0;
-        vic=0;
         for (int j=0; j<4; j++)
         {
             somme+=players[i].cheval[j].numCase;

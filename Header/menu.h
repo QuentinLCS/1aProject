@@ -10,5 +10,6 @@
     void afficherErreur(int);
     void charger(char *, int, int *);
     void sauvegarder(int, int ordrePassage[4]);
+    void afficheVainqueur();
 
 #endif // MENU_H
