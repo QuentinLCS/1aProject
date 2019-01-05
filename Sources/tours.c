@@ -6,15 +6,15 @@
 
 void gestionTours(int nbJoueur, int *ordrePassage[], joueur players[])
 {
-    int i;
+    /*int i;
 
     for (i = 0; i < nbJoueur; i++)
     {
                 
         printf("Joueur num %d : %s (%s)\n",i+1, players[ordrePassage[i]].nomJoueur, players[ordrePassage[i]].couleur);
-        /*do
+        do
         {
             // En cours de réflexion...
-        } while (0);*/
-    }
+        } while (0);
+    }*/
 }

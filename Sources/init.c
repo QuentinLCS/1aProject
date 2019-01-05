@@ -33,7 +33,7 @@ int init()
 
 int nbJoueurs()
 {
-    int nbJoueur = 0, valide = 0, continuer = 0, NbJoueur; 
+    int nbJoueur = 0, valide = 0; 
 
     do  {
         system("clear");
@@ -50,7 +50,7 @@ int nbJoueurs()
 
 
 void nomJoueurs( int nbJoueur) {
-    int valide = 0, continuer = 0, i, j; 
+    int valide = 0, i, continuer = 0; 
 
     for (i = 0 ; i < nbJoueur; i++) {
         valide = 0;

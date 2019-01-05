@@ -42,7 +42,6 @@ int menu(int *jouer)
 
 void nouvellePartie ()
 {
-    int valide = 0;
     //Jeu();
 }
 
@@ -150,7 +149,7 @@ void afficherErreur(int erreurType)
 
 
 
-void gestionFichier(char nomFichier[15])
+void charger(char nomFichier[15])
 {
     FILE* fichier = NULL;
 
@@ -158,7 +157,29 @@ void gestionFichier(char nomFichier[15])
 
     if (fichier != NULL)
     {
-        // On peut lire et écrire dans le fichier
+        //fscanf(fichier, "%d", var);
+        //printf("Les meilleurs scores sont : %d, %d et %d", score[0], score[1], score[2]);
+ 
+        fclose(fichier);
+    }
+    else
+    {
+        afficherErreur(2);
+    }
+}
+
+void sauvegarder()
+{
+    int a = 1, b = 2, c = 3;
+    FILE* fichier = NULL;
+
+    fichier = fopen( "../Saves/last-game.txt", "r+" );
+
+    if (fichier != NULL)
+    {
+        fprintf(fichier, "%d %d %d", a, b, c);
+ 
+        fclose(fichier);
     }
     else
     {

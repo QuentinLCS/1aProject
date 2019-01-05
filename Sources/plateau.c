@@ -38,7 +38,7 @@ void creationPlateau()
                 strcpy(matrice[i][j].couleur, "jaune");
                 matrice[i][j].ecurie     = 1;
                 matrice[i][j].echelle    = 0;
-            } else if (j == TAILLE_PLATEAU / 2 && i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0 || j == TAILLE_PLATEAU / 2 && i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 == 0) {
+            } else if ((j == TAILLE_PLATEAU / 2 && i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 != 0) || (j == TAILLE_PLATEAU / 2 && i == TAILLE_PLATEAU / 2 && TAILLE_PLATEAU % 2 == 0)) {
                 matrice[i][j].nbChevaux  = 0;      // Centre du plateau
                strcpy(matrice[i][j].couleur, " ");
                 matrice[i][j].ecurie     = 0;
@@ -63,7 +63,7 @@ void creationPlateau()
                 matrice[i][j].echelle    = 0;
             }
         }
-    } affichagePlateau();
+    } 
 }
 
 // AFFICHAGE DU PLATEAU

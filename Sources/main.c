@@ -7,7 +7,7 @@
 #include "../Header/init.h"
 #include "../Header/tours.h"
 
-void main()
+int main()
 {
 
     int jouer = 0, nbJoueur;
@@ -18,6 +18,7 @@ void main()
     {
         if (!jouer)
         {
+            sauvegarder();
             nbJoueur = menu(&jouer);
         }
         else
@@ -25,4 +26,5 @@ void main()
             // Fonction pour recharger la partie (continuer partie) car la première entrée dans gestionTours() est dans init.c -> ordreJeu
         }
     }
+    return 0;
 }
