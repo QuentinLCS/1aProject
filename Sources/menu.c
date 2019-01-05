@@ -40,14 +40,6 @@ int menu(int *jouer)
 
 
 
-void nouvellePartie ()
-{
-    //Jeu();
-}
-
-
-
-
 
 void continuerPartie ()
 {
