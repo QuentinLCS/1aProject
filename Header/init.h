@@ -14,7 +14,6 @@
         pion cheval[4];
     } joueur ;
 
-    int de();
     int init();
     int nbJoueurs();
     void nomJoueurs(int);

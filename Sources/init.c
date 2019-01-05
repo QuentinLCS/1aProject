@@ -30,14 +30,6 @@ int init()
 
 
 
-// A DEPLACER DANS DEPLACEMENT
-int de()
-{
-    return rand() % 6 + 1;
-}
-
-
-
 
 int nbJoueurs()
 {

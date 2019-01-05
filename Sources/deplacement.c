@@ -11,6 +11,10 @@ int chemin[56][2]={ {14,6}, {13,6}, {12,6}, {11,6}, {10,6}, {9,6}, {8,6}, {8,5},
                     {8,14}, {8,13}, {8,12}, {8,11}, {8,10}, {8,9}, {8,8}, {9,8}, {10,8}, {11,8}, {12,8}, {13,8}, {14,8}, {14,7} /*Cases de l'écurie en bas à droite*/
 } ;
 
+int de()
+{
+    return rand() % 6 + 1;
+}
 
 int verification(cellule matrice[][15], int numJoueur, int numPion, int distance, joueur players[]){
     int res=1, i=1;
