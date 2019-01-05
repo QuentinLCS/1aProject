@@ -20,5 +20,6 @@
     void ordreJeu(int);
     void viderBuffer();
 
+    extern joueur players[4];
 
 #endif // INIT_H

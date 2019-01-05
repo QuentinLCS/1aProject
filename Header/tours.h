@@ -1,8 +1,8 @@
-#include "init.h"
-
 #if !defined(TOURS_H)
 #define TOURS_H
 
-    void gestionTours(int, int *, joueur *);
+#include "init.h"
+
+    void gestionTours(int, int *);
 
 #endif // TOURS_H

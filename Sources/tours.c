@@ -7,7 +7,7 @@
 void gestionTours(int nbJoueur, int *ordrePassage[], joueur players[])
 {
     int i, j, valde, rejouer, etat[4];
-
+    /*
     for (i = 0; i < nbJoueur; i++)
     {
                 
@@ -57,5 +57,5 @@ void gestionTours(int nbJoueur, int *ordrePassage[], joueur players[])
                     break;
             } 
         }
-    }
+    }*/
 }

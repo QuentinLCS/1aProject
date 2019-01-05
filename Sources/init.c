@@ -7,11 +7,11 @@
 #include "../Header/menu.h"
 #include "../Header/tours.h"
 
-joueur players[4];
+    joueur players[4];
 
 int init() 
 {
-
+    
     int nbJoueur;
 
     system("clear");
