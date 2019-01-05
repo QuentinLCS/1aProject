@@ -4,14 +4,14 @@
 #include "../Header/menu.h"
 
 
-void gestionTours(int nbJoueur, int *ordrePassage[], joueur players[])
+void gestionTours(cellule matrice [][15], int nbJoueur, int *ordrePassage[], joueur players[])
 {
-    int i, j, valde, rejouer, etat[4];
+    int i, j, ver=0, valde, rejouer, etat[4];
 
     for (i = 0; i < nbJoueur; i++)
     {
                 
-        printf("Joueur num %d : %s (%s)\n",i+1, players[ordrePassage[i]].nomJoueur, players[ordrePassage[i]].couleur);
+        printf("Joueur num %d : %s (%s)\n",i+1, players[*ordrePassage[i]].nomJoueur, players[*ordrePassage[i]].couleur);
         do
         {
             rejouer=0;
@@ -25,7 +25,7 @@ void gestionTours(int nbJoueur, int *ordrePassage[], joueur players[])
                         etat[j]=3;
                     }
                     else {
-                        etat[j]=verification(matrice, players[ordrePassage[i]].nomJoueur, j, valde, players);
+                        etat[j]=verification(matrice, players[*ordrePassage[i]].nomJoueur, j, valde, players);
                     }
                 }  
             }
@@ -35,7 +35,7 @@ void gestionTours(int nbJoueur, int *ordrePassage[], joueur players[])
                         etat[j]=0;
                     }
                     else {
-                        etat[j]=verification(matrice, players[ordrePassage[i]].nomJoueur, j, valde, players);
+                        etat[j]=verification(matrice, players[*ordrePassage[i]].nomJoueur, j, valde, players);
                     }
                 }
             }
@@ -56,6 +56,40 @@ void gestionTours(int nbJoueur, int *ordrePassage[], joueur players[])
                     printf ("Le pion n°%d peut sortir de l'écurie !\n", j+1);
                     break;
             } 
+        }
+        int z;
+        printf ("\n_____________________________________________\n");
+        if (i < nbJoueur){ 
+            j = 1, z=0;                           /* C'est le tour d'un joueur */
+            while (j<4 && !ver){
+                while (z<4){
+                    if (j==etat[z]){
+                        switch (j){
+                            case 1 :
+                                printf ("Souhaitez-vous déplacer le pion n°%d ?\n", z+1);
+                                z++;
+                                break;
+                            case 2 :
+                                printf ("Souhaitez-vous capturer avec le pion n°%d ?\n", z+1);
+                                z++;
+                                break;
+                            case 3 :
+                                printf ("Souhaitez-vous sortir un cheval de l'écurie ?\n");
+                                ver = 1;
+                                break;
+                        }
+                    }
+                    
+                    else {
+                    z++;
+                    }
+                }
+                j++ ;
+            }
+        }
+
+        else {                              /* C'est le tour d'une IA */
+
         }
     }
 }
