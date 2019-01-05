@@ -26,7 +26,10 @@ int main()
             {
                 gestionTours(&nbJoueur, ordrePassage);
             } 
-            
+            if (victoire()==1)
+            {
+                afficheVainqueur();
+            }  
         }
     }
     return 0;

@@ -210,4 +210,5 @@ void afficheVainqueur()
         {
             printf ("Bravo au joueur n°%d, %s qui a remporté la partie !",i+1, players[i+1].nomJoueur);
         }
+    }
 }
