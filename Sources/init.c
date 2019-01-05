@@ -20,6 +20,10 @@ int init()
     {
         players[i].numJoueur = i;
         strcpy(players[i].couleur, listeCouleurs[i]);
+        for (int j = 0; j < 4; j++)
+        {
+            players[i].cheval[j].numCheval = j;
+        }
     }
 
     nbJoueur = nbJoueurs();

@@ -128,7 +128,7 @@ void gestionTours(int *nbJoueur, int *ordrePassage[])
         }
         affichagePlateau();
     }
-    sauvegarder();
+    sauvegarder(*nbJoueur , *ordrePassage);
 }
 
 int victoire() 

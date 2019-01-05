@@ -8,7 +8,7 @@
     void scenarios();
     void plusInfos();
     void afficherErreur(int);
-    void charger(char *);
-    void sauvegarder();
+    void charger(char *, int, int *);
+    void sauvegarder(int, int ordrePassage[4]);
 
 #endif // MENU_H
