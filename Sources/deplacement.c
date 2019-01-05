@@ -95,11 +95,19 @@ int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur)
 
 void sortieEcurie(int numJoueur) 
 {
-    int listeSorties[4][2] = { {6,0}, {0,8}, {8,14}, {14,6} }, numCheval = checkEcurie(NULL, 0, 0, numJoueur);
+    int listeSorties[4][3] = { {6,0,14}, {0,8,28}, {8,14,42}, {14,6,0} }, numPion = checkEcurie(NULL, 0, 0, numJoueur);
     
-    players[numJoueur].cheval[numCheval].numCase = 1;
-    players[numJoueur].cheval[numCheval].position[0] = listeSorties[numJoueur][0];
-    players[numJoueur].cheval[numCheval].position[1] = listeSorties[numJoueur][1];
-    plateau[listeSorties[numJoueur][1]][listeSorties[numJoueur][2]].nbChevaux += 1;
+    players[numJoueur].cheval[numPion].numCase = listeSorties[numJoueur][3];
+    players[numJoueur].cheval[numPion].position[0] = listeSorties[numJoueur][0];
+    players[numJoueur].cheval[numPion].position[1] = listeSorties[numJoueur][1];
+    if (!strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, players[numJoueur].couleur) || !strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, " "))
+    {
+        plateau[listeSorties[numJoueur][1]][listeSorties[numJoueur][2]].nbChevaux += 1;
+    } 
+    
+    else
+    {
+        capture(numJoueur, numPion, 0);
+    }
 }
 

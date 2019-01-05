@@ -46,41 +46,46 @@ void gestionTours(int nbJoueur, int *ordrePassage[])
                     break;
             } 
         }
-        int z, d, choix=1, action, possib[4][2];
+        int z, valide, choix=1, action, possib[4][2];
         printf ("\n_____________________________________________\nJoueur n°%d : %s (%s), que souhaitez-vous faire ? (Entrez la touche correspondante)\n",i+1, players[*ordrePassage[i]].nomJoueur, players[*ordrePassage[i]].couleur);
         if (i < nbJoueur){ 
-            j = 1, z=0;                           /* C'est le tour d'un joueur */
-            while (j<4 && !ver){
-                while (z<4 && !ver){
-                    if (j==etat[z]){
-                        switch (j){
-                            case 1 :
-                                printf ("[%d]Souhaitez-vous déplacer le pion n°%d ?\n", choix, z+1);
-                                possib[choix-1][0]=j;
-                                possib[choix-1][1]=z+1;
-                                choix++;
-                                break;
-                            case 2 :
-                                printf ("[%d]Souhaitez-vous capturer avec le pion n°%d ?\n", choix, z+1);
-                                possib[choix-1][0]=j;
-                                possib[choix-1][1]=z+1;
-                                choix++;
-                                break;
-                            case 3 :
-                                printf ("[%d]Souhaitez-vous sortir un cheval de l'écurie ?\n", choix);
-                                possib[choix-1][0]=j;
-                                possib[choix-1][1]=z+1;
-                                ver = 1;
-                                break;
+            j = 1, z=0;
+            do{                           /* C'est le tour d'un joueur */
+                while (j<4 && !ver){
+                    while (z<4 && !ver){
+                        if (j==etat[z]){
+                            switch (j){
+                                case 1 :
+                                    printf ("[%d]Souhaitez-vous déplacer le pion n°%d ?\n", choix, z+1);
+                                    possib[choix-1][0]=j;
+                                    possib[choix-1][1]=z+1;
+                                    choix++;
+                                    break;
+                                case 2 :
+                                    printf ("[%d]Souhaitez-vous capturer avec le pion n°%d ?\n", choix, z+1);
+                                    possib[choix-1][0]=j;
+                                    possib[choix-1][1]=z+1;
+                                    choix++;
+                                    break;
+                                case 3 :
+                                    printf ("[%d]Souhaitez-vous sortir un cheval de l'écurie ?\n", choix);
+                                    possib[choix-1][0]=j;
+                                    possib[choix-1][1]=z+1;
+                                    ver = 1;
+                                    break;
+                            }
                         }
+                        z++;
                     }
-                    z++;
+                    j++ ;
                 }
-                j++ ;
-            }
-            do{
-                d=scanf("%d",&action);
-            } while (action > choix || action < 0 || !d);
+                
+                valide=scanf("%d",&action);
+                viderBuffer();
+                
+                if (action > choix || action < 0 || !valide) afficherErreur(1);
+
+            } while (action > choix || action < 0 || !valide);
 
             switch (possib[action-1][0]) {
                 case 1 : 
