@@ -4,8 +4,10 @@
 #include "../Header/menu.h"
 
 
-void gestionTours()
+void gestionTours(int nbJoueur, int ordrePassage[], joueur players[])
 {
+    int i;
+
     for (i = 0; i < nbJoueur; i++)
     {
                 
