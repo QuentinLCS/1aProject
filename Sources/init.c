@@ -83,14 +83,17 @@ void ordreJeu( int nbJoueur ) {
     
     system("clear");
 
-    if (nbJoueur > 1) {
-        printf("\n\nPour tirer l'ordre de jeu, jetez votre de !\n");
-        for (i = 0; i < nbJoueur; i++) {
+    printf("\n\nPour tirer l'ordre de jeu, jetez votre de !\n");
+    for (i = 0; i < 4; i++) 
+    {
+        if (i < nbJoueur) 
+        {
             printf("\n    %s, lance ton de ! [appuyez sur entrer] ", players[i].nomJoueur);
             getchar();
-            tirage[i] = de();
-            printf("\n   \u2192 Resultat : %d !\n", tirage[i]);
-        } 
+        }
+        tirage[i] = de();
+        printf("\n   \u2192 Resultat : %d !\n", tirage[i]);
+    } 
         
         // TRI DU NOMBRE DE JOUEURS (ordrePassage[]) EN FONCTION DU TIRAGE (tirage[])
 
