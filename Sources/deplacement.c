@@ -75,14 +75,15 @@ void capture(int numJoueur, int numPion, int distance)
     }  
 }
 
-int checkEcurie(int etat[], int numEtat, int needVerif, int numJoueur) 
+int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur) 
 {
+    int res = 0;
     for (int i = 0; i < 4; i++)
     {
         if (players[i].cheval[i].numCase == 0)
         {
             etat[i]=numEtat;
-            rep = i;
+            res = i;
         }
         else if (needVerif)
         {
@@ -94,8 +95,8 @@ int checkEcurie(int etat[], int numEtat, int needVerif, int numJoueur)
 
 void sortieEcurie(int numJoueur) 
 {
-    int listeSorties[4][2] = { {6,0}, {0,8}, {8,14}, {14,6} };
-    numCheval = checkEcurie()
+    int listeSorties[4][2] = { {6,0}, {0,8}, {8,14}, {14,6} }, numCheval = checkEcurie(NULL, 0, 0, numJoueur);
+    
     players[numJoueur].cheval[numCheval].numCase = 1;
     players[numJoueur].cheval[numCheval].position[0] = listeSorties[numJoueur][0];
     players[numJoueur].cheval[numCheval].position[1] = listeSorties[numJoueur][1];
