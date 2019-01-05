@@ -22,10 +22,11 @@ int main()
         }
         else
         {
-            while ( !victoire() && !quitter() )
+            do
             {
+                printf("ici\n");
                 gestionTours(&nbJoueur, ordrePassage);
-            } 
+            } while ( !victoire() && !quitter() );
             if (victoire()==1)
             {
                 afficheVainqueur();
