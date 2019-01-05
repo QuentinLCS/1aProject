@@ -10,7 +10,7 @@
 int main()
 {
 
-    int jouer = 0, nbJoueur, ordrePassage[4];
+    int jouer = 0, nbJoueur=1, ordrePassage[4];
 
     srand(time(NULL));
     
