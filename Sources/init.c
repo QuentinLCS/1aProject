@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <time.h>
 #include "../Header/init.h"
 #include "../Header/deplacement.h"
 #include "../Header/plateau.h"
 
 joueur players[4];
 
-int init() {
+int init() 
+{
 
     int nbJoueur;
 
@@ -31,7 +31,6 @@ int init() {
 // A DEPLACER DANS DEPLACEMENT
 int de()
 {
-    srand(time(NULL));
     return rand() % 6 + 1;
 }
 
@@ -80,7 +79,7 @@ void nomJoueurs( int nbJoueur) {
 
 
 
-int ordreJeu( int nbJoueur ) {
+void ordreJeu( int nbJoueur ) {
     int tirage[4], ordrePassage[4], i, j, tempI = 0; 
     
     system("clear");

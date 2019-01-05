@@ -5,7 +5,7 @@
 
 
 
-int menu()
+int menu(int *jouer)
 {
     int gameMode = 0, valide = 0, nbJoueur;
 
@@ -21,6 +21,7 @@ int menu()
     {
         case 1 :
             nbJoueur = init();
+            *jouer = 1;
             break;
         case 2 :
             continuerPartie();

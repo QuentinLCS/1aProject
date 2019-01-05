@@ -19,7 +19,7 @@
     int init();
     int nbJoueurs();
     void nomJoueurs(int);
-    int ordreJeu(int);
+    void ordreJeu(int);
     void viderBuffer();
     void afficherErreur(int);
 
