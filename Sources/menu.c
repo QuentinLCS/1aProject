@@ -140,7 +140,7 @@ void afficherErreur(int erreurType)
 
 
 
-
+/*
 void charger(char *nomFichier[15], int nbJoueur, int *ordrePassage[])
 {
     FILE* fichier = NULL;
@@ -167,6 +167,7 @@ void charger(char *nomFichier[15], int nbJoueur, int *ordrePassage[])
         afficherErreur(2);
     }
 }
+*/
 
 void sauvegarder(int nbJoueur, int ordrePassage[4])
 {
