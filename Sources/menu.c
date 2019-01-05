@@ -141,17 +141,25 @@ void afficherErreur(int erreurType)
 
 
 
-void charger(char nomFichier[15])
+void charger(char *nomFichier[15], int nbJoueur, int *ordrePassage[])
 {
     FILE* fichier = NULL;
 
-    fichier = fopen( nomFichier, "r+" );
+    fichier = fopen( *nomFichier, "r+" );
 
     if (fichier != NULL)
     {
-        //fscanf(fichier, "%d", var);
-        //printf("Les meilleurs scores sont : %d, %d et %d", score[0], score[1], score[2]);
- 
+        for (int i = 0; i < 4; i++)
+        {
+            if (i) fseek(fichier, 1, SEEK_END);
+            
+            fscanf(fichier, "%d %d %d %s %s ", &nbJoueur, ordrePassage[i], &players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
+
+            for (int j = 0; j < 4; j++) 
+            {
+                fscanf(fichier, "%d %d %d %d ",&players[i].cheval[j].numCheval, &players[i].cheval[j].position[0], &players[i].cheval[j].position[1], &players[i].cheval[j].numCase);
+            }
+        } 
         fclose(fichier);
     }
     else
@@ -160,17 +168,25 @@ void charger(char nomFichier[15])
     }
 }
 
-void sauvegarder()
+void sauvegarder(int nbJoueur, int ordrePassage[4])
 {
-    int a = 1, b = 2, c = 3;
     FILE* fichier = NULL;
 
     fichier = fopen( "../Saves/last-game.txt", "r+" );
 
     if (fichier != NULL)
     {
-        fprintf(fichier, "%d %d %d", a, b, c);
- 
+        for (int i = 0; i < 4; i++)
+        {
+            if (i) fseek(fichier, 1, SEEK_END);
+            
+            fprintf(fichier, "%d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
+
+            for (int j = 0; j < 4; j++) 
+            {
+                fprintf(fichier, "%d %d %d %d ",players[i].cheval[j].numCheval, players[i].cheval[j].position[0], players[i].cheval[j].position[1], players[i].cheval[j].numCase);
+            }
+        } 
         fclose(fichier);
     }
     else

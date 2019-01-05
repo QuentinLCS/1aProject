@@ -125,7 +125,7 @@ void gestionTours(int *nbJoueur, int *ordrePassage[])
             }
         }
     }
-    sauvegarder();
+    sauvegarder(*nbJoueur , *ordrePassage);
 }
 
 int victoire() 

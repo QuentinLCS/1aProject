@@ -18,7 +18,6 @@ int main()
     {
         if (!jouer)
         {
-            sauvegarder();
             nbJoueur = menu(&jouer);
         }
         else
