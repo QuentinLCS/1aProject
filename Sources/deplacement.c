@@ -105,6 +105,8 @@ void sortieEcurie(int numJoueur)
 {
     int listeSorties[4][3] = { {6,0,14}, {0,8,28}, {8,14,42}, {14,6,0} }, numPion = checkEcurie(NULL, 0, 0, numJoueur);
     
+    numJoueur--; numPion--;
+
     players[numJoueur].cheval[numPion].numCase = listeSorties[numJoueur][3];
     players[numJoueur].cheval[numPion].position[0] = listeSorties[numJoueur][0];
     players[numJoueur].cheval[numPion].position[1] = listeSorties[numJoueur][1];
@@ -112,7 +114,6 @@ void sortieEcurie(int numJoueur)
     {
         plateau[listeSorties[numJoueur][1]][listeSorties[numJoueur][2]].nbChevaux += 1;
     } 
-    
     else
     {
         capture(numJoueur, numPion, 0);
