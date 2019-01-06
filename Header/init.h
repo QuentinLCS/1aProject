@@ -8,6 +8,7 @@
     } pion ;
    
     typedef struct {
+        int isJoueur;
         int numJoueur;
         char nomJoueur[30];
         char couleur[6];

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "../Header/init.h"
 #include "../Header/deplacement.h"
 #include "../Header/menu.h"
@@ -25,7 +26,9 @@ void gestionTours(int *nbJoueur)
                   if (valde==6)
                 {
                     rejouer = 1;
+                    printf ("\nici\n");
                     checkEcurie(etat, 3, 1, players[ordrePassage[i]].numJoueur);
+                    printf ("\nici\n");
                 }
                 else {
                     checkEcurie(etat, 0, 1, players[ordrePassage[i]].numJoueur);
@@ -105,7 +108,6 @@ void gestionTours(int *nbJoueur)
                         printf ("Vous passez votre tour.\n");
                         break;
                 }
-                affichagePlateau();
             } while (rejouer!=0); 
         }   
     
@@ -148,10 +150,12 @@ void gestionTours(int *nbJoueur)
                     } 
                     j--;  
                 }
-                affichagePlateau();
             } while (rejouer!=0);
-        }  
-    }                           /* C'est le tour d'une IA */
+        } 
+        system("sleep 5");
+        affichagePlateau();  
+    }    
+                          /* C'est le tour d'une IA */
     sauvegarder(*nbJoueur);
 }
 
