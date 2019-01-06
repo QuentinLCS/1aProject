@@ -44,7 +44,7 @@ int verification(int numJoueur, int numPion, int distance){
         while (i<= distance && res==1){
         
             if (plateau[chemin[ players[numJoueur].cheval[numPion].numCase + i][0]][chemin[ players[numJoueur].cheval[numPion].numCase + i][1]].nbChevaux != 0){
-                if (plateau[chemin[ players[numJoueur].cheval[numPion].numCase + i][0]][chemin[ players[numJoueur].cheval[numPion].numCase + i][1]].couleur == players[numJoueur].couleur ){
+                if (strcmp(plateau[chemin[ players[numJoueur].cheval[numPion].numCase + i][0]][chemin[ players[numJoueur].cheval[numPion].numCase + i][1]].couleur , players[numJoueur].couleur )){
                     i++;
                 }   
                 else {
@@ -137,7 +137,7 @@ void capture(int numJoueur, int numPion, int distance)
     }  
 }
 
-int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur) 
+int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur, int distance) 
 {
     int res = 0;
     for (int i = 0; i < 4; i++)
@@ -149,7 +149,7 @@ int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur)
         }
         else if (needVerif)
         {
-            etat[i]=verification(numJoueur, i, 6);
+            etat[i]=verification(numJoueur, i, distance);
         }
     }
     return res;
@@ -157,7 +157,7 @@ int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur)
 
 void sortieEcurie(int etat[4], int numJoueur) 
 {
-    int numPion = checkEcurie(etat, 0, 0, numJoueur);
+    int numPion = checkEcurie(etat, 0, 0, numJoueur, 0);
     
     plateau[listeEcuries[numJoueur][0]][listeEcuries[numJoueur][1]].nbChevaux -= 1;
     players[numJoueur].cheval[numPion].numCase = listeSorties[numJoueur][3];

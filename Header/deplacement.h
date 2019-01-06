@@ -12,6 +12,6 @@
     void deplacement(int, int, int);
     void capture(int, int, int);
     void sortieEcurie(int etat[4], int);
-    int checkEcurie(int etat[4], int, int, int);
+    int checkEcurie(int etat[4], int, int, int, int);
 
 #endif // DEPLACEMENT_H

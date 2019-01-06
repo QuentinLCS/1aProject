@@ -14,7 +14,7 @@ void gestionTours(int *nbJoueur)
     {
               
         printf("Joueur num %d : %s (%s)\n",i+1, players[ordrePassage[i]].nomJoueur, players[ordrePassage[i]].couleur);
-        if (players[i].isJoueur)  
+        if (players[i].isJoueur)  /* Procédure de tour dans le cas où c'est le tour d'un vrai joueur */
         {
             do
             {
@@ -23,16 +23,16 @@ void gestionTours(int *nbJoueur)
                   getchar();
                   valde=de();
                   printf ("Résultat du dé : %d !\n", valde);
-                  if (valde==6)
+                  if (valde==6) /* Vérifie si des pions sont encore dans l'écurie en cas d'un 6, afin de pouvoir en sortir un */
                 {
                     rejouer = 1;
-                    checkEcurie(etat, 3, 1, players[ordrePassage[i]].numJoueur);
+                    checkEcurie(etat, 3, 1, players[ordrePassage[i]].numJoueur, valde);
                 }
-                else {
-                    checkEcurie(etat, 0, 1, players[ordrePassage[i]].numJoueur);
+                else { /* si le 6 n'est pas tiré, les pions dans l'écurie ne sont pas en capacité de jouer */
+                    checkEcurie(etat, 0, 1, players[ordrePassage[i]].numJoueur, valde);
                 }
                 for (j = 0; j < 4; j++){
-                    switch (etat[j]){
+                    switch (etat[j]){ /* permet d'annoncer au joueur l'état de chacun de ses 4 pions */
                         case 0 : 
                             printf ("Le pion n°%d ne peut pas se déplacer.\n", j+1);
                             break;
@@ -50,7 +50,7 @@ void gestionTours(int *nbJoueur)
                 
                 ver=0, choix=1, valide=1;
                 do{
-                    j = 1;                       /* C'est le tour d'un joueur */
+                    j = 1;                       /* Cette boucle permet l'annonce de tous les coups possibles réalisables par le joueur, qu'il choisira  */
                     while (j<4 && !ver){
                         z=0;
                         while (z<4 && !ver){
@@ -81,7 +81,7 @@ void gestionTours(int *nbJoueur)
                         }
                         j++ ;
                     }
-                    if (choix == 1)
+                    if (choix == 1) /* Si aucune action n'est disponible pour le joueur, il passera son tour */
                     {
                         possib[choix-1][0]=4;
                         action=1;
@@ -94,7 +94,7 @@ void gestionTours(int *nbJoueur)
                         if (action > choix || action < 0 || !valide) afficherErreur(1);
                     }
                 } while (action > choix || action < 0 || !valide);
-                switch (possib[action-1][0]) {
+                switch (possib[action-1][0]) { /* Mise en place de l'action choisie par le joueur */
                     case 1 : 
                         deplacement(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
                         break;
@@ -117,7 +117,7 @@ void gestionTours(int *nbJoueur)
 
 
             
-        else { 
+        else { /* C'est le tour d'une IA */
             do{
                 rejouer=0;
                 valde=de();
@@ -125,26 +125,30 @@ void gestionTours(int *nbJoueur)
                 if (valde==6)
                 {
                     rejouer = 1;
-                    checkEcurie(etat, 3, 1, players[ordrePassage[i]].numJoueur);
+                    checkEcurie(etat, 3, 1, players[ordrePassage[i]].numJoueur, valde);
                 }
                 else {
-                    checkEcurie(etat, 0, 1, players[ordrePassage[i]].numJoueur);
+                    checkEcurie(etat, 0, 1, players[ordrePassage[i]].numJoueur, valde);
                 }
                 j=3;
                 z=0;
                 action = 0;
                 while (j>0 && action == 0){
+                    z=0;
                     while (z < 4 && action == 0){
                         if (etat[z]==j){
                             switch (etat[z]) {
                                 case 1 : 
                                     deplacement(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
+                                    action=1;
                                     break;
                                 case 2 :
                                     capture(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
+                                    action=1;
                                     break;
                                 case 3 :
                                     sortieEcurie(etat, players[ordrePassage[i]].numJoueur);
+                                    action=1;
                                     break; 
                             }
                         }
@@ -152,13 +156,17 @@ void gestionTours(int *nbJoueur)
                     } 
                     j--;  
                 }
+                if (action==0)
+                {
+                    printf ("Vous passez votre tour.\n");
+                }
                 system("sleep 5");
                 affichagePlateau();  
             } while (rejouer!=0);
         } 
         system("sleep 5");
         affichagePlateau();  
-    }                        /* C'est le tour d'une IA */
+    }                        
     sauvegarder(*nbJoueur);
 }
 
