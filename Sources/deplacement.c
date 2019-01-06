@@ -160,13 +160,14 @@ void sortieEcurie(int numJoueur)
     int numPion = checkEcurie(NULL, 0, 0, numJoueur);
     
     numJoueur--; numPion--;
-
+    plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux -= 1;
     players[numJoueur].cheval[numPion].numCase = listeSorties[numJoueur][3];
     players[numJoueur].cheval[numPion].position[0] = listeSorties[numJoueur][0];
     players[numJoueur].cheval[numPion].position[1] = listeSorties[numJoueur][1];
     if (!strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, players[numJoueur].couleur) || !strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, " "))
     {
         plateau[listeSorties[numJoueur][1]][listeSorties[numJoueur][2]].nbChevaux += 1;
+        strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, players[numJoueur].couleur);
     } 
     else
     {
