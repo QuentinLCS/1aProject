@@ -55,21 +55,22 @@ void gestionTours(int *nbJoueur)
                         z=0;
                         while (z<4 && !ver){
                             if (j==etat[z]){
+                                if (choix==1) {printf ("\n________________________________    \n%s, que voulez-vous faire ? (Entrez la touche correspondante) \n\n",players[ordrePassage[i]].nomJoueur);}
                                 switch (j){
                                     case 1 :
-                                        printf ("[%d]Souhaitez-vous déplacer le pion n°%d ?\n", choix, z+1);
+                                        printf ("[%d] Souhaitez-vous déplacer le pion n°%d ?\n", choix, z+1);
                                         possib[choix-1][0]=j;
                                         possib[choix-1][1]=z;
                                         choix++;
                                         break;
                                     case 2 :
-                                        printf ("[%d]Souhaitez-vous capturer avec le pion n°%d ?\n", choix, z+1);
+                                        printf ("[%d] Souhaitez-vous capturer avec le pion n°%d ?\n", choix, z+1);
                                         possib[choix-1][0]=j;
                                         possib[choix-1][1]=z;
                                         choix++;
                                         break;
                                     case 3 :
-                                        printf ("[%d]Souhaitez-vous sortir un cheval de l'écurie ?\n", choix);
+                                        printf ("[%d] Souhaitez-vous sortir un cheval de l'écurie ?\n", choix);
                                         possib[choix-1][0]=j;
                                         possib[choix-1][1]=z;
                                         ver = 1;

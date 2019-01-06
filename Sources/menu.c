@@ -157,7 +157,7 @@ void charger(int numFichier, int nbJoueur)
         for (int i = 0; i < 4; i++)
         {
             if (i) fseek(fichier, 1, SEEK_END);
-            
+
             fscanf(fichier, "%d %d %d %s %s ", &nbJoueur, &ordrePassage[i], &players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
             printf("%d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
 

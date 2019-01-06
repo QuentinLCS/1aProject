@@ -44,16 +44,14 @@ int verification(int numJoueur, int numPion, int distance){
         while (i<= distance && res==1){
             
             if (plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].nbChevaux != 0){
-                if (strcmp(plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].couleur , players[numJoueur].couleur) ){
+                if (!strcmp(plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].couleur , players[numJoueur].couleur) ){
                     i++;
                 }   
                 else {
                     if (i==distance){
-                        printf ("\n 111 \n");
                         res=2;
                     }
                     else {
-                        printf ("\n 222 \n");
                         res=0;
                     }
                 }
@@ -145,6 +143,7 @@ void capture(int numJoueur, int numPion, int distance)
         }
         i++;
     }
+    plateau[chemin[((players[numJoueur].cheval[numPion].numCase - 1)+ distance) %56][0]] [chemin[((players[numJoueur].cheval[numPion].numCase - 1)+ distance) %56][1]].nbChevaux= 0;
     deplacement(numJoueur, numPion, distance);  
 }
 
