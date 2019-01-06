@@ -46,7 +46,7 @@ void gestionTours(int *nbJoueur)
                             break;
                     } 
                 }
-                printf ("\n_____________________________________________\nJoueur n°%d : %s (%s), que souhaitez-vous faire ? (Entrez la touche correspondante)\n",i+1, players[ordrePassage[i]].nomJoueur, players[ordrePassage[i]].couleur);
+                
                 j = 1, z=0;
                 do{                           /* C'est le tour d'un joueur */
                     while (j<4 && !ver){
