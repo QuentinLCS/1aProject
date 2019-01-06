@@ -9,7 +9,7 @@
     void plusInfos();
     void afficherErreur(int);
     void charger(char *, int, int *);
-    void sauvegarder(int, int ordrePassage[4]);
+    void sauvegarder(int);
     void afficheVainqueur();
 
 #endif // MENU_H

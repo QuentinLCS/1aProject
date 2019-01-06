@@ -10,7 +10,7 @@
 int main()
 {
 
-    int jouer = 0, nbJoueur=1, ordrePassage[4];
+    int jouer = 0, nbJoueur=1;
 
     srand(time(NULL));
     
@@ -24,8 +24,7 @@ int main()
         {
             do
             {
-                printf("ici\n");
-                gestionTours(&nbJoueur, ordrePassage);
+                gestionTours(&nbJoueur);
             } while ( !victoire() && !quitter() );
             if (victoire()==1)
             {

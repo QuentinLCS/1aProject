@@ -171,7 +171,7 @@ void charger(char *nomFichier[15], int nbJoueur, int *ordrePassage[])
 }
 */
 
-void sauvegarder(int nbJoueur, int ordrePassage[4])
+void sauvegarder(int nbJoueur)
 {
     FILE* fichier = NULL;
 

@@ -24,5 +24,6 @@
     int quitter();
 
     extern joueur players[4];
+    extern int ordrePassage[4];
 
 #endif // INIT_H
