@@ -72,7 +72,8 @@ int verification(int numJoueur, int numPion, int distance){
                     printf("if22");
                     res = 0;
                 }
-            }  
+            }
+            i++;  
         }
     }
     else if (players[numJoueur].cheval[numPion].numCase - 100 == distance)
