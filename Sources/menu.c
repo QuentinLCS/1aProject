@@ -98,16 +98,16 @@ void scenarios()
     switch (scenarioNb) 
     {
         case 1 :
-            // Charger scénario 1
+            charger(1, 4);
             break;
         case 2 :
-            // Charger scénario 2
+            charger(2, 4);
             break;
         case 3 :
-            // Charger scénario 3
+            charger(3, 4);
             break;
         case 4 :
-            // Charger scénario 4
+            charger(4, 4);
             break;
     }
 }
@@ -142,12 +142,15 @@ void afficherErreur(int erreurType)
 
 
 
-/*
-void charger(char *nomFichier[15], int nbJoueur, int *ordrePassage[])
-{
-    FILE* fichier = NULL;
 
-    fichier = fopen( *nomFichier, "r+" );
+void charger(int numFichier, int nbJoueur)
+{
+    char listeFichiers[5][25] = {"\"../Saves/last-game.txt\"", "\"../Saves/scenario1.txt\"", "\"../Saves/scenario2.txt\"", "\"../Saves/scenario3.txt\"", "\"../Saves/scenario4.txt\""};
+
+    FILE* fichier = NULL;
+    printf("%s", listeFichiers[numFichier]);
+    fichier = fopen( listeFichiers[numFichier], "r+" );
+    fichier = fopen( "../Saves/scenario1.txt", "r+" );
 
     if (fichier != NULL)
     {
@@ -155,11 +158,13 @@ void charger(char *nomFichier[15], int nbJoueur, int *ordrePassage[])
         {
             if (i) fseek(fichier, 1, SEEK_END);
             
-            fscanf(fichier, "%d %d %d %s %s ", &nbJoueur, ordrePassage[i], &players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
+            fscanf(fichier, "%d %d %d %s %s ", &nbJoueur, &ordrePassage[i], &players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
+            printf("%d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
 
             for (int j = 0; j < 4; j++) 
             {
                 fscanf(fichier, "%d %d %d %d ",&players[i].cheval[j].numCheval, &players[i].cheval[j].position[0], &players[i].cheval[j].position[1], &players[i].cheval[j].numCase);
+                printf("%d %d %d %d ",players[i].cheval[j].numCheval, players[i].cheval[j].position[0], players[i].cheval[j].position[1], players[i].cheval[j].numCase);
             }
         } 
         fclose(fichier);
@@ -169,7 +174,7 @@ void charger(char *nomFichier[15], int nbJoueur, int *ordrePassage[])
         afficherErreur(2);
     }
 }
-*/
+
 
 void sauvegarder(int nbJoueur)
 {
@@ -186,13 +191,16 @@ void sauvegarder(int nbJoueur)
             fseek(fichier, 0, SEEK_END);
             
             fprintf(fichier, "%d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
+            printf("%d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
 
             for (int j = 0; j < 4; j++) 
             {
                 fprintf(fichier, "%d %d %d %d ",players[i].cheval[j].numCheval, players[i].cheval[j].position[0], players[i].cheval[j].position[1], players[i].cheval[j].numCase);
+                printf("%d %d %d %d \n",players[i].cheval[j].numCheval, players[i].cheval[j].position[0], players[i].cheval[j].position[1], players[i].cheval[j].numCase);
             }
         } 
         fclose(fichier);
+        system("sleep 5");
     }
     else
     {
