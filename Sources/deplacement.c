@@ -158,7 +158,7 @@ int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur)
 void sortieEcurie(int etat[4], int numJoueur) 
 {
     int numPion = checkEcurie(etat, 0, 0, numJoueur);
-    
+    printf("%d", numJoueur);
     numJoueur--; numPion--;
     plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux -= 1;
     players[numJoueur].cheval[numPion].numCase = listeSorties[numJoueur][3];
