@@ -177,12 +177,13 @@ void sauvegarder(int nbJoueur)
 
     fichier = fopen( "../Saves/last-game.txt", "r+" );
 
+    system(">../Saves/last-game.txt");
+
     if (fichier != NULL)
     {
         for (int i = 0; i < 4; i++)
         {
-            if (i) fseek(fichier, 1, SEEK_END);
-            else fseek(fichier, 1, SEEK_SET);
+            fseek(fichier, 1, SEEK_END);
             
             fprintf(fichier, "%d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
 

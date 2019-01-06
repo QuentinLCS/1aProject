@@ -8,7 +8,7 @@
     } pion ;
    
     typedef struct {
-        int isJoueur;
+        int isJoueur; // booléen ( vrai ou faux )
         int numJoueur;
         char nomJoueur[30];
         char couleur[6];
