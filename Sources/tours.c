@@ -19,16 +19,14 @@ void gestionTours(int *nbJoueur)
             do
             {
                 rejouer=0;
-                printf("\n    %s, lance ton de ! [appuyez sur entrer] \n", players[i].nomJoueur);
+                printf("\n    %s, lance ton dé ! [appuyez sur entrer] \n", players[i].nomJoueur);
                   getchar();
                   valde=de();
                   printf ("Résultat du dé : %d !\n", valde);
                   if (valde==6)
                 {
                     rejouer = 1;
-                    printf ("\nici\n");
                     checkEcurie(etat, 3, 1, players[ordrePassage[i]].numJoueur);
-                    printf ("\nici\n");
                 }
                 else {
                     checkEcurie(etat, 0, 1, players[ordrePassage[i]].numJoueur);
@@ -188,6 +186,7 @@ int victoire()
         {
             vic=1;
         }
+        i++;
     }
     return vic;
 }
