@@ -20,9 +20,6 @@
     void nomJoueurs(int);
     void ordreJeu(int);
     void viderBuffer();
-    void Jeu(int, int);
-    int victoire();
-    int quitter();
 
     extern joueur players[4];
     extern int ordrePassage[4];
