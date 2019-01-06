@@ -190,7 +190,7 @@ int victoire()
     return vic;
 }
 
-int quitter()
+int quitter(int *jouer)
 {
     int state = 0, valide = 0;
     do
@@ -201,5 +201,6 @@ int quitter()
         if ( state < 1 || state > 2 || !valide ) afficherErreur(1);
     } while ( state < 1 || state > 2 || !valide );
     state--;
+    if (state) *jouer = 0;
     return state;
 }
