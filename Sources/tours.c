@@ -200,6 +200,6 @@ int quitter()
         viderBuffer();
         if ( state < 1 || state > 2 || !valide ) afficherErreur(1);
     } while ( state < 1 || state > 2 || !valide );
-    state -=1;
+    state--;
     return state;
 }
