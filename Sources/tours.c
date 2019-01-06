@@ -7,7 +7,7 @@
 
 void gestionTours(int *nbJoueur)
 {
-    int i, j, ver=0, valde, rejouer, etat[4], z, valide, choix=1, action, possib[4][2];
+    int i, j, ver, valde, rejouer, etat[4], z, valide, choix, action, possib[4][2];
     affichagePlateau();
     for (i = 0; i < 4; i++)
     {
@@ -47,7 +47,7 @@ void gestionTours(int *nbJoueur)
                     } 
                 }
                 
-                j = 1, z=0;
+                j = 1, z=0, ver=0, choix=1;
                 do{                           /* C'est le tour d'un joueur */
                     while (j<4 && !ver){
                         while (z<4 && !ver){
@@ -77,11 +77,18 @@ void gestionTours(int *nbJoueur)
                         }
                         j++ ;
                     }
-                        
-                    valide=scanf("%d",&action);
-                    viderBuffer();
-                    if (action > choix || action < 0 || !valide) afficherErreur(1);
-
+                    if (choix == 1)
+                    {
+                        possib[choix-1][0]=4;
+                        action=1;
+                        choix++;
+                    }
+                    else 
+                    {
+                        valide=scanf("%d",&action);
+                        viderBuffer();
+                        if (action > choix || action < 0 || !valide) afficherErreur(1);
+                    }
                 } while (action > choix || action < 0 || !valide);
 
                 switch (possib[action-1][0]) {
@@ -93,6 +100,9 @@ void gestionTours(int *nbJoueur)
                         break;
                     case 3 :
                         sortieEcurie(players[ordrePassage[i]].numJoueur);
+                        break;
+                    case 4 :
+                        printf ("Vous passez votre tour.\n");
                         break;
                 }
                 affichagePlateau();
