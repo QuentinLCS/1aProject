@@ -14,7 +14,7 @@ void gestionTours(int *nbJoueur)
     {
               
         printf("Joueur num %d : %s (%s)\n",i+1, players[ordrePassage[i]].nomJoueur, players[ordrePassage[i]].couleur);
-        if (i < players[ordrePassage[i]].numJoueur)  
+        if (players[i].isJoueur==1)  
         {
             do
             {
