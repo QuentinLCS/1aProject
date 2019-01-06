@@ -31,7 +31,7 @@ int de()
     return rand() % 6 + 1;
 }
 
-void intPositionChevaux(int i, int j)
+void initPositionChevaux(int i, int j)
 {
     players[i].cheval[j].position[0] = listeEcuries[i][0];
     players[i].cheval[j].position[1] = listeEcuries[i][1];
