@@ -21,8 +21,8 @@ int menu(int *jouer)
     switch (gameMode) 
     {
         case 1 :
-            nbJoueur = init();
             creationPlateau();
+            nbJoueur = init();
             *jouer = 1;
             break;
         case 2 :
