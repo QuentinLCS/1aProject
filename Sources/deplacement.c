@@ -144,6 +144,7 @@ int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur, int dist
     {
         if (players[numJoueur].cheval[i].numCase == 0)
         {
+            printf ("\n%d\n",i);
             etat[i]=numEtat;
             res = i;
         }
@@ -160,7 +161,7 @@ void sortieEcurie(int etat[4], int numJoueur)
     int numPion = checkEcurie(etat, 0, 0, numJoueur, 0);
     
     plateau[listeEcuries[numJoueur][0]][listeEcuries[numJoueur][1]].nbChevaux -= 1;
-    players[numJoueur].cheval[numPion].numCase = listeSorties[numJoueur][3];
+    players[numJoueur].cheval[numPion].numCase = listeSorties[numJoueur][2];
     players[numJoueur].cheval[numPion].position[0] = listeSorties[numJoueur][0];
     players[numJoueur].cheval[numPion].position[1] = listeSorties[numJoueur][1];
     if (!strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, players[numJoueur].couleur) || !strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, " "))
