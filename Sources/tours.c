@@ -105,7 +105,7 @@ void gestionTours(int *nbJoueur)
                         capture(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
                         break;
                     case 3 :
-                        sortieEcurie(players[ordrePassage[i]].numJoueur);
+                        sortieEcurie(etat, players[ordrePassage[i]].numJoueur);
                         break;
                     case 4 :
                         printf ("Vous passez votre tour.\n");
@@ -147,7 +147,7 @@ void gestionTours(int *nbJoueur)
                                     capture(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
                                     break;
                                 case 3 :
-                                    sortieEcurie(players[ordrePassage[i]].numJoueur);
+                                    sortieEcurie(etat, players[ordrePassage[i]].numJoueur);
                                     break; 
                             }
                         }

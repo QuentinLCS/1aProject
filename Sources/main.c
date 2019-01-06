@@ -24,9 +24,10 @@ int main()
         {
             do
             {
+                printf("do while main\n");
                 gestionTours(&nbJoueur);
             } while ( !victoire() && !quitter() );
-            if (victoire()==1)
+            if (victoire())
             {
                 afficheVainqueur();
             }  
