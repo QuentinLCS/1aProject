@@ -14,20 +14,19 @@ int main()
 
     srand(time(NULL));
     
-    while (nbJoueur) 
+    while (nbJoueur) // Renvoyé par le menu() dans menu.c, devient 0 seulement si le joueur entre 4 (quitter) dans le menu
     {
-        if (!jouer)
+        if (!jouer) // Affichage du menu en boucle tant que la partie n'a pas commencé
         {
             nbJoueur = menu(&jouer);
         }
-        else
+        else // Sinon, gestion de la partie et de ses tours.
         {
             do
             {
-                printf("do while main\n");
                 gestionTours(&nbJoueur);
             } while ( !victoire() && !quitter(&jouer) );
-            if (victoire())
+            if (victoire()) // Si les conditions de victoire sont remplies, afficher le vainqueur.
             {
                 afficheVainqueur();
             }  
