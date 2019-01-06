@@ -158,21 +158,15 @@ int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur)
 void sortieEcurie(int etat[4], int numJoueur) 
 {
     int numPion = checkEcurie(etat, 0, 0, numJoueur);
-    printf("%d", numJoueur);
     numJoueur--; numPion--;
     plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux -= 1;
     players[numJoueur].cheval[numPion].numCase = listeSorties[numJoueur][3];
     players[numJoueur].cheval[numPion].position[0] = listeSorties[numJoueur][0];
-    printf("\n-2\n");
     players[numJoueur].cheval[numPion].position[1] = listeSorties[numJoueur][1];
-    printf("\n-1\n");
     if (!strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, players[numJoueur].couleur) || !strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, " "))
     {
-        printf("\n1\n");
         plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].nbChevaux += 1;
-        printf("\n2\n");
         strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, players[numJoueur].couleur);
-        printf("\n3\n");
     } 
     else
     {

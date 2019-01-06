@@ -108,7 +108,6 @@ void gestionTours(int *nbJoueur)
                         printf ("Vous passez votre tour.\n");
                         break;
                 }
-                viderBuffer();
                 system("sleep 5");
                 affichagePlateau();  
             } while (rejouer!=0); 
