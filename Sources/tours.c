@@ -96,7 +96,7 @@ void gestionTours(int *nbJoueur)
                 } while (action > choix || action < 0 || !valide);
                 switch (possib[action-1][0]) { /* Mise en place de l'action choisie par le joueur */
                     case 1 : 
-                        deplacement(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
+                        mouvement(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
                         break;
                     case 2 :
                         capture(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
@@ -141,7 +141,7 @@ void gestionTours(int *nbJoueur)
                                 case 1 : 
                                     possib[action][0]=j;
                                     possib[action][1]=z;
-                                    deplacement(players[ordrePassage[i]].numJoueur, possib[action][1], valde);
+                                    mouvement(players[ordrePassage[i]].numJoueur, possib[action][1], valde);
                                     action=1;
                                     break;
                                 case 2 :

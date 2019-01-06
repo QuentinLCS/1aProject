@@ -191,12 +191,10 @@ void sauvegarder(int nbJoueur)
             fseek(fichier, 0, SEEK_END);
             
             fprintf(fichier, "%d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
-            printf("%d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
 
             for (int j = 0; j < 4; j++) 
             {
                 fprintf(fichier, "%d %d %d %d ",players[i].cheval[j].numCheval, players[i].cheval[j].position[0], players[i].cheval[j].position[1], players[i].cheval[j].numCase);
-                printf("%d %d %d %d \n",players[i].cheval[j].numCheval, players[i].cheval[j].position[0], players[i].cheval[j].position[1], players[i].cheval[j].numCase);
             }
         } 
         fclose(fichier);

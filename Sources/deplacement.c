@@ -39,51 +39,43 @@ void initPositionChevaux(int i, int j)
 
 int verification(int numJoueur, int numPion, int distance){
     int res=1, i=1;
-    printf("\nnumJoueur=%d ; numPion = %d; distance = %d; numCase = %d\n",numJoueur, numPion, distance,players[numJoueur].cheval[numPion].numCase);
-    printf ("\n nbchevaux = %d\n",plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].nbChevaux);
-    printf ("\n pos0 : %d ; pos1 : %d\n",chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0],chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]);
     if (players[numJoueur].cheval[numPion].numCase < 100)
     {
-        printf("<100");
         while (i<= distance && res==1){
-            printf("while");
             
             if (plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].nbChevaux != 0){
-                printf ("\npbchevaux\n");
-                if (strcmp(plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].couleur , players[numJoueur].couleur) || strcmp(plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].couleur," ")){
+                if (strcmp(plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].couleur , players[numJoueur].couleur) ){
                     i++;
-                    printf ("\npbcouleur\n");
                 }   
                 else {
                     if (i==distance){
-                        printf("if i==distance");
+                        printf ("\n 111 \n");
                         res=2;
                     }
                     else {
-                        printf("else");
+                        printf ("\n 222 \n");
                         res=0;
                     }
                 }
+            }
+            else{
+                i++;
             }  
 
             if (((players[numJoueur].cheval[numPion].numCase -1 + i)%56)+1 == ((listeSorties[numJoueur][2]+54) % 56) + 1) {
-                printf("if11");
                 if (i < distance){
-                    printf("if22");
                     res = 0;
                 }
             }
-            i++;  
+              
         }
     }
     else if (players[numJoueur].cheval[numPion].numCase - 100 == distance)
     {
-        printf("else if1");
         res=0;
     }
     else if (plateau[echelle[numJoueur][distance-1][0]][echelle[numJoueur][distance-1][0]].nbChevaux != 0)
     {
-        printf("else if2");
         res=0;
     }
     
@@ -145,6 +137,8 @@ void capture(int numJoueur, int numPion, int distance)
                     players[i].cheval[j].numCase = 0;
                     players[i].cheval[j].position[0]=listeEcuries[i][0];
                     players[i].cheval[j].position[1]=listeEcuries[i][1];
+                    plateau[players[i].cheval[j].position[0]][players[i].cheval[j].position[1]].nbChevaux += 1;
+
                 }
             }
             ver=1;
@@ -161,7 +155,6 @@ int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur, int dist
     {
         if (players[numJoueur].cheval[i].numCase == 0)
         {
-            printf ("\n%d\n",i);
             etat[i]=numEtat;
             if (!chevalTrouve) 
             {
@@ -171,9 +164,7 @@ int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur, int dist
         }
         else if (needVerif)
         {
-            printf ("\ntest1\n");
             etat[i]=verification(numJoueur, i, distance);
-            printf ("\ntest2 res=%d\n",etat[i]);
         }
     }
     return res;
