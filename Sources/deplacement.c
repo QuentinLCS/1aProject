@@ -140,10 +140,10 @@ void capture(int numJoueur, int numPion, int distance)
         {
             for (int j = 0; j < 4; j++)
             {
-                if (players[i].cheval[j].numCase ==((players[numJoueur].cheval[numPion].numCase - 1)+ distance) %56)+1
+                if (players[i].cheval[j].numCase ==(((players[numJoueur].cheval[numPion].numCase - 1)+ distance) %56)+1)
                 {
                     players[i].cheval[j].numCase = 0;
-                    players[i].cheval[j].position[O]=listeEcuries[i][0];
+                    players[i].cheval[j].position[0]=listeEcuries[i][0];
                     players[i].cheval[j].position[1]=listeEcuries[i][1];
                 }
             }
