@@ -6,7 +6,7 @@
 #include "../Header/plateau.h"
 
 
-void gestionTours(int *nbJoueur)
+void gestionTours(int *nbJoueur) // S'occupe des tours que ce soit pour les joueurs ou bot
 {
     int i, j, ver, valde, rejouer, etat[4], z, valide = 1, choix, action, possib[4][2];
     affichagePlateau();
@@ -175,7 +175,7 @@ void gestionTours(int *nbJoueur)
     sauvegarder(*nbJoueur);
 }
 
-int victoire() 
+int victoire() // Vérifie les conditions de victoire
 {
     int i=0,somme, vic=0;
     while ((i < 4) && (vic == 0))
@@ -195,7 +195,7 @@ int victoire()
     return vic;
 }
 
-int quitter(int *jouer)
+int quitter(int *jouer) // Vérifie si le joueur veut quitter à la fin de chaque tour.
 {
     int state = 0, valide = 0;
     do
