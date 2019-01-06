@@ -85,15 +85,10 @@ void affichagePlateau()
                 if (!strcmp(plateau[i][j].couleur, "bleu") && plateau[i][j].ecurie) {
                     if (plateau[i][j].nbChevaux && k == 1) {
                         printf("\033[1;44m    %d\u265e\033[0m", plateau[i][j].nbChevaux); 
-                    } else {
-                        if (j == 0) {
-                            printf("\033[34;44m \033[0m");
-                        } if (j == TAILLE_ECURIE - 1) {
-                            printf("\033[34;44m     \033[0m");
-                        } else {
+                    } else 
+                        {
                             printf("\033[34;44m      \033[0m");
                         }
-                    }
 
                 } else if (!strcmp(plateau[i][j].couleur, "rouge") && plateau[i][j].ecurie) {
                     if (plateau[i][j].nbChevaux && k == 1) {
@@ -112,20 +107,14 @@ void affichagePlateau()
                 } else if (!strcmp(plateau[i][j].couleur, "vert") && plateau[i][j].ecurie) {
                     if (plateau[i][j].nbChevaux && k == 1) {
                         printf("\033[1;42m    %d\u265e\033[0m", plateau[i][j].nbChevaux); 
-                    } else {
-                        if (j == 0) {
-                            printf("\033[32;42m \033[0m");
-                        } if (j == TAILLE_ECURIE - 1) {
-                            printf("\033[32;42m     \033[0m");
-                        } else {
+                    } else 
+                        {
                             printf("\033[32;42m      \033[0m");
                         } 
-                    }
-                } 
-
+                
                 // AFFICHAGE DES ECHELLES
                 
-                else if (!strcmp(plateau[i][j].couleur, "bleu") && plateau[i][j].echelle) {
+                } else if (!strcmp(plateau[i][j].couleur, "bleu") && plateau[i][j].echelle) {
                     if (k == 1) {
                         if (plateau[i][j].nbChevaux) {
                             printf("\033[1;44m  %d\u265e  \033[0m", j); 
