@@ -139,10 +139,14 @@ void gestionTours(int *nbJoueur)
                         if (etat[z]==j){
                             switch (etat[z]) {
                                 case 1 : 
+                                    possib[action][0]=j;
+                                    possib[action][1]=z;
                                     deplacement(players[ordrePassage[i]].numJoueur, possib[action][1], valde);
                                     action=1;
                                     break;
                                 case 2 :
+                                    possib[action][0]=j;
+                                    possib[action][1]=z;
                                     capture(players[ordrePassage[i]].numJoueur, possib[action][1], valde);
                                     action=1;
                                     break;
