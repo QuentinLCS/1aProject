@@ -8,13 +8,13 @@
 
 void gestionTours(int *nbJoueur)
 {
-    int i, j, ver, valde, rejouer, etat[4], z, valide, choix, action, possib[4][2];
+    int i, j, ver, valde, rejouer, etat[4], z, valide = 1, choix, action, possib[4][2];
     affichagePlateau();
     for (i = 0; i < 4; i++)
     {
               
         printf("Joueur num %d : %s (%s)\n",i+1, players[ordrePassage[i]].nomJoueur, players[ordrePassage[i]].couleur);
-        if (players[i].isJoueur==1)  
+        if (players[i].isJoueur)  
         {
             do
             {
@@ -50,15 +50,12 @@ void gestionTours(int *nbJoueur)
                     } 
                 }
                 
-                ver=0, choix=1;
+                ver=0, choix=1, valide=1;
                 do{
-                    printf ("\n1\n");    
                     j = 1;                       /* C'est le tour d'un joueur */
                     while (j<4 && !ver){
-                        printf ("\n2\n");
                         z=0;
                         while (z<4 && !ver){
-                            printf ("\n3\n");
                             if (j==etat[z]){
                                 switch (j){
                                     case 1 :
@@ -88,20 +85,17 @@ void gestionTours(int *nbJoueur)
                     }
                     if (choix == 1)
                     {
-                        printf ("\n4\n");
                         possib[choix-1][0]=4;
                         action=1;
                         choix++;
                     }
                     else 
                     {
-                        printf ("\n5\n");
                         valide=scanf("%d",&action);
                         viderBuffer();
                         if (action > choix || action < 0 || !valide) afficherErreur(1);
                     }
                 } while (action > choix || action < 0 || !valide);
-                printf ("\n6\n");
                 switch (possib[action-1][0]) {
                     case 1 : 
                         deplacement(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
@@ -116,9 +110,8 @@ void gestionTours(int *nbJoueur)
                         printf ("Vous passez votre tour.\n");
                         break;
                 }
-                printf ("\n7\n");
+                viderBuffer();
                 system("sleep 5");
-                printf ("\n8\n");
                 affichagePlateau();  
             } while (rejouer!=0); 
         }   
@@ -162,14 +155,16 @@ void gestionTours(int *nbJoueur)
                     } 
                     j--;  
                 }
+                printf ("\nici\n");
                 system("sleep 5");
                 affichagePlateau();  
             } while (rejouer!=0);
         } 
+        printf ("\nici\n");
         system("sleep 5");
         affichagePlateau();  
     }    
-                          /* C'est le tour d'une IA */
+    printf ("\nici\n");                      /* C'est le tour d'une IA */
     sauvegarder(*nbJoueur);
 }
 
