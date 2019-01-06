@@ -142,7 +142,7 @@ int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur)
     int res = 0;
     for (int i = 0; i < 4; i++)
     {
-        if (players[i].cheval[i].numCase == 0)
+        if (players[numJoueur].cheval[i].numCase == 0)
         {
             etat[i]=numEtat;
             res = i;
