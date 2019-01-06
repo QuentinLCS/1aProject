@@ -8,7 +8,7 @@
 #include "../Header/tours.h"
 
     joueur players[4]; int ordrePassage[4];
-    
+
 int init() 
 {
     
@@ -24,8 +24,12 @@ int init()
         for (int j = 0; j < 4; j++)
         {
             players[i].cheval[j].numCheval = j;
+            initPositionChevaux(i, j);
         }
+        plateau[players[i].cheval[0].position[0]][players[i].cheval[0].position[1]].nbChevaux = 4;
     }
+
+
 
     nbJoueur = nbJoueurs();
     nomJoueurs(nbJoueur);

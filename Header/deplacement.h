@@ -4,6 +4,7 @@
 #include "init.h"
 #include "plateau.h"
 
+    void initPositionChevaux(int, int);
     int de();
     int verification(int, int, int);
     void mouvement(int, int, int);
