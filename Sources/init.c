@@ -19,6 +19,7 @@ int init()
     for (int i = 0; i < 4; i++)
     {
         players[i].numJoueur = i;
+        players[i].isJoueur = 0;
         strcpy(players[i].nomJoueur, "Bot");
         strcpy(players[i].couleur, listeCouleurs[i]);
         for (int j = 0; j < 4; j++)
@@ -64,6 +65,7 @@ void nomJoueurs( int nbJoueur) {
 
     for (i = 0 ; i < nbJoueur; i++) {
         valide = 0;
+        players[i].isJoueur = 1;
         do  {
             system("clear");
             printf ("\n\nEntrez le nom du joueur %s : ", players[i].couleur);
