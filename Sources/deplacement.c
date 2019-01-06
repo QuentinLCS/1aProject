@@ -40,12 +40,13 @@ void initPositionChevaux(int i, int j)
 int verification(int numJoueur, int numPion, int distance){
     int res=1, i=1;
     printf("\nnumJoueur=%d ; numPion = %d; distance = %d; numCase = %d\n",numJoueur, numPion, distance,players[numJoueur].cheval[numPion].numCase);
-    printf ("\n nbchevaux = %d",plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].nbChevaux);
-    printf ("\n pos0 : %d ; pos1 : %d",chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0],chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]);
+    printf ("\n nbchevaux = %d\n",plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].nbChevaux);
+    printf ("\n pos0 : %d ; pos1 : %d\n",chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0],chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]);
     if (players[numJoueur].cheval[numPion].numCase < 100)
     {
+        printf("<100");
         while (i<= distance && res==1){
-        
+            printf("while");
             
             if (plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].nbChevaux != 0){
                 printf ("\npbchevaux\n");
@@ -55,16 +56,20 @@ int verification(int numJoueur, int numPion, int distance){
                 }   
                 else {
                     if (i==distance){
+                        printf("if i==distance");
                         res=2;
                     }
                     else {
+                        printf("else");
                         res=0;
                     }
                 }
             }  
 
             if (((players[numJoueur].cheval[numPion].numCase -1 + i)%56)+1 == ((listeSorties[numJoueur][2]+54) % 56) + 1) {
+                printf("if11");
                 if (i < distance){
+                    printf("if22");
                     res = 0;
                 }
             }  
@@ -72,10 +77,12 @@ int verification(int numJoueur, int numPion, int distance){
     }
     else if (players[numJoueur].cheval[numPion].numCase - 100 == distance)
     {
+        printf("else if1");
         res=0;
     }
     else if (plateau[echelle[numJoueur][distance-1][0]][echelle[numJoueur][distance-1][0]].nbChevaux != 0)
     {
+        printf("else if2");
         res=0;
     }
     
