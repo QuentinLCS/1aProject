@@ -8,7 +8,7 @@
 
 void gestionTours(int *nbJoueur)
 {
-    int i, j, ver, valde, rejouer, etat[4], z, valide, choix, action, possib[4][2];
+    int i, j, ver, valde, rejouer, etat[4], z, valide=1, choix, action, possib[4][2];
     affichagePlateau();
     for (i = 0; i < 4; i++)
     {
@@ -50,7 +50,7 @@ void gestionTours(int *nbJoueur)
                     } 
                 }
                 
-                ver=0, choix=1;
+                ver=0, choix=1, valide=1;
                 do{
                     printf ("\n1\n");    
                     j = 1;                       /* C'est le tour d'un joueur */
