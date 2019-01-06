@@ -6,7 +6,7 @@
 
 
 
-int menu(int *jouer)
+int menu(int *jouer) // Affiche le menu et interpète où veut aller le joueur
 {
     int gameMode = 0, valide = 0, nbJoueur;
 
@@ -43,16 +43,16 @@ int menu(int *jouer)
 
 
 
-void continuerPartie ()
+void continuerPartie () // pas terminé pour la rente du projet mais presque fonctionnel, est censé charger les données renseignées par charger();
 {
-    //Jeu();
+    //charger(0, nbJoueur);
 }
 
 
 
 
 
-void option ()
+void option () // Menu option
 {
 
     int optionNb = 0, valide = 0;
@@ -81,7 +81,7 @@ void option ()
 
 
 
-void scenarios()
+void scenarios() // Menu des scénarios
 {
 
     int scenarioNb = 0, valide = 0;
@@ -115,7 +115,7 @@ void scenarios()
 
 
 
-void plusInfos()
+void plusInfos() // Fonction non terminée, est censée renseigner davantage sur les conditions de réalisation de ce projet
 {
     printf("PLUS DINFOS ICI\n");
 }
@@ -124,7 +124,7 @@ void plusInfos()
 
 
 
-void afficherErreur(int erreurType) 
+void afficherErreur(int erreurType) // Affiche à l'utilisateur l'erreur en fonction du type entré
 {
     system("clear");
     switch (erreurType) 
@@ -143,7 +143,7 @@ void afficherErreur(int erreurType)
 
 
 
-void charger(int numFichier, int nbJoueur)
+void charger(int numFichier, int nbJoueur) // Charge les données d'un fichier pré-créé (non fonctionnel pour le moment)
 {
     char listeFichiers[5][25] = {"\"../Saves/last-game.txt\"", "\"../Saves/scenario1.txt\"", "\"../Saves/scenario2.txt\"", "\"../Saves/scenario3.txt\"", "\"../Saves/scenario4.txt\""};
 
@@ -176,7 +176,7 @@ void charger(int numFichier, int nbJoueur)
 }
 
 
-void sauvegarder(int nbJoueur)
+void sauvegarder(int nbJoueur) // Sauvegarde les données à la fin de chaque tour dans "last-game.txt" pour continuer la partie à terme
 {
     FILE* fichier = NULL;
 
@@ -206,7 +206,7 @@ void sauvegarder(int nbJoueur)
     }
 }
 
-void afficheVainqueur()
+void afficheVainqueur() // Affiche le vainqueur de la partie
 {
     int somme;
     for (int i=0; i<4; i++)
