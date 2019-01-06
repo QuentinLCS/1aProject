@@ -75,6 +75,7 @@ void gestionTours(int *nbJoueur)
                                         possib[choix-1][0]=j;
                                         possib[choix-1][1]=z+1;
                                         ver = 1;
+                                        choix++;
                                         break;
                                 }
                             }
