@@ -47,7 +47,7 @@ void gestionTours(int *nbJoueur)
                             break;
                     } 
                 }
-                
+                printf("\n");
                 ver=0, choix=1, valide=1;
                 do{
                     j = 1;                       /* Cette boucle permet l'annonce de tous les coups possibles réalisables par le joueur, qu'il choisira  */
