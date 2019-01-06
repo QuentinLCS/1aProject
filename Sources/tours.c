@@ -152,16 +152,13 @@ void gestionTours(int *nbJoueur)
                     } 
                     j--;  
                 }
-                printf ("\nici\n");
                 system("sleep 5");
                 affichagePlateau();  
             } while (rejouer!=0);
         } 
-        printf ("\nici\n");
         system("sleep 5");
         affichagePlateau();  
-    }    
-    printf ("\nici\n");                      /* C'est le tour d'une IA */
+    }                        /* C'est le tour d'une IA */
     sauvegarder(*nbJoueur);
 }
 
