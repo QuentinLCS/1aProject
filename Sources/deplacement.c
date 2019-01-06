@@ -111,8 +111,8 @@ void deplacementEchelle(int numJoueur, int numPion, int distance)
     plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux = 0;
     strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, " ");
     players[numJoueur].cheval[numPion].numCase = 100+distance;
-    players[numJoueur].cheval[numPion].position[0] = echelle[numJoueur-1][distance-1][0];
-    players[numJoueur].cheval[numPion].position[1] = echelle[numJoueur-1][distance-1][1];
+    players[numJoueur].cheval[numPion].position[0] = echelle[numJoueur][distance-1][0];
+    players[numJoueur].cheval[numPion].position[1] = echelle[numJoueur][distance-1][1];
     plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux = 1;
     strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, players[numJoueur].couleur); 
 }
@@ -124,7 +124,7 @@ void deplacement(int numJoueur, int numPion, int distance)
     {
         strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, " ");
     }
-    players[numJoueur].cheval[numPion].numCase = ((players[numJoueur].cheval[numPion].numCase + distance) % 56) + 1;
+    players[numJoueur].cheval[numPion].numCase = ((players[numJoueur].cheval[numPion].numCase -1 + distance) % 56) + 1;
     players[numJoueur].cheval[numPion].position[0] = chemin[players[numJoueur].cheval[numPion].numCase - 1][0];
     players[numJoueur].cheval[numPion].position[1] = chemin[players[numJoueur].cheval[numPion].numCase - 1][1];
     plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux += 1;

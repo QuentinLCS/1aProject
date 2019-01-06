@@ -59,19 +59,19 @@ void gestionTours(int *nbJoueur)
                                     case 1 :
                                         printf ("[%d]Souhaitez-vous déplacer le pion n°%d ?\n", choix, z+1);
                                         possib[choix-1][0]=j;
-                                        possib[choix-1][1]=z+1;
+                                        possib[choix-1][1]=z;
                                         choix++;
                                         break;
                                     case 2 :
                                         printf ("[%d]Souhaitez-vous capturer avec le pion n°%d ?\n", choix, z+1);
                                         possib[choix-1][0]=j;
-                                        possib[choix-1][1]=z+1;
+                                        possib[choix-1][1]=z;
                                         choix++;
                                         break;
                                     case 3 :
                                         printf ("[%d]Souhaitez-vous sortir un cheval de l'écurie ?\n", choix);
                                         possib[choix-1][0]=j;
-                                        possib[choix-1][1]=z+1;
+                                        possib[choix-1][1]=z;
                                         ver = 1;
                                         choix++;
                                         break;
@@ -139,11 +139,11 @@ void gestionTours(int *nbJoueur)
                         if (etat[z]==j){
                             switch (etat[z]) {
                                 case 1 : 
-                                    deplacement(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
+                                    deplacement(players[ordrePassage[i]].numJoueur, possib[action][1], valde);
                                     action=1;
                                     break;
                                 case 2 :
-                                    capture(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
+                                    capture(players[ordrePassage[i]].numJoueur, possib[action][1], valde);
                                     action=1;
                                     break;
                                 case 3 :
