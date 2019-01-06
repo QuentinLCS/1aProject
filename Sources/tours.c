@@ -196,9 +196,9 @@ int quitter()
     int state = 0, d;
     do
     {
-        printf ("Voulez-vous quitter la partie ?\n [1] Non\n[2] Oui\n");
+        printf ("Voulez-vous quitter la partie ?\n[1] Non\n[2] Oui\n");
         d=scanf ("%d",&state);
-    } while (state != 1 || state != 2 || d!=1);
+    } while ((state < 1 || state > 2) && d!=1);
     state -=1;
     return state;
 }
