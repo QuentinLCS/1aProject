@@ -26,7 +26,7 @@ int main()
             {
                 printf("do while main\n");
                 gestionTours(&nbJoueur);
-            } while ( !victoire() && !quitter() );
+            } while ( !victoire() && !quitter(&jouer) );
             if (victoire())
             {
                 afficheVainqueur();
