@@ -155,9 +155,9 @@ int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur)
     return res;
 }
 
-void sortieEcurie(int numJoueur) 
+void sortieEcurie(int etat[4], int numJoueur) 
 {
-    int numPion = checkEcurie(NULL, 0, 0, numJoueur);
+    int numPion = checkEcurie(etat, 0, 0, numJoueur);
     
     numJoueur--; numPion--;
     plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux -= 1;
