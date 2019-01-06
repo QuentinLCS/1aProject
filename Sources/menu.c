@@ -182,6 +182,7 @@ void sauvegarder(int nbJoueur)
         for (int i = 0; i < 4; i++)
         {
             if (i) fseek(fichier, 1, SEEK_END);
+            else fseek(fichier, 1, SEEK_SET);
             
             fprintf(fichier, "%d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
 
