@@ -6,8 +6,8 @@
 #include "../Header/deplacement.h"
 #include "../Header/init.h"
 
-int chemin[56][2]=
-{ 
+int chemin[57][2]=
+{   
     {14,6}, {13,6}, {12,6}, {11,6}, {10,6}, {9,6}, {8,6}, {8,5}, {8,4}, {8,3}, {8,2}, {8,1}, {8,0}, {7,0}, /*Cases de l'écurie en bas à gauche*/
     {6,0}, {6,1}, {6,2}, {6,3}, {6,4}, {6,5}, {6,6}, {5,6}, {4,6}, {3,6}, {2,6}, {1,6}, {0,6}, {0,7}, /*Cases de l'écurie en haut à gauche*/
     {0,8}, {1,8}, {2,8}, {3,8}, {4,8}, {5,8}, {6,8}, {6,9}, {6,10}, {6,11}, {6,12}, {6,13}, {6,14}, {7,14}, /*Cases de l'écurie en haut à droite*/
@@ -39,13 +39,19 @@ void initPositionChevaux(int i, int j)
 
 int verification(int numJoueur, int numPion, int distance){
     int res=1, i=1;
+    printf("\nnumJoueur=%d ; numPion = %d; distance = %d; numCase = %d\n",numJoueur, numPion, distance,players[numJoueur].cheval[numPion].numCase);
+    printf ("\n nbchevaux = %d",plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].nbChevaux);
+    printf ("\n pos0 : %d ; pos1 : %d",chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0],chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]);
     if (players[numJoueur].cheval[numPion].numCase < 100)
     {
         while (i<= distance && res==1){
         
-            if (plateau[chemin[ players[numJoueur].cheval[numPion].numCase + i][0]][chemin[ players[numJoueur].cheval[numPion].numCase + i][1]].nbChevaux != 0){
-                if (strcmp(plateau[chemin[ players[numJoueur].cheval[numPion].numCase + i][0]][chemin[ players[numJoueur].cheval[numPion].numCase + i][1]].couleur , players[numJoueur].couleur )){
+            
+            if (plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].nbChevaux != 0){
+                printf ("\npbchevaux\n");
+                if (strcmp(plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].couleur , players[numJoueur].couleur) || strcmp(plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].couleur," ")){
                     i++;
+                    printf ("\npbcouleur\n");
                 }   
                 else {
                     if (i==distance){
@@ -57,7 +63,7 @@ int verification(int numJoueur, int numPion, int distance){
                 }
             }  
 
-            if (players[numJoueur].cheval[numPion].numCase + i == ((listeSorties[numJoueur][2]+54) % 56) + 1) {
+            if (((players[numJoueur].cheval[numPion].numCase -1 + i)%56)+1 == ((listeSorties[numJoueur][2]+54) % 56) + 1) {
                 if (i < distance){
                     res = 0;
                 }
@@ -150,7 +156,9 @@ int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur, int dist
         }
         else if (needVerif)
         {
+            printf ("\ntest1\n");
             etat[i]=verification(numJoueur, i, distance);
+            printf ("\ntest2 res=%d\n",etat[i]);
         }
     }
     return res;
