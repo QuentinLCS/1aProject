@@ -14,7 +14,7 @@ void gestionTours(int *nbJoueur)
     {
               
         printf("Joueur num %d : %s (%s)\n",i+1, players[ordrePassage[i]].nomJoueur, players[ordrePassage[i]].couleur);
-        if (players[i].isJoueur)  /* Procédure de tour dans le cas où c'est le tour d'un vrai joueur */
+        if (players[ordrePassage[i]].isJoueur)  /* Procédure de tour dans le cas où c'est le tour d'un vrai joueur */
         {
             do
             {
