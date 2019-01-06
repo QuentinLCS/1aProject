@@ -192,14 +192,14 @@ int victoire()
 
 int quitter()
 {
-    int state = 0, valide;
+    int state = 0, valide = 0;
     do
     {
         printf ("Voulez-vous quitter la partie ?\n[1] Non\n[2] Oui\n");
         valide = scanf ("%d",&state);
         viderBuffer();
-        if ( state < 1 || state > 2 || valide!=1 ) afficherErreur(1);
-    } while ( state < 1 || state > 2 || valide!=1 );
-    state -=1;
+        if ( state < 1 || state > 2 || !valide ) afficherErreur(1);
+    } while ( state < 1 || state > 2 || !valide );
+    state--;
     return state;
 }

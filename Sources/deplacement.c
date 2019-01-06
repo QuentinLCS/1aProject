@@ -153,14 +153,18 @@ void capture(int numJoueur, int numPion, int distance)
 
 int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur, int distance) 
 {
-    int res = 0;
+    int res = 0, chevalTrouve = 0;
     for (int i = 0; i < 4; i++)
     {
         if (players[numJoueur].cheval[i].numCase == 0)
         {
             printf ("\n%d\n",i);
             etat[i]=numEtat;
-            res = i;
+            if (!chevalTrouve) 
+            {
+                res = i;
+                chevalTrouve = 1;
+            }
         }
         else if (needVerif)
         {
