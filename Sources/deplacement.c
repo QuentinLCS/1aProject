@@ -24,7 +24,7 @@ int echelle[4][6][2]=
 
 int listeSorties[4][3] = { {6,0,15}, {0,8,29}, {14,6,1}, {8,14,43} };
 
-int listeEcuries[4][2] = { {2,2}, {2,11}, {11,2}, {11,11} };
+int listeEcuries[4][2] = { {2,2}, {2,11}, {12,2}, {12,11} };
 
 int de()
 {
@@ -166,7 +166,7 @@ void sortieEcurie(int etat[4], int numJoueur)
     players[numJoueur].cheval[numPion].position[1] = listeSorties[numJoueur][1];
     if (!strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, players[numJoueur].couleur) || !strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, " "))
     {
-        plateau[listeSorties[numJoueur][1]][listeSorties[numJoueur][2]].nbChevaux += 1;
+        plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].nbChevaux += 1;
         strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, players[numJoueur].couleur);
     } 
     else
