@@ -42,7 +42,13 @@ int verification(int numJoueur, int numPion, int distance){
     if (players[numJoueur].cheval[numPion].numCase < 100)
     {
         while (i<= distance && res==1){
-            
+
+            if (((players[numJoueur].cheval[numPion].numCase -1 + i)%56)+1 == ((listeSorties[numJoueur][2]+54) % 56) + 1) {
+                if (i < distance){
+                    res = 0;
+                }
+            }
+
             if (plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].nbChevaux != 0){
                 if (!strcmp(plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].couleur , players[numJoueur].couleur) ){
                     i++;
@@ -60,12 +66,6 @@ int verification(int numJoueur, int numPion, int distance){
                 i++;
             }  
 
-            if (((players[numJoueur].cheval[numPion].numCase -1 + i)%56)+1 == ((listeSorties[numJoueur][2]+54) % 56) + 1) {
-                if (i < distance){
-                    res = 0;
-                }
-            }
-              
         }
     }
     else if (players[numJoueur].cheval[numPion].numCase - 100 == distance)
