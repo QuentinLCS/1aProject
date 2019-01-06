@@ -136,19 +136,22 @@ void capture(int numJoueur, int numPion, int distance)
     int i = 0, ver = 0;
     while (i < 4 && !ver)
     {
-        if (!strcmp(plateau[chemin[(((players[numJoueur].cheval[numPion].numCase - 1)+ distance) %56) +1][0]] [chemin[(((players[numJoueur].cheval[numPion].numCase - 1)+ distance) %56) +1][1]].couleur , players[i].couleur))
+        if (!strcmp(plateau[chemin[((players[numJoueur].cheval[numPion].numCase - 1)+ distance) %56][0]] [chemin[((players[numJoueur].cheval[numPion].numCase - 1)+ distance) %56][1]].couleur , players[i].couleur))
         {
             for (int j = 0; j < 4; j++)
             {
-                if (players[i].cheval[j].numCase ==(((players[numJoueur].cheval[numPion].numCase - 1)+ distance) %56) +1)
+                if (players[i].cheval[j].numCase ==((players[numJoueur].cheval[numPion].numCase - 1)+ distance) %56)+1
                 {
                     players[i].cheval[j].numCase = 0;
+                    players[i].cheval[j].position[O]=listeEcuries[i][0];
+                    players[i].cheval[j].position[1]=listeEcuries[i][1];
                 }
             }
             ver=1;
         }
         i++;
-    }  
+    }
+    deplacement(numJoueur, numPion, distance);  
 }
 
 int checkEcurie(int etat[4], int numEtat, int needVerif, int numJoueur, int distance) 
