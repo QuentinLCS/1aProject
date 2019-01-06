@@ -8,7 +8,7 @@
     void scenarios();
     void plusInfos();
     void afficherErreur(int);
-    void charger(char *, int, int *);
+    void charger(int, int);
     void sauvegarder(int);
     void afficheVainqueur();
 

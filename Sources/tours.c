@@ -108,7 +108,7 @@ void gestionTours(int *nbJoueur)
                         printf ("Vous passez votre tour.\n");
                         break;
                 }
-                system("sleep 5");
+                system("sleep 2");
                 affichagePlateau();  
             } while (rejouer!=0); 
         }   
@@ -164,11 +164,11 @@ void gestionTours(int *nbJoueur)
                 {
                     printf ("Vous passez votre tour.\n");
                 }
-                system("sleep 5");
+                system("sleep 2");
                 affichagePlateau();  
             } while (rejouer!=0);
         } 
-        system("sleep 5");
+        system("sleep 2");
         affichagePlateau();  
     }                        
     sauvegarder(*nbJoueur);
