@@ -50,9 +50,11 @@ void gestionTours(int *nbJoueur)
                     } 
                 }
                 
-                j = 1, z=0, ver=0, choix=1;
-                do{                           /* C'est le tour d'un joueur */
+                ver=0, choix=1;
+                do{    
+                    j = 1;                       /* C'est le tour d'un joueur */
                     while (j<4 && !ver){
+                        z=0;
                         while (z<4 && !ver){
                             if (j==etat[z]){
                                 switch (j){
@@ -108,6 +110,8 @@ void gestionTours(int *nbJoueur)
                         printf ("Vous passez votre tour.\n");
                         break;
                 }
+                system("sleep 5");
+                affichagePlateau();  
             } while (rejouer!=0); 
         }   
     
@@ -150,6 +154,8 @@ void gestionTours(int *nbJoueur)
                     } 
                     j--;  
                 }
+                system("sleep 5");
+                affichagePlateau();  
             } while (rejouer!=0);
         } 
         system("sleep 5");
