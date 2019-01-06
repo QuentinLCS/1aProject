@@ -98,49 +98,50 @@ void gestionTours(int *nbJoueur)
                 affichagePlateau();
             } while (rejouer!=0); 
         }   
-    }
+    
         
 
 
             
-    else { 
-        do{
-            rejouer=0;
-            valde=de();
-            printf ("Vous avez fait un %d !\n", valde);
-            if (valde==6)
-            {
-                rejouer = 1;
-                checkEcurie(etat, 3, 1, players[ordrePassage[i]].numJoueur);
-            }
-            else {
-                checkEcurie(etat, 0, 1, players[ordrePassage[i]].numJoueur);
-            }
-            j=3;
-            z=0;
-            action = 0;
-            while (j>0 && action == 0){
-                while (z < 4 && action == 0){
-                    if (etat[z]==j){
-                        switch (etat[z]) {
-                            case 1 : 
-                                deplacement(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
-                                break;
-                            case 2 :
-                                capture(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
-                                break;
-                            case 3 :
-                                sortieEcurie(players[ordrePassage[i]].numJoueur);
-                                break; 
+        else { 
+            do{
+                rejouer=0;
+                valde=de();
+                printf ("Vous avez fait un %d !\n", valde);
+                if (valde==6)
+                {
+                    rejouer = 1;
+                    checkEcurie(etat, 3, 1, players[ordrePassage[i]].numJoueur);
+                }
+                else {
+                    checkEcurie(etat, 0, 1, players[ordrePassage[i]].numJoueur);
+                }
+                j=3;
+                z=0;
+                action = 0;
+                while (j>0 && action == 0){
+                    while (z < 4 && action == 0){
+                        if (etat[z]==j){
+                            switch (etat[z]) {
+                                case 1 : 
+                                    deplacement(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
+                                    break;
+                                case 2 :
+                                    capture(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
+                                    break;
+                                case 3 :
+                                    sortieEcurie(players[ordrePassage[i]].numJoueur);
+                                    break; 
+                            }
                         }
-                    }
-                    z++;
-                } 
-                j--;  
-            }
-            affichagePlateau();
-        } while (rejouer!=0);
-    }                             /* C'est le tour d'une IA */
+                        z++;
+                    } 
+                    j--;  
+                }
+                affichagePlateau();
+            } while (rejouer!=0);
+        }  
+    }                           /* C'est le tour d'une IA */
     sauvegarder(*nbJoueur);
 }
 
