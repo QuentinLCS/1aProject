@@ -16,13 +16,13 @@ int init()
 
     char listeCouleurs[4][6] = {"bleu", "rouge", "vert", "jaune"};
 
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++) // Initialisation des joueurs
     {
         players[i].numJoueur = i;
         players[i].isJoueur = 0;
         strcpy(players[i].nomJoueur, "Bot");
         strcpy(players[i].couleur, listeCouleurs[i]);
-        for (int j = 0; j < 4; j++)
+        for (int j = 0; j < 4; j++) // Initialisation des chevaux des joueurs
         {
             players[i].cheval[j].numCheval = j;
             initPositionChevaux(i, j);
@@ -36,13 +36,13 @@ int init()
     nomJoueurs(nbJoueur);
     ordreJeu(nbJoueur);
 
-    return nbJoueur;
+    return nbJoueur; // Retourne nbJoueur à menu() dans menu.c
 }
 
 
 
 
-int nbJoueurs()
+int nbJoueurs() // Demande le nombre de Joueurs
 {
     int nbJoueur = 0, valide = 0; 
 
@@ -60,7 +60,7 @@ int nbJoueurs()
 
 
 
-void nomJoueurs( int nbJoueur) {
+void nomJoueurs( int nbJoueur) { // Initialisation des noms des joueurs (en fonction du nombre de joueurs)
     int valide = 0, i, continuer = 0; 
 
     for (i = 0 ; i < nbJoueur; i++) {
@@ -85,7 +85,7 @@ void nomJoueurs( int nbJoueur) {
 
 
 
-void ordreJeu( int nbJoueur ) {
+void ordreJeu( int nbJoueur ) { //Génère le tableau ordrePassage afin de définir dans quel ordre se passent les tours
     int tirage[4], i, j, tempI = 0; 
     
     system("clear");
@@ -121,7 +121,7 @@ void ordreJeu( int nbJoueur ) {
 
 
 
-void viderBuffer() 
+void viderBuffer() // Vide le buffer en cas de besoin
 {
     char c;
     while ( (c=getchar()) != EOF && c != '\n');
