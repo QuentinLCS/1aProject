@@ -96,8 +96,8 @@ void gestionTours(int *nbJoueur)
                         break;
                 }
                 affichagePlateau();
-            }
-        } while (rejouer!=0);   
+            } while (rejouer!=0); 
+        }   
     }
         
 
