@@ -19,7 +19,7 @@ void gestionTours(int *nbJoueur)
             do
             {
                 rejouer=0;
-                printf ("Appuyez sur Entrée pour lancer votre dé !\n");
+                printf("\n    %s, lance ton de ! [appuyez sur entrer] \n", players[i].nomJoueur);
                   getchar();
                   valde=de();
                   printf ("Résultat du dé : %d !\n", valde);

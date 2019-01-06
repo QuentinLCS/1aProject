@@ -163,11 +163,16 @@ void sortieEcurie(int etat[4], int numJoueur)
     plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux -= 1;
     players[numJoueur].cheval[numPion].numCase = listeSorties[numJoueur][3];
     players[numJoueur].cheval[numPion].position[0] = listeSorties[numJoueur][0];
+    printf("-2");
     players[numJoueur].cheval[numPion].position[1] = listeSorties[numJoueur][1];
+    printf("-1");
     if (!strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, players[numJoueur].couleur) || !strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, " "))
     {
+        printf("1");
         plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].nbChevaux += 1;
+        printf("2");
         strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, players[numJoueur].couleur);
+        printf("3");
     } 
     else
     {
