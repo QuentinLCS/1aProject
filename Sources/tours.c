@@ -22,7 +22,7 @@ void gestionTours(int *nbJoueur)
                 printf ("Appuyez sur Entrée pour lancer votre dé !\n");
                   getchar();
                   valde=de();
-                  printf ("Vous avez fait un %d !\n", valde);
+                  printf ("Résultat du dé : %d !\n", valde);
                   if (valde==6)
                 {
                     rejouer = 1;
