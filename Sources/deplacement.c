@@ -49,7 +49,7 @@ int verification(int numJoueur, int numPion, int distance){ /*Permet d'attribuer
                 }
             }
 
-            else if ((plateau[echelle[numJoueur][distance-1][0]][echelle[numJoueur][distance-1][1]].nbChevaux != 0)  && (((players[numJoueur].cheval[numPion].numCase -1)%56)+1 == (((listeSorties[numJoueur][2]+54) % 56) + 1))
+            else if ((plateau[echelle[numJoueur][distance-1][0]][echelle[numJoueur][distance-1][1]].nbChevaux != 0)  && (((players[numJoueur].cheval[numPion].numCase -1)%56)+1 == (((listeSorties[numJoueur][2]+54) % 56) + 1)))
             {
                 res = 0;
             }

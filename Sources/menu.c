@@ -244,9 +244,10 @@ void afficheVainqueur() // Affiche le vainqueur de la partie
         {
             somme+=players[i].cheval[j].numCase;
         }
-        if (somme==408)
+        if (somme==418)
         {
-            printf ("Bravo au joueur n°%d, %s qui a remporté la partie !",i+1, players[i+1].nomJoueur);
+            printf ("Bravo au joueur n°%d, %s (%s) qui a remporté la partie !\n",i+1, players[i+1].nomJoueur, players[i].couleur);
+            system("sleep 5");
         }
     }
 }

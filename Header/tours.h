@@ -4,7 +4,7 @@
 #include "init.h"
 
     void gestionTours(int *);
-    int victoire();
+    int victoire(int *);
     int quitter();
 
 #endif // TOURS_H

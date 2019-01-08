@@ -175,7 +175,7 @@ void gestionTours(int *nbJoueur) // S'occupe des tours que ce soit pour les joue
     sauvegarder(*nbJoueur);
 }
 
-int victoire() // Vérifie les conditions de victoire
+int victoire(int *jouer) // Vérifie les conditions de victoire
 {
     int i=0,somme, vic=0;
     while ((i < 4) && (vic == 0))
@@ -186,12 +186,14 @@ int victoire() // Vérifie les conditions de victoire
         {
             somme+=players[i].cheval[j].numCase;
         }
-        if (somme==408)
+        if (somme==418)
         {
             vic=1;
+            *jouer = 0;
         }
         i++;
     }
+    
     return vic;
 }
 

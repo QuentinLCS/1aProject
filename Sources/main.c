@@ -25,8 +25,8 @@ int main()
             do
             {
                 gestionTours(&nbJoueur);
-            } while ( !victoire() && !quitter(&jouer) );
-            if (victoire()) // Si les conditions de victoire sont remplies, afficher le vainqueur.
+            } while ( !victoire(&jouer) && !quitter(&jouer) );
+            if (victoire(&jouer)) // Si les conditions de victoire sont remplies, afficher le vainqueur.
             {
                 afficheVainqueur();
             }  
