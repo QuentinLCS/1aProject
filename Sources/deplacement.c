@@ -48,8 +48,13 @@ int verification(int numJoueur, int numPion, int distance){ /*Permet d'attribuer
                     res = 0;
                 }
             }
+
+            else if ((plateau[echelle[numJoueur][distance-1][0]][echelle[numJoueur][distance-1][1]].nbChevaux != 0)  && (((players[numJoueur].cheval[numPion].numCase -1)%56)+1 == (((listeSorties[numJoueur][2]+54) % 56) + 1))
+            {
+                res = 0;
+            }
             /* Boucle dans le cas où le pion doit passer par une case occupée */
-            if (plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].nbChevaux != 0){
+            else if (plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].nbChevaux != 0){
                 if (!strcmp(plateau[chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][0]][chemin[ (players[numJoueur].cheval[numPion].numCase -1 + i)%56][1]].couleur , players[numJoueur].couleur) ){
                     i++;
                 }   
@@ -75,7 +80,7 @@ int verification(int numJoueur, int numPion, int distance){ /*Permet d'attribuer
         res=0;
     }
     /* Une case de l'échelle occupée par un autre pion */
-    else if (plateau[echelle[numJoueur][distance-1][0]][echelle[numJoueur][distance-1][0]].nbChevaux != 0)
+    else if (plateau[echelle[numJoueur][distance-1][0]][echelle[numJoueur][distance-1][1]].nbChevaux != 0)
     {
         res=0;
     }
@@ -102,12 +107,10 @@ void mouvement (int numJoueur, int numPion, int distance)
 void deplacementEchelle(int numJoueur, int numPion, int distance) 
 {
     plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux = 0;
-    strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, "vide");
     players[numJoueur].cheval[numPion].numCase = 100+distance;
     players[numJoueur].cheval[numPion].position[0] = echelle[numJoueur][distance-1][0];
     players[numJoueur].cheval[numPion].position[1] = echelle[numJoueur][distance-1][1];
     plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux = 1;
-    strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, players[numJoueur].couleur); 
 }
 
 /* Cette fonction gère le déplacement du pion sur le chemin */
