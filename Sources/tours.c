@@ -6,7 +6,7 @@
 #include "../Header/plateau.h"
 
 
-void gestionTours(int *nbJoueur)
+void gestionTours(int *nbJoueur) // S'occupe des tours que ce soit pour les joueurs ou bot
 {
     int i, j, ver, valde, rejouer, etat[4], z, valide = 1, choix, action, possib[4][2];
     affichagePlateau();
@@ -55,21 +55,22 @@ void gestionTours(int *nbJoueur)
                         z=0;
                         while (z<4 && !ver){
                             if (j==etat[z]){
+                                if (choix==1) {printf ("\n________________________________    \n%s, que voulez-vous faire ? (Entrez la touche correspondante) \n\n",players[ordrePassage[i]].nomJoueur);}
                                 switch (j){
                                     case 1 :
-                                        printf ("[%d]Souhaitez-vous déplacer le pion n°%d ?\n", choix, z+1);
+                                        printf ("[%d] Souhaitez-vous déplacer le pion n°%d ?\n", choix, z+1);
                                         possib[choix-1][0]=j;
                                         possib[choix-1][1]=z;
                                         choix++;
                                         break;
                                     case 2 :
-                                        printf ("[%d]Souhaitez-vous capturer avec le pion n°%d ?\n", choix, z+1);
+                                        printf ("[%d] Souhaitez-vous capturer avec le pion n°%d ?\n", choix, z+1);
                                         possib[choix-1][0]=j;
                                         possib[choix-1][1]=z;
                                         choix++;
                                         break;
                                     case 3 :
-                                        printf ("[%d]Souhaitez-vous sortir un cheval de l'écurie ?\n", choix);
+                                        printf ("[%d] Souhaitez-vous sortir un cheval de l'écurie ?\n", choix);
                                         possib[choix-1][0]=j;
                                         possib[choix-1][1]=z;
                                         ver = 1;
@@ -96,7 +97,7 @@ void gestionTours(int *nbJoueur)
                 } while (action > choix || action < 0 || !valide);
                 switch (possib[action-1][0]) { /* Mise en place de l'action choisie par le joueur */
                     case 1 : 
-                        deplacement(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
+                        mouvement(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
                         break;
                     case 2 :
                         capture(players[ordrePassage[i]].numJoueur, possib[action-1][1], valde);
@@ -141,7 +142,7 @@ void gestionTours(int *nbJoueur)
                                 case 1 : 
                                     possib[action][0]=j;
                                     possib[action][1]=z;
-                                    deplacement(players[ordrePassage[i]].numJoueur, possib[action][1], valde);
+                                    mouvement(players[ordrePassage[i]].numJoueur, possib[action][1], valde);
                                     action=1;
                                     break;
                                 case 2 :
@@ -174,7 +175,7 @@ void gestionTours(int *nbJoueur)
     sauvegarder(*nbJoueur);
 }
 
-int victoire() 
+int victoire() // Vérifie les conditions de victoire
 {
     int i=0,somme, vic=0;
     while ((i < 4) && (vic == 0))
@@ -194,7 +195,7 @@ int victoire()
     return vic;
 }
 
-int quitter(int *jouer)
+int quitter(int *jouer) // Vérifie si le joueur veut quitter à la fin de chaque tour.
 {
     int state = 0, valide = 0;
     do

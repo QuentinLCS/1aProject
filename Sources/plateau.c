@@ -12,16 +12,16 @@ int i, j, k;
 
 cellule plateau[TAILLE_PLATEAU][TAILLE_PLATEAU];
 
-void creationPlateau()
+void creationPlateau() // Creation du plateau des petits chevaux
 {
 
 // CREATION DU PLATEAU (en fonction des dimensions)
 
-    for (i = 0; i < TAILLE_PLATEAU; i++) {
-        for(j = 0; j < TAILLE_PLATEAU; j++) {
+    for (i = 0; i < TAILLE_PLATEAU; i++) { //Lignes
+        for(j = 0; j < TAILLE_PLATEAU; j++) { // Colonnes
             if (j < TAILLE_ECURIE && i < TAILLE_ECURIE) {
                 plateau[i][j].nbChevaux  = 0;      // Ecurie haut gauche
-                strcpy(plateau[i][j].couleur, "bleu");
+                strcpy(plateau[i][j].couleur, "bleu"); // strcpy obligatoire pour de la gestion de chaînes plus facilement
                 plateau[i][j].ecurie     = 1;
                 plateau[i][j].echelle    = 0;
             } else if (j >= TAILLE_PLATEAU - TAILLE_ECURIE && i < TAILLE_ECURIE) {
@@ -69,7 +69,7 @@ void creationPlateau()
 
 // AFFICHAGE DU PLATEAU
 
-void affichagePlateau() 
+void affichagePlateau() // Fonction d'affichage du plateau en fonction des données dans le tableau plateau[][]
 {
 
     system("clear");

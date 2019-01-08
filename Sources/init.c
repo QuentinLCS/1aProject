@@ -9,42 +9,44 @@
 
     joueur players[4]; int ordrePassage[4];
 
-int init() 
+int init(int isNewGame)
 {
-    
     int nbJoueur;
-
+    
     char listeCouleurs[4][6] = {"bleu", "rouge", "vert", "jaune"};
 
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++) // Initialisation des joueurs
     {
         players[i].numJoueur = i;
         players[i].isJoueur = 0;
         strcpy(players[i].nomJoueur, "Bot");
         strcpy(players[i].couleur, listeCouleurs[i]);
-        for (int j = 0; j < 4; j++)
+        for (int j = 0; j < 4; j++) // Initialisation des chevaux des joueurs
         {
             players[i].cheval[j].numCheval = j;
+            players[i].cheval[j].numCase = 0;
             initPositionChevaux(i, j);
         }
         plateau[players[i].cheval[0].position[0]][players[i].cheval[0].position[1]].nbChevaux = 4;
     }
 
 
+    if (isNewGame)
+    {
+        nbJoueur = nbJoueurs();
+        nomJoueurs(nbJoueur);
+        ordreJeu(nbJoueur);
+    }
 
-    nbJoueur = nbJoueurs();
-    nomJoueurs(nbJoueur);
-    ordreJeu(nbJoueur);
-
-    return nbJoueur;
+    return nbJoueur; // Retourne nbJoueur à menu() dans menu.c
 }
 
 
 
 
-int nbJoueurs()
+int nbJoueurs() // Demande le nombre de Joueurs
 {
-    int nbJoueur = 0, valide = 0; 
+    int nbJoueur = 0, valide = 0;
 
     do  {
         system("clear");
@@ -60,8 +62,8 @@ int nbJoueurs()
 
 
 
-void nomJoueurs( int nbJoueur) {
-    int valide = 0, i, continuer = 0; 
+void nomJoueurs( int nbJoueur) { // Initialisation des noms des joueurs (en fonction du nombre de joueurs)
+    int valide = 0, i, continuer = 0;
 
     for (i = 0 ; i < nbJoueur; i++) {
         valide = 0;
@@ -70,7 +72,7 @@ void nomJoueurs( int nbJoueur) {
             system("clear");
             printf ("\n\nEntrez le nom du joueur %s : ", players[i].couleur);
             scanf("%s", players[i].nomJoueur);
-            viderBuffer(); 
+            viderBuffer();
             do {
                 system("clear");
                 printf("\n\nC'est %s, c'est bien ca ?\n[1] Oui !\n[2] Non, recommencer.\n\nReponse [entrez une valeur]: ", players[i].nomJoueur);
@@ -85,23 +87,23 @@ void nomJoueurs( int nbJoueur) {
 
 
 
-void ordreJeu( int nbJoueur ) {
-    int tirage[4], i, j, tempI = 0; 
-    
+void ordreJeu( int nbJoueur ) { //Génère le tableau ordrePassage afin de définir dans quel ordre se passent les tours
+    int tirage[4], i, j, tempI = 0;
+
     system("clear");
 
     printf("\n\nPour tirer l'ordre de jeu, jetez votre de !\n");
-    for (i = 0; i < 4; i++) 
+    for (i = 0; i < 4; i++)
     {
-        if (i < nbJoueur) 
+        if (i < nbJoueur)
         {
             printf("\n    %s, lance ton de ! [appuyez sur entrer] ", players[i].nomJoueur);
             getchar();
         }
         tirage[i] = de();
         printf("\n   \u2192 Resultat (%s) : %d !\n", players[i].couleur, tirage[i]);
-    } 
-        
+    }
+
     // TRI DU NOMBRE DE JOUEURS (ordrePassage[]) EN FONCTION DU TIRAGE (tirage[])
 
     for (i = 0; i < 4; i++) {
@@ -109,7 +111,7 @@ void ordreJeu( int nbJoueur ) {
             if (tirage[j]) {
                 if (tirage[tempI] < tirage[j]) {
                     tempI = j;
-                } 
+                }
             }
         } ordrePassage[i] = tempI;
         tirage[tempI] = 0;
@@ -121,7 +123,7 @@ void ordreJeu( int nbJoueur ) {
 
 
 
-void viderBuffer() 
+void viderBuffer() // Vide le buffer en cas de besoin
 {
     char c;
     while ( (c=getchar()) != EOF && c != '\n');
