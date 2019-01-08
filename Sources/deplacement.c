@@ -16,9 +16,9 @@ int chemin[57][2]= /* Initialisation du chemin du jeu */
 
 int echelle[4][6][2]= /* Initialisation des cases des échelles. Array en 3 dimensions afin de gérer toutes les positions. */
 { 
-    {   {13,7}, {12,7}, {11,7}, {10,7}, {9,7}, {8,7}  },
     {   {7,1}, {7,2}, {7,3}, {7,4}, {7,5}, {7,6}   },
     {   {1,7}, {2,7}, {3,7}, {4,7}, {5,7}, {6,7}   },
+    {   {13,7}, {12,7}, {11,7}, {10,7}, {9,7}, {8,7}  },
     {   {7,13}, {7,12}, {7,11}, {7,10}, {7,9}, {7,8}    }
 };
 
