@@ -21,10 +21,9 @@
     - [X] Sauvegarde des informations de la partie pour pouvoir "Continuer la partie".
     - [X] Permettre de quitter en pleine partie. (sauvegarde à ce moment là)
 * L'Affichage :
-    - [ ] Designer le menu pour le rendre plus attirant malgré le SHELL.
+    - [x] Designer le menu pour le rendre plus attirant malgré le SHELL.
     - [x] Essayer de faire afficher des chevaux dans le SHELL (plateau.c).
     - [X] Afficher qui doit jouer ?
-    - [ ] Afficher le nombre de chevaux restant pour chaque joueur. (0 = Gagné)
     - [ ] Gestion du podium ? ( 1er , 2e, ... )
     - [x] Penser à l'utilisation des commandes SHELL (clear, ...)
 * Deplacement :
