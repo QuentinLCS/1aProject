@@ -30,7 +30,7 @@ int menu(int *jouer) // Affiche le menu et interpète où veut aller le joueur
             *jouer = 1;
             break;
         case 3 :
-            option();
+            option(jouer);
             break;
         case 4 :
             nbJoueur = 0;
@@ -53,7 +53,7 @@ void continuerPartie () // pas terminé pour la rente du projet mais presque fon
 
 
 
-void option () // Menu option
+void option (int *jouer) // Menu option
 {
 
     int optionNb = 0, valide = 0;
@@ -70,7 +70,7 @@ void option () // Menu option
     switch (optionNb)
     {
         case 1 :
-            scenarios();
+            scenarios(jouer);
             break;
         case 2 :
             plusInfos();
@@ -82,14 +82,14 @@ void option () // Menu option
 
 
 
-void scenarios() // Menu des scénarios
+void scenarios(int *jouer) // Menu des scénarios
 {
 
     int scenarioNb = 0, valide = 0;
 
     do {
         system("clear");
-        printf("\n[SCENARIOS] Voici la liste des scénarios :\n  [1] ...\n  [2] ...\n  [3] ...\n  [4] ...\n  [5] RETOUR\n\nChoix du scénario [entrez une valeur]: ");
+        printf("\n[SCENARIOS] Voici la liste des scénarios :\n  [1] BOT vs BOT\n  [2] Victoire\n  [3] Capture\n  [4] Echelles\n  [5] RETOUR\n\nChoix du scénario [entrez une valeur]: ");
         valide = scanf("%d", &scenarioNb);
         printf("\n\n%d - %d\n\n", valide, scenarioNb);
         viderBuffer();
@@ -100,15 +100,19 @@ void scenarios() // Menu des scénarios
     {
         case 1 :
             charger(1);
+            *jouer = 1;
             break;
         case 2 :
             charger(2);
+            *jouer = 1;
             break;
         case 3 :
             charger(3);
+            *jouer = 1;
             break;
         case 4 :
             charger(4);
+            *jouer = 1;
             break;
     }
 }
@@ -175,7 +179,7 @@ void charger(int numFichier) // Charge les données d'un fichier pré-créé (no
         for (i = 0; i < 4; i++)
         {
             fseek(fichier, curseur, SEEK_SET);
-            fscanf(fichier, "%d %d %d %s %s", &nbJoueur, &ordrePassage[i], &players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
+            fscanf(fichier, "%d %d %d %d %s %s", &nbJoueur, &ordrePassage[i], &players[i].isJoueur, &players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
 
             for (j = 0; j < 4; j++)
             {
@@ -219,7 +223,7 @@ void sauvegarder(int nbJoueur) // Sauvegarde les données à la fin de chaque to
         {
             fseek(fichier, 0, SEEK_END);
 
-            fprintf(fichier, " %d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
+            fprintf(fichier, " %d %d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].isJoueur, players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
 
             for (j = 0; j < 4; j++)
             {
