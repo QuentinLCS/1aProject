@@ -6,7 +6,7 @@
 
 
 
-int menu(int *jouer)
+int menu(int *jouer) // Affiche le menu et interpète où veut aller le joueur
 {
     int gameMode = 0, valide = 0, nbJoueur;
 
@@ -17,19 +17,20 @@ int menu(int *jouer)
         viderBuffer();
         if (gameMode < 1 || gameMode > 4 || !valide ) afficherErreur(1);
     } while ( gameMode < 1 || gameMode > 4 || !valide );
-    
-    switch (gameMode) 
+
+    switch (gameMode)
     {
         case 1 :
             creationPlateau();
-            nbJoueur = init();
+            nbJoueur = init(1);
             *jouer = 1;
             break;
         case 2 :
             continuerPartie();
+            *jouer = 1;
             break;
         case 3 :
-            option();
+            option(jouer);
             break;
         case 4 :
             nbJoueur = 0;
@@ -43,16 +44,16 @@ int menu(int *jouer)
 
 
 
-void continuerPartie ()
+void continuerPartie () // pas terminé pour la rente du projet mais presque fonctionnel, est censé charger les données renseignées par charger();
 {
-    //Jeu();
+    charger(0);
 }
 
 
 
 
 
-void option ()
+void option (int *jouer) // Menu option
 {
 
     int optionNb = 0, valide = 0;
@@ -66,10 +67,10 @@ void option ()
         if (optionNb < 1 || optionNb > 3 || !valide ) afficherErreur(1);
     } while ( optionNb < 1 || optionNb > 3 || !valide );
 
-    switch (optionNb) 
+    switch (optionNb)
     {
         case 1 :
-            scenarios();
+            scenarios(jouer);
             break;
         case 2 :
             plusInfos();
@@ -81,33 +82,37 @@ void option ()
 
 
 
-void scenarios()
+void scenarios(int *jouer) // Menu des scénarios
 {
 
     int scenarioNb = 0, valide = 0;
 
     do {
         system("clear");
-        printf("\n[SCENARIOS] Voici la liste des scénarios :\n  [1] ...\n  [2] ...\n  [3] ...\n  [4] ...\n  [5] RETOUR\n\nChoix du scénario [entrez une valeur]: ");
+        printf("\n[SCENARIOS] Voici la liste des scénarios :\n  [1] BOT vs BOT\n  [2] Victoire\n  [3] Capture\n  [4] Echelles\n  [5] RETOUR\n\nChoix du scénario [entrez une valeur]: ");
         valide = scanf("%d", &scenarioNb);
         printf("\n\n%d - %d\n\n", valide, scenarioNb);
         viderBuffer();
         if (scenarioNb < 1 || scenarioNb > 5 || !valide ) afficherErreur(1);
     } while ( scenarioNb < 1 || scenarioNb > 5 || !valide );
 
-    switch (scenarioNb) 
+    switch (scenarioNb)
     {
         case 1 :
-            charger(1, 4);
+            charger(1);
+            *jouer = 1;
             break;
         case 2 :
-            charger(2, 4);
+            charger(2);
+            *jouer = 1;
             break;
         case 3 :
-            charger(3, 4);
+            charger(3);
+            *jouer = 1;
             break;
         case 4 :
-            charger(4, 4);
+            charger(4);
+            *jouer = 1;
             break;
     }
 }
@@ -115,7 +120,7 @@ void scenarios()
 
 
 
-void plusInfos()
+void plusInfos() // Fonction non terminée, est censée renseigner davantage sur les conditions de réalisation de ce projet
 {
     printf("PLUS DINFOS ICI\n");
 }
@@ -124,15 +129,15 @@ void plusInfos()
 
 
 
-void afficherErreur(int erreurType) 
+void afficherErreur(int erreurType) // Affiche à l'utilisateur l'erreur en fonction du type entré
 {
     system("clear");
-    switch (erreurType) 
+    switch (erreurType)
     {
         case 1 :
             printf("\033[31mERREUR : entrée non conforme à la demande.\033[0m\n");
             break;
-        
+
         case 2 :
             printf("\033[31mERREUR : lecture du fichier impossible.\033[0m\n");
             break;
@@ -143,30 +148,56 @@ void afficherErreur(int erreurType)
 
 
 
-void charger(int numFichier, int nbJoueur)
+void charger(int numFichier) // Charge les données d'un fichier pré-créé (non fonctionnel pour le moment)
 {
-    char listeFichiers[5][25] = {"\"../Saves/last-game.txt\"", "\"../Saves/scenario1.txt\"", "\"../Saves/scenario2.txt\"", "\"../Saves/scenario3.txt\"", "\"../Saves/scenario4.txt\""};
+    int curseur = 0, nbJoueur, i, j;
+
+    init(0);
 
     FILE* fichier = NULL;
-    printf("%s", listeFichiers[numFichier]);
-    fichier = fopen( listeFichiers[numFichier], "r+" );
-    fichier = fopen( "../Saves/scenario1.txt", "r+" );
+    switch (numFichier)
+    {
+      case 0:
+          fichier = fopen( "../Saves/last-game.txt", "r+" );
+          break;
+      case 1:
+          fichier = fopen( "../Saves/scenario1.txt", "r+" );
+          break;
+      case 2:
+          fichier = fopen( "../Saves/scenario2.txt", "r+" );
+          break;
+      case 3:
+          fichier = fopen( "../Saves/scenario3.txt", "r+" );
+          break;
+      case 4:
+          fichier = fopen( "../Saves/scenario4.txt", "r+" );
+          break;
+    }
 
     if (fichier != NULL)
     {
-        for (int i = 0; i < 4; i++)
+        for (i = 0; i < 4; i++)
         {
-            if (i) fseek(fichier, 1, SEEK_END);
+            fseek(fichier, curseur, SEEK_SET);
+            fscanf(fichier, "%d %d %d %d %s %s", &nbJoueur, &ordrePassage[i], &players[i].isJoueur, &players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
 
-            fscanf(fichier, "%d %d %d %s %s ", &nbJoueur, &ordrePassage[i], &players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
-            printf("%d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
-
-            for (int j = 0; j < 4; j++) 
+            for (j = 0; j < 4; j++)
             {
-                fscanf(fichier, "%d %d %d %d ",&players[i].cheval[j].numCheval, &players[i].cheval[j].position[0], &players[i].cheval[j].position[1], &players[i].cheval[j].numCase);
-                printf("%d %d %d %d ",players[i].cheval[j].numCheval, players[i].cheval[j].position[0], players[i].cheval[j].position[1], players[i].cheval[j].numCase);
+                fscanf(fichier, "%d %d %d %d",&players[i].cheval[j].numCheval, &players[i].cheval[j].position[0], &players[i].cheval[j].position[1], &players[i].cheval[j].numCase);
             }
-        } 
+            curseur -= 3;
+        }
+
+        for (i = 0; i < 15; i++)
+        {
+            //curseur += 1;
+            for (j = 0; j < 15; j++)
+            {
+                fseek(fichier, curseur, SEEK_SET);
+                fscanf(fichier, "%d %s %d %d", &plateau[i][j].nbChevaux, plateau[i][j].couleur, &plateau[i][j].ecurie, &plateau[i][j].echelle);
+            }
+        }
+        
         fclose(fichier);
     }
     else
@@ -176,8 +207,10 @@ void charger(int numFichier, int nbJoueur)
 }
 
 
-void sauvegarder(int nbJoueur)
+void sauvegarder(int nbJoueur) // Sauvegarde les données à la fin de chaque tour dans "last-game.txt" pour continuer la partie à terme
 {
+    int i, j;
+
     FILE* fichier = NULL;
 
     fichier = fopen( "../Saves/last-game.txt", "r+" );
@@ -186,19 +219,26 @@ void sauvegarder(int nbJoueur)
 
     if (fichier != NULL)
     {
-        for (int i = 0; i < 4; i++)
+        for (i = 0; i < 4; i++)
         {
             fseek(fichier, 0, SEEK_END);
-            
-            fprintf(fichier, "%d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
 
-            for (int j = 0; j < 4; j++) 
+            fprintf(fichier, " %d %d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].isJoueur, players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
+
+            for (j = 0; j < 4; j++)
             {
-                fprintf(fichier, "%d %d %d %d ",players[i].cheval[j].numCheval, players[i].cheval[j].position[0], players[i].cheval[j].position[1], players[i].cheval[j].numCase);
+                fprintf(fichier, " %d %d %d %d ",players[i].cheval[j].numCheval, players[i].cheval[j].position[0], players[i].cheval[j].position[1], players[i].cheval[j].numCase);
             }
-        } 
+        }
+
+        for (i = 0; i < 15; i++)
+        {
+          for (j = 0; j < 15; j++)
+          {
+              fprintf(fichier, " %d %s %d %d ",plateau[i][j].nbChevaux, plateau[i][j].couleur, plateau[i][j].ecurie, plateau[i][j].echelle);
+          }
+        }
         fclose(fichier);
-        system("sleep 5");
     }
     else
     {
@@ -206,7 +246,7 @@ void sauvegarder(int nbJoueur)
     }
 }
 
-void afficheVainqueur()
+void afficheVainqueur() // Affiche le vainqueur de la partie
 {
     int somme;
     for (int i=0; i<4; i++)

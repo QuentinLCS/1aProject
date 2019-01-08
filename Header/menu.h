@@ -3,11 +3,11 @@
 
     int menu(int *);
     void continuerPartie();
-    void option();
-    void scenarios();
+    void option(int *);
+    void scenarios(int *);
     void plusInfos();
     void afficherErreur(int);
-    void charger(int, int);
+    void charger(int);
     void sauvegarder(int);
     void afficheVainqueur();
 

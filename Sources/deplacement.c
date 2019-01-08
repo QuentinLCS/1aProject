@@ -102,7 +102,7 @@ void mouvement (int numJoueur, int numPion, int distance)
 void deplacementEchelle(int numJoueur, int numPion, int distance) 
 {
     plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux = 0;
-    strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, " ");
+    strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, "vide");
     players[numJoueur].cheval[numPion].numCase = 100+distance;
     players[numJoueur].cheval[numPion].position[0] = echelle[numJoueur][distance-1][0];
     players[numJoueur].cheval[numPion].position[1] = echelle[numJoueur][distance-1][1];
@@ -116,7 +116,7 @@ void deplacement(int numJoueur, int numPion, int distance)
     plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux -= 1;
     if(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].nbChevaux == 0)
     {
-        strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, " ");
+        strcpy(plateau[players[numJoueur].cheval[numPion].position[0]][players[numJoueur].cheval[numPion].position[1]].couleur, "vide");
     }
     players[numJoueur].cheval[numPion].numCase = ((players[numJoueur].cheval[numPion].numCase -1 + distance) % 56) + 1;
     players[numJoueur].cheval[numPion].position[0] = chemin[players[numJoueur].cheval[numPion].numCase - 1][0];
@@ -182,7 +182,7 @@ void sortieEcurie(int etat[4], int numJoueur)
     players[numJoueur].cheval[numPion].numCase = listeSorties[numJoueur][2];
     players[numJoueur].cheval[numPion].position[0] = listeSorties[numJoueur][0];
     players[numJoueur].cheval[numPion].position[1] = listeSorties[numJoueur][1];
-    if (!strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, players[numJoueur].couleur) || !strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, " "))
+    if (!strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, players[numJoueur].couleur) || !strcmp(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, "vide"))
     {
         plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].nbChevaux += 1;
         strcpy(plateau[listeSorties[numJoueur][0]][listeSorties[numJoueur][1]].couleur, players[numJoueur].couleur);

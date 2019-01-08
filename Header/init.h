@@ -6,7 +6,7 @@
         int numCase;
         int position[2];
     } pion ;
-   
+
     typedef struct {
         int isJoueur; // booléen ( vrai ou faux )
         int numJoueur;
@@ -15,7 +15,7 @@
         pion cheval[4];
     } joueur ;
 
-    int init();
+    int init(int);
     int nbJoueurs();
     void nomJoueurs(int);
     void ordreJeu(int);
