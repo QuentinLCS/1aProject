@@ -26,7 +26,7 @@ int menu(int *jouer) // Affiche le menu et interpète où veut aller le joueur
             *jouer = 1;
             break;
         case 2 :
-            continuerPartie();
+            charger(0);
             *jouer = 1;
             break;
         case 3 :
@@ -38,18 +38,6 @@ int menu(int *jouer) // Affiche le menu et interpète où veut aller le joueur
     }
     return nbJoueur;
 }
-
-
-
-
-
-
-void continuerPartie () // pas terminé pour la rente du projet mais presque fonctionnel, est censé charger les données renseignées par charger();
-{
-    charger(0);
-}
-
-
 
 
 

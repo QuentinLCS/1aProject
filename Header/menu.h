@@ -2,7 +2,6 @@
 #define MENU_H
 
     int menu(int *);
-    void continuerPartie();
     void option(int *);
     void scenarios(int *);
     void plusInfos();
