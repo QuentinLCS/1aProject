@@ -11,7 +11,7 @@ int menu(int *jouer) // Affiche le menu et interpète où veut aller le joueur
     int gameMode = 0, valide = 0, nbJoueur;
 
     do {
-        system("clear");
+        //system("clear");
         printf("\n[Projet 1A] PETITS CHEVAUX \nPar : CHAVAS Nathan & LECHASLES Quentin\n\nChoisissez votre mode de jeu :\n  [1] Nouvelle partie\n  [2] Continuer\n  [3] Options\n  [4] Quitter \n\nMode [entrez une valeur]: ");
         valide = scanf("%d", &gameMode);
         viderBuffer();
@@ -176,27 +176,24 @@ void charger(int numFichier) // Charge les données d'un fichier pré-créé (no
         {
             fseek(fichier, curseur, SEEK_SET);
             fscanf(fichier, "%d %d %d %s %s", &nbJoueur, &ordrePassage[i], &players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
-            printf("%d %d %d %s %s ", nbJoueur, ordrePassage[i], players[i].numJoueur, players[i].nomJoueur, players[i].couleur);
 
             for (j = 0; j < 4; j++)
             {
                 fscanf(fichier, "%d %d %d %d",&players[i].cheval[j].numCheval, &players[i].cheval[j].position[0], &players[i].cheval[j].position[1], &players[i].cheval[j].numCase);
-                printf("%d %d %d %d ",players[i].cheval[j].numCheval, players[i].cheval[j].position[0], players[i].cheval[j].position[1], players[i].cheval[j].numCase);
             }
             curseur -= 3;
         }
-        curseur += 25;
+
         for (i = 0; i < 15; i++)
         {
-          for (j = 0; j < 15; j++)
-          {
-              fseek(fichier, curseur, SEEK_SET);
-              fscanf(fichier, "%d %s %d %d", &plateau[i][j].nbChevaux, plateau[i][j].couleur, &plateau[i][j].ecurie, &plateau[i][j].echelle);
-              printf("%d %s %d %d ", plateau[i][j].nbChevaux, plateau[i][j].couleur, plateau[i][j].ecurie, plateau[i][j].echelle);
-          }
-          //curseur -= 3;
+            //curseur += 1;
+            for (j = 0; j < 15; j++)
+            {
+                fseek(fichier, curseur, SEEK_SET);
+                fscanf(fichier, "%d %s %d %d", &plateau[i][j].nbChevaux, plateau[i][j].couleur, &plateau[i][j].ecurie, &plateau[i][j].echelle);
+            }
         }
-
+        
         fclose(fichier);
     }
     else

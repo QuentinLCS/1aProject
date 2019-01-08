@@ -41,7 +41,7 @@ void creationPlateau() // Creation du plateau des petits chevaux
                 plateau[i][j].echelle    = 0;
             } else if ((j == TAILLE_PLATEAU / 2 && i == TAILLE_PLATEAU / 2)) {
                 plateau[i][j].nbChevaux  = 0;      // Centre du plateau
-               strcpy(plateau[i][j].couleur, " ");
+               strcpy(plateau[i][j].couleur, "vide");
                 plateau[i][j].ecurie     = 0;
                 plateau[i][j].echelle    = 0;
             } else if ((j == TAILLE_PLATEAU / 2 || i == TAILLE_PLATEAU / 2) && (i != 0 && i != TAILLE_PLATEAU - 1 && j != 0 && j != TAILLE_PLATEAU - 1)) {
@@ -59,7 +59,7 @@ void creationPlateau() // Creation du plateau des petits chevaux
                 }   
             } else {
                 plateau[i][j].nbChevaux  = 0; // Chemin utilisable par les chevaux
-                strcpy(plateau[i][j].couleur, " ");
+                strcpy(plateau[i][j].couleur, "vide");
                 plateau[i][j].ecurie     = 0;
                 plateau[i][j].echelle    = 0;
             }
