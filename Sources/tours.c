@@ -190,6 +190,7 @@ int victoire(int *jouer) // Vérifie les conditions de victoire
         {
             vic=1;
             *jouer = 0;
+            system("echo vide > ../Saves/last-game.txt");
         }
         i++;
     }

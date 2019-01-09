@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "../Header/init.h"
 #include "../Header/menu.h"
 #include "../Header/plateau.h"
@@ -9,6 +10,9 @@
 int menu(int *jouer) // Affiche le menu et interpète où veut aller le joueur
 {
     int gameMode = 0, valide = 0, nbJoueur;
+    char contenu[6];
+
+    FILE* fichier = NULL;
 
     do {
         system("clear");
@@ -26,8 +30,17 @@ int menu(int *jouer) // Affiche le menu et interpète où veut aller le joueur
             *jouer = 1;
             break;
         case 2 :
-            charger(0);
-            *jouer = 1;
+            fichier = fopen( "../Saves/last-game.txt", "r+" );
+            fscanf(fichier, "%s", contenu);
+            if (strcmp(contenu, "vide"))
+            {
+                charger(0);
+                *jouer = 1;
+            } 
+            else 
+            {
+                afficherErreur(3);
+            }
             break;
         case 3 :
             option(jouer);
@@ -79,7 +92,6 @@ void scenarios(int *jouer) // Menu des scénarios
         system("clear");
         printf("\n[SCENARIOS] Voici la liste des scénarios :\n  [1] BOT vs BOT\n  [2] Victoire\n  [3] Capture\n  [4] Echelles\n  [5] RETOUR\n\nChoix du scénario [entrez une valeur]: ");
         valide = scanf("%d", &scenarioNb);
-        printf("\n\n%d - %d\n\n", valide, scenarioNb);
         viderBuffer();
         if (scenarioNb < 1 || scenarioNb > 5 || !valide ) afficherErreur(1);
     } while ( scenarioNb < 1 || scenarioNb > 5 || !valide );
@@ -110,7 +122,10 @@ void scenarios(int *jouer) // Menu des scénarios
 
 void plusInfos() // Fonction non terminée, est censée renseigner davantage sur les conditions de réalisation de ce projet
 {
-    printf("PLUS DINFOS ICI\n");
+    system("clear");
+    printf("\n[Projet 1A] PETITS CHEVAUX \n--------------------------\n\nPar : CHAVAS Nathan & LECHASLES Quentin\n\nEtablissement : IUT Caen\n\nDate : 2018-2019\n\nClasse : TD2.1");
+    getchar();
+    viderBuffer();
 }
 
 
@@ -128,6 +143,10 @@ void afficherErreur(int erreurType) // Affiche à l'utilisateur l'erreur en fonc
 
         case 2 :
             printf("\033[31mERREUR : lecture du fichier impossible.\033[0m\n");
+            break;
+
+        case 3:
+            printf("\033[31mERREUR : Aucune partie en cours de jeu.\033[0m\n");
             break;
     }
     system("sleep 2");
